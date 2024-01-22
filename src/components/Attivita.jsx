@@ -37,14 +37,9 @@ const Attivita = () => {
             </div>
           </div>
         </div>
-        <div className="text-center border-top text-secondary">
-          <p>
-            Mostra tutte le analisi{" "}
-            <span>
-              <FaArrowRight />
-            </span>
-          </p>
-        </div>
+        <div className="text-center border-top" >
+                <Button variant="light" className=" w-100 text-secondary"> Mostra tutte le Attività <span><FaArrowRight/></span></Button>
+            </div>
       </div>
     </>
   );

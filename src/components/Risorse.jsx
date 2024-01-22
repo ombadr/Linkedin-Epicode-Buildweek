@@ -3,7 +3,7 @@ import { IoMdPeople } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa";
 import { GiRadarDish } from "react-icons/gi";
 
-import { Row,Col } from "react-bootstrap";
+import { Row,Button } from "react-bootstrap";
 
 
 const Risorse = () =>{
@@ -40,8 +40,8 @@ const Risorse = () =>{
                     </div>
                 </div>
            </div>
-            <div className="text-center border-top text-secondary" >
-                <p>Mostra tutte le analisi <span><FaArrowRight/></span></p>
+           <div className="text-center border-top" >
+                <Button variant="light" className=" w-100 text-secondary"> Mostra tutte le risorse <span><FaArrowRight/></span></Button>
             </div>
         </div>
         </>

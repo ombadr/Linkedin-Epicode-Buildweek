@@ -3,7 +3,7 @@ import { IoMdPeople } from "react-icons/io";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 
-import { Row,Col } from "react-bootstrap";
+import { Row,Col,Button } from "react-bootstrap";
 
 
 const Analisi = () =>{
@@ -41,8 +41,8 @@ const Analisi = () =>{
                     </Row>
                 </div>
            </div>
-            <div className="text-center border-top text-secondary" >
-                <p>Mostra tutte le analisi <span><FaArrowRight/></span></p>
+            <div className="text-center border-top" >
+                <Button variant="light" className=" w-100 text-secondary"> Mostra tutte le analisi <span><FaArrowRight/></span></Button>
             </div>
         </div>
         </>

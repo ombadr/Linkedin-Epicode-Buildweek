@@ -1,7 +1,7 @@
 import { Button, Row } from "react-bootstrap";
-import { IoPersonAdd } from "react-icons/io5";
+import { FaArrowRight } from "react-icons/fa";
 import { LuPencil } from "react-icons/lu";
-import { FiPlus } from "react-icons/fi";
+
 
 
 import { FaLinkedin } from "react-icons/fa";
@@ -90,9 +90,9 @@ const SideBar = () => {
             </div>
         </div>
 
-        <div className="text-center border-top text-secondary pt-2 " >
-                <p className="mb-2">Visualizza i miei suggerimenti</p>
-        </div>
+        <div className="text-center border-top" >
+                <Button variant="light" className=" w-100 text-secondary"> Visualizza i miei suggerimenti <span><FaArrowRight/></span></Button>
+            </div>
 
 
       </div>
