@@ -10,7 +10,7 @@ const Analisi = () =>{
 
     return (
         <>
-        <div className="border rounded ">
+        <div className="border rounded bg-white ">
             <Row className="justify-content-start p-3">   
             <h2 className="m-0">Analisi</h2>
             <p className="text-secondary"><span><FaEye size={14}/></span> Solo per te</p>

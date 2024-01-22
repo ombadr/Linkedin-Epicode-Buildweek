@@ -16,6 +16,7 @@ import Attivita from "./components/Attivita";
 import Formazione from "./components/Formazione";
 import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
+import SideBar from './components/SideBar';
 
 function App() {
   return (
@@ -49,7 +50,9 @@ function App() {
                 <Interessi />
 
               </Col>
+              
               <Col md={3}>
+              <SideBar/>
                 <ProfileRightBar />
               </Col>
             </Row>
