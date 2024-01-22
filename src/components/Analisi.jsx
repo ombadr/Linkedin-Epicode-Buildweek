@@ -17,9 +17,6 @@ const Analisi = () =>{
             </Row>
             
 
-            
-            
-
            <div className="d-flex ">
            <div className="d-flex flex-row px-3">
               <Row className="pe-2">
