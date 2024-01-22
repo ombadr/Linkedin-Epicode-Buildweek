@@ -12,7 +12,6 @@ function App() {
   return (
     <div>
 
-      <ProfileRightBar />
       <Container fluid className='bg-white sticky-navbar'>
         <Container className=" bg-white">
           <Row>
@@ -28,24 +27,10 @@ function App() {
           <Row>
             <Col md={9}>
               <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
+
             </Col>
             <Col md={3}>
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-
+              <ProfileRightBar />
             </Col>
           </Row>
           <Row className='mt-5'>
