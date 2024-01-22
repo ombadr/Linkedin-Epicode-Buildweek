@@ -65,7 +65,7 @@ const ProfileRightBar = () => {
         <>
             <div className="text-center ">
                 <h1>Profiles: </h1>
-                {renderRandomProfiles(10)}
+                {renderRandomProfiles(5)}
                     <div >
                         <button onClick={(e) => { e.preventDefault(); handleShowModal(); }} className="rounded-pill p-2 my-5 bg-light">
                             Show all profiles
