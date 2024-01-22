@@ -7,7 +7,6 @@ import Fetchprofilo from './components/Fetchprofilo';
 
 import { Container, Row, Col } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
-import Example from './components/Example';
 import Footer from './components/Footer';
 import ProfileRightBar from './components/ProfileRightBar';
 
@@ -22,7 +21,6 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-
         <Container fluid className='bg-white sticky-navbar'>
           <Container className=" bg-white">
             <Row>
@@ -37,7 +35,12 @@ function App() {
           <Container >
             <Row>
               <Col md={9}>
-                <Example />
+                <Routes>
+                  <Route path="/:id" element={
+                    <Profile />
+                  }>
+                  </Route>
+                </Routes>
                 <ModificaProfilo />
                 <Analisi />
                 <Risorse />
@@ -58,15 +61,7 @@ function App() {
           </Container>
         </div>
       </div>
-      <Routes>
 
-        <Route path="/:id" element={
-          <Profile />
-        }>
-
-        </Route>
-
-      </Routes>
     </BrowserRouter>
 
 
