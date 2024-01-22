@@ -26,9 +26,11 @@ function Profile() {
                         <Col>
                         <img className=" margincustom  mb-4 rounded-circle" width={140} src={profilo.image} alt="" srcset="" />
                         </Col>
-                        <Col className="m-3 text-end ">
+                        <Col className="m-3 d-flex  justify-content-end  ">
                         
-                            <FaCamera className="bg-white  p-4  rounded-circle " size={100} />
+                            <div className="bg-white p-2 rounded-circle  "style={{height:" 60px"}}>
+                                <FaCamera className="" size={40} />
+                            </div>
                         
                             {/* <GoPencil size={30}/> */}
                         </Col>
