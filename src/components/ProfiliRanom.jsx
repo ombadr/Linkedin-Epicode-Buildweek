@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProfiles } from "../redux/actions";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button,Tabs, Tab, Col } from "react-bootstrap";
 import { PersonAdd } from "react-bootstrap-icons";
+
 
 const ProfiliRandom = () => {
   const dispatch = useDispatch();
@@ -114,10 +115,34 @@ const ProfiliRandom = () => {
 
         <Modal show={isModalOpen} onHide={handleCloseModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Persone che potresti conoscere</Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>{renderRandomProfiles(20)}</Modal.Body>
+          
+          <Modal.Body>
+          <Tabs
+      defaultActiveKey="profile"
+      className="mb-3"
+    >
+          <Tab eventKey="home" title="Aziende">
+        <Col className="d-flex">
+        <div className="d-flex  flex-column mx-3 p-3">
+        {renderRandomProfiles(20)}
+        </div>
+        </Col>
+      
+      </Tab>
+      <Tab eventKey="profile" title="Scuole e Università">
+      <Col className="d-flex">
+        <div className="d-flex  flex-column mx-3 p-3">
+        {renderRandomProfiles(20)}
+        </div>
+        </Col>
+      </Tab>
+    </Tabs>
+    
+    
+    </Modal.Body>
 
           <Modal.Footer>
             <Button variant="secondary" onClick={handleCloseModal}>
