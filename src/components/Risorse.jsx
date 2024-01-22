@@ -10,7 +10,7 @@ const Risorse = () =>{
 
     return (
         <>
-        <div className="border rounded my-2">
+        <div className="border bg-light rounded-4 my-2">
             <Row className="justify-content-start p-3 ">   
             <h2 className="m-0">Risorse</h2>
             <p className="text-secondary"><span><FaEye size={14}/></span> Solo per te</p>

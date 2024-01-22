@@ -8,7 +8,7 @@ import { FaCheck } from "react-icons/fa";
 
 function Interessi() {
   return (
-    <div className="border rounded my-2">
+    <div className="border rounded-4 bg-light my-2">
       <Row className="justify-content-between p-3 ">
         <div className="d-flex justify-content-between ">
           <h2 className="m-0">Interessi</h2>

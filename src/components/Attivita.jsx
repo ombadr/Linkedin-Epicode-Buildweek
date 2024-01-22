@@ -8,7 +8,7 @@ import { Row, Col, Button } from "react-bootstrap";
 const Attivita = () => {
   return (
     <>
-      <div className="border rounded my-2">
+      <div className="border rounded-4 bg-light my-2">
         <Row className="justify-content-between p-3 ">
           <div className="d-flex justify-content-between ">
             <div>
