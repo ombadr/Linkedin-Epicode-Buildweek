@@ -1,12 +1,17 @@
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import Example from './components/Example';
 import Footer from './components/Footer';
+import ProfileRightBar from './components/ProfileRightBar';
+
+
 function App() {
   return (
     <div>
+
       <Container fluid className='bg-white sticky-navbar'>
         <Container className=" bg-white">
           <Row>
@@ -22,24 +27,10 @@ function App() {
           <Row>
             <Col md={9}>
               <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
+
             </Col>
             <Col md={3}>
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-              <Example />
-
+              <ProfileRightBar />
             </Col>
           </Row>
           <Row className='mt-5'>
