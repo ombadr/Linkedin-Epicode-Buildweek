@@ -5,6 +5,7 @@ import { FiPlus } from "react-icons/fi";
 
 
 import { FaLinkedin } from "react-icons/fa";
+import ProfiliRandom from "./ProfiliRanom";
 
 const SideBar = () => {
   return (
@@ -44,30 +45,9 @@ const SideBar = () => {
       </div>
 
 
-      <div className="border rounded my-2 bg-white">
-      <div className="border-bottom">
-        <div className="justify-content-between p-3">
-            <h2 className="m-0">Persone che potresti conoscere</h2>
-            <p className="text-secondary">Dalla tua scuola o università</p>
-        </div>
-       <div className="d-flex mx-3 mb-3">
-          <div >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ09uJRvSYTZguOy_L--3XALEwxqNIuvBvF8yJOHWNiew&s" width={64} className="rounded-circle"/>
-          </div>
+      {/*////////////////////////////////////*/}
 
-
-          <div className="px-2">
-            <p className="fw-bold m-0">Giorgio Mastrota </p>
-            <p>Granidissimo soggetto</p>
-            <Button variant="outline-secondary" className="rounded-pill"><IoPersonAdd/> Collegati</Button>
-          </div>
-       </div>
-
-       <div className="text-center border-top text-secondary pt-2 " >
-                <p className="mb-2">Mostra tutte le analisi</p>
-            </div>
-        </div>
-      </div>
+      <ProfiliRandom />
 
 
       { /*//////////////////////////////////////*/}

@@ -17,6 +17,7 @@ import Formazione from "./components/Formazione";
 import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
 import SideBar from './components/SideBar';
+import ProfiliRandom from './components/ProfiliRanom';
 
 function App() {
   return (
@@ -53,7 +54,6 @@ function App() {
               
               <Col md={3}>
               <SideBar/>
-                <ProfileRightBar />
               </Col>
             </Row>
             <Row className='mt-5'>
