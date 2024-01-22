@@ -1,12 +1,19 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import Example from './components/Example';
 import Footer from './components/Footer';
 import ProfileRightBar from './components/ProfileRightBar';
 
+import Analisi from './components/Analisi';
+import Risorse from "./components/Risorse";
+import Attivita from "./components/Attivita";
+import Formazione from "./components/Formazione";
+import Interessi from "./components/Interessi";
+import ModificaProfilo from "./components/ModificaProfilo";
 
 function App() {
   return (
@@ -27,6 +34,12 @@ function App() {
           <Row>
             <Col md={9}>
               <Example />
+              <ModificaProfilo />
+              <Analisi />
+              <Risorse />
+              <Attivita />
+              <Formazione />
+              <Interessi />
 
             </Col>
             <Col md={3}>
