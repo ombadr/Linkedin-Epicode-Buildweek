@@ -80,7 +80,7 @@ const SideBar = () => {
             <p className="m-0 text-secondary">2.140 visualizzazioni</p>
             </div>
         </div>
-        <div className="d-flex p-3 mx-3 border-bottom">
+        <div className="d-flex p-3 mx-3">
             <div>
                 <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" width={64}/>
             </div>
