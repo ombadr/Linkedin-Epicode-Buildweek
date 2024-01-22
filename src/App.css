@@ -1,10 +1,9 @@
-
-.SuggestedProfile img{
-    width: 100px;
-    max-height: 100px;
-    max-width: 100px;
-    margin-right: 20px;
-    border-radius: 50px;
+.SuggestedProfile img {
+  width: 100px;
+  max-height: 100px;
+  max-width: 100px;
+  margin-right: 20px;
+  border-radius: 50px;
 }
 
 .App-link {
@@ -19,21 +18,25 @@
     transform: rotate(360deg);
   }
 }
-.SuggestedProfile img{
-    width: 100px;
-    max-height: 100px;
-    max-width: 100px;
-    margin-right: 20px;
-    border-radius: 50px;
+.SuggestedProfile img {
+  width: 100px;
+  max-height: 100px;
+  max-width: 100px;
+  margin-right: 20px;
+  border-radius: 50px;
 }
-.SuggestedProfile button{
-    border-radius: 20px;
-    background-color: white;
+.SuggestedProfile button {
+  border-radius: 20px;
+  background-color: white;
 }
-
 
 .sticky-navbar {
   position: sticky;
   top: 0;
   z-index: 1020;
+}
+
+p {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
