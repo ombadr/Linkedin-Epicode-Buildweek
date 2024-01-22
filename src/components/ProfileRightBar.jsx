@@ -63,29 +63,31 @@ const ProfileRightBar = () => {
 
     return (
         <>
-            <div className="text-center ">
-                <h1>Profiles: </h1>
-                {renderRandomProfiles(10)}
-                    <div >
+            <div className="bg-light rounded-4 mt-2">
+                <div className="text-center">                   
+                        <h1>Profiles</h1>
+                    {renderRandomProfiles(10)}
+                    <div className="text-center">
                         <button onClick={(e) => { e.preventDefault(); handleShowModal(); }} className="rounded-pill p-2 my-5 bg-light">
                             Show all profiles
                         </button>
                     </div>
+                </div>
+
+                <Modal show={isModalOpen} onHide={handleCloseModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>More profiles</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                        {renderRandomProfiles(20)}
+                    </Modal.Body>
+
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
-
-            <Modal show={isModalOpen} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
-                </Modal.Header>
-
-                <Modal.Body>
-                    {renderRandomProfiles(20)}
-                </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-                </Modal.Footer>
-            </Modal>
         </>
     );
 }
