@@ -21,6 +21,8 @@ import ProfiliRandom from './components/ProfiliRanom';
 import JobsPage from './components/JobsPage';
 import ProfilePage from './components/ProfilePage';
 
+import Posts from './components/Posts';
+
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +48,8 @@ function App() {
                 <Footer />
               </Col>
             </Row>
+            <hr />
+            <Posts/>
           </Container>
         </div>
       </div>

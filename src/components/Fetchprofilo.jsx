@@ -14,7 +14,7 @@ function Fetchprofilo(){
     return profilo
 }
 
-export default Fetchprofilo
+export default Fetchprofilo 
 
 
 
