@@ -23,6 +23,8 @@ import ProfilePage from './components/ProfilePage';
 
 import Posts from './components/Posts';
 
+import Posts from './components/Posts';
+
 function App() {
   return (
     <BrowserRouter>
