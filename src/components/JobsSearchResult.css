@@ -1,0 +1,16 @@
+.left-nav {
+  position: sticky;
+  top: 100px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 920px) {
+  .left-nav {
+    top: 78px;
+  }
+}
+
+.job.list {
+  overflow-y: auto;
+}

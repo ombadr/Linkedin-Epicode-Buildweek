@@ -1,17 +1,17 @@
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import {Fetchprofilo,FetchProfiles} from "../Fetchprofilo"
+import { Fetchprofilo, FetchProfiles } from '../Fetchprofilo';
 import { PiStudent } from 'react-icons/pi';
 import { FaCamera } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Infoprofilo } from './Infoprofilo';
 
 import './assets/Profile.css';
 const mioid = '65ae3141600be100183a868b';
 
-function Profile({isMe,profilo}) {
-  const [showInfoModal, setShowInfoModal] = useState(false)
-  const [modifica,setmodifica]=useState(false)
+function Profile({ isMe, profilo }) {
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [modifica, setmodifica] = useState(false);
   return (
     <div>
       {profilo && (
@@ -26,16 +26,16 @@ function Profile({isMe,profilo}) {
                 srcset=''
               />
             </Col>
-            {isMe===true && (<Col className='m-3 d-flex  justify-content-end  '>
-              <div
-                className='bg-white p-2 rounded-circle  '
-                style={{ height: ' 60px' }}
-              >
-                <FaCamera className='' size={40} />
-              </div>
-
-              
-            </Col>)}
+            {isMe === true && (
+              <Col className='m-3 d-flex  justify-content-end  '>
+                <div
+                  className='bg-white p-2 rounded-circle  '
+                  style={{ height: ' 60px' }}
+                >
+                  <FaCamera className='' size={40} />
+                </div>
+              </Col>
+            )}
           </Row>
           <Row>
             <Col>
@@ -50,40 +50,60 @@ function Profile({isMe,profilo}) {
                 </p>
               </div>
               <p className='mb-2 mt-2  text-primary '>5 collegamenti</p>
-              {isMe===true? (
-              <><div>
-                <Button onClick={() => {setmodifica(true); setShowInfoModal(true)}} className=' me-2 rounded-5 fw-bold '>
-                  Modifica Profilo
-                </Button>
-                <Button onClick={() => setShowInfoModal(true)}className='bg-white text-secondary fw-bold  rounded-5 '>
-                  Info sul profilo
-                </Button>
-                <Infoprofilo profilo={profilo} show={showInfoModal} modifica={modifica} handleClose={() => {setmodifica(false);setShowInfoModal(false)}}/>
-              </div>
-              <div className='bgcustom rounded-3'>
-                <div className=' mb-2 mt-2'>
-                  <p className='m-0 fw-bold'>Disponibile a lavorare</p>
-                  <p>Ruolo di Full-stack Developer</p>
-                </div>
-                <span className='text-primary'>Mostra dettagli</span>
-              </div></>):(
-                <>  
-                <div>
-                <Button className=' me-2 rounded-5 fw-bold '>
-                  Messaggio
-                </Button>
-              </div>
-              <div className='bgcustom2 rounded-3 '>
-                <div className=' mb-2 mt-2 d-flex align-items-center p-4'>
-                  <p className='m-0 fw-bold pe-2'>Collegati se vi conoscete</p>
-                  <Button className='bg-white text-secondary fw-bold  rounded-5 '>
-                  Collegati
-                </Button>
-                </div>
-                
-              </div>
+              {isMe === true ? (
+                <>
+                  <div>
+                    <Button
+                      onClick={() => {
+                        setmodifica(true);
+                        setShowInfoModal(true);
+                      }}
+                      className=' me-2 rounded-5 fw-bold '
+                    >
+                      Modifica Profilo
+                    </Button>
+                    <Button
+                      onClick={() => setShowInfoModal(true)}
+                      className='bg-white text-secondary fw-bold  rounded-5 '
+                    >
+                      Info sul profilo
+                    </Button>
+                    <Infoprofilo
+                      profilo={profilo}
+                      show={showInfoModal}
+                      modifica={modifica}
+                      handleClose={() => {
+                        setmodifica(false);
+                        setShowInfoModal(false);
+                      }}
+                    />
+                  </div>
+                  <div className='bgcustom rounded-3'>
+                    <div className=' mb-2 mt-2'>
+                      <p className='m-0 fw-bold'>Disponibile a lavorare</p>
+                      <p>Ruolo di Full-stack Developer</p>
+                    </div>
+                    <span className='text-primary'>Mostra dettagli</span>
+                  </div>
                 </>
-                
+              ) : (
+                <>
+                  <div>
+                    <Button className=' me-2 rounded-5 fw-bold '>
+                      Messaggio
+                    </Button>
+                  </div>
+                  <div className='bgcustom2 rounded-3 '>
+                    <div className=' mb-2 mt-2 d-flex align-items-center p-4'>
+                      <p className='m-0 fw-bold pe-2'>
+                        Collegati se vi conoscete
+                      </p>
+                      <Button className='bg-white text-secondary fw-bold  rounded-5 '>
+                        Collegati
+                      </Button>
+                    </div>
+                  </div>
+                </>
               )}
             </Col>
             <Col>
