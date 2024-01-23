@@ -20,7 +20,7 @@ const JobsPage = () => {
         </Row>
       ) : (
         <Row>
-          <Col md={2} className='mt-3'>
+          <Col md={2}>
             <JobsNav />
           </Col>
           <Col md={6} className='mt-3 mx-3'>
@@ -33,7 +33,7 @@ const JobsPage = () => {
             <JobsCard title='Hiring in your network' category='writing' />
             <JobsCard title='Recommended for you' category='product' />
           </Col>
-          <Col md={3} className='mt-3'>
+          <Col md={3}>
             <JobsWork />
           </Col>
         </Row>
