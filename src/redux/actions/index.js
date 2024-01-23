@@ -13,6 +13,37 @@ export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 
+export const MAIN_PROFILE = "MAIN_PROFILE";
+
+export const mainProfileAction = () => {
+  return async dispatch => {
+    fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
+      }
+    })
+      .then(res => {
+        if (res.ok) {
+
+          return res.json()
+        } else {
+          throw new Error("Errore fetch profilo personale")
+        }
+      })
+      .then(profilo => {
+        dispatch({
+          type: MAIN_PROFILE,
+          payload: profilo,
+        })
+      })
+      .catch(err => {
+        console.log("Errore" + err)
+      })
+  }
+}
+
+
 
 // Corrected syntax for named export
 export const fetchProfiles = (token) => {

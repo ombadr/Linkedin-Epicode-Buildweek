@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Profile from './Profile';
+import Profile from './Profilepage/Profile';
 
-import ModificaProfilo from './ModificaProfilo';
-import Analisi from './Analisi';
-import Risorse from './Risorse';
-import Attivita from './Attivita';
-import Formazione from './Formazione';
-import Interessi from './Interessi';
-import SideBar from './SideBar';
+import ModificaProfilo from './Profilepage/ModificaProfilo';
+import Analisi from './Profilepage/Analisi';
+import Risorse from './Profilepage/Risorse';
+import Attivita from './Profilepage/Attivita';
+import Formazione from './Profilepage/Formazione';
+import Interessi from './Profilepage/Interessi';
+import SideBar from './Profilepage/SideBar';
 
 const ProfilePage = () => {
   return (

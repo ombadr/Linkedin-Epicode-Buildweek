@@ -1,17 +1,14 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import fetchProfilesReducers from '../reducers/FetchProfilesReducer';
-import profiloReducer from "../reducer/profilo";
-
-import jobsReducer from '../reducer/jobs';
-import searchesReducer from '../reducer/search';
-import performSearchReducer from '../reducer/perform_search';
+import profiloReducer from '../reducers/profilo';
+import jobsReducer from '../reducers/jobs';
+import searchesReducer from '../reducers/search';
+import performSearchReducer from '../reducers/perform_search';
 
 import fetchPostsReducers from '../reducers/FetchPostsReducer';
 
 
 
 const rootReducer = combineReducers({
-    FetchProfiles: fetchProfilesReducers,
     profilo: profiloReducer,
     jobs: jobsReducer,
     search: searchesReducer,
