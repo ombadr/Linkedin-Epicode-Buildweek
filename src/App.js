@@ -23,7 +23,6 @@ import ProfilePage from './components/ProfilePage';
 
 import Posts from './components/Posts';
 
-import Posts from './components/Posts';
 
 function App() {
   return (
@@ -51,7 +50,7 @@ function App() {
               </Col>
             </Row>
             <hr />
-            <Posts/>
+            <Posts />
           </Container>
         </div>
       </div>
