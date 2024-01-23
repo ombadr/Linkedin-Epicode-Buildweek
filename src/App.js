@@ -7,7 +7,6 @@ import Fetchprofilo from './components/Fetchprofilo';
 import { Container, Row, Col } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import Footer from './components/Footer';
-import ProfileRightBar from './components/ProfileRightBar';
 
 import Analisi from './components/Analisi';
 import Risorse from "./components/Risorse";
@@ -17,6 +16,7 @@ import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
 import SideBar from './components/SideBar';
 import ProfileTest from './components/ProfileTest';
+import Experiences from './components/Experiences';
 
 function App() {
   return (
@@ -43,13 +43,14 @@ function App() {
                   }>
                   </Route>
                 </Routes>
-                <ProfileTest/>
+               
                 <ModificaProfilo />
                 <Analisi />
                 <Risorse />
                 <Attivita />
                 <Formazione />
                 <Interessi />
+                <Experiences />
 
               </Col>
               
