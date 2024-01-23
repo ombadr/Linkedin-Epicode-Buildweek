@@ -16,6 +16,8 @@ import Attivita from "./components/Attivita";
 import Formazione from "./components/Formazione";
 import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
+import SideBar from './components/SideBar';
+import ProfiliRandom from './components/ProfiliRanom';
 
 function App() {
   return (
@@ -49,8 +51,9 @@ function App() {
                 <Interessi />
 
               </Col>
+              
               <Col md={3}>
-                <ProfileRightBar />
+              <SideBar/>
               </Col>
             </Row>
             <Row className='mt-5'>

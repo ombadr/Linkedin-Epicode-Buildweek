@@ -8,9 +8,10 @@ import { Row, Col, Button } from 'react-bootstrap';
 const Attivita = () => {
   return (
     <>
-      <div className='border rounded my-2 bg-white'>
-        <Row className='justify-content-between p-3 '>
-          <div className='d-flex justify-content-between '>
+
+      <div className="border rounded my-2 bg-white">
+        <Row className="justify-content-between p-3 ">
+          <div className="d-flex justify-content-between ">
             <div>
               <h2 className='m-0'>Attività</h2>
               <p className='text-primary m-0'> 42 follower</p>
@@ -37,14 +38,10 @@ const Attivita = () => {
             </div>
           </div>
         </div>
-        <div className='text-center border-top text-secondary'>
-          <p>
-            Mostra tutte le analisi{' '}
-            <span>
-              <FaArrowRight />
-            </span>
-          </p>
-        </div>
+
+        <div className="text-center border-top" >
+                <Button variant="light" className=" w-100 text-secondary"> Mostra tutte le Attività <span><FaArrowRight/></span></Button>
+            </div>
       </div>
     </>
   );
