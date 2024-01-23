@@ -83,9 +83,9 @@ const ProfileRightBar = () => {
 
   return (
     <>
-      <div className='text-center bg-white mt-5'>
+      <div className='text-center '>
         <h1>Profiles: </h1>
-        {renderRandomProfiles(10)}
+        {renderRandomProfiles(5)}
         <div>
           <button
             onClick={(e) => {

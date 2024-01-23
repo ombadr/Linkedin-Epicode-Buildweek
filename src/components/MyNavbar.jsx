@@ -34,13 +34,34 @@ import { FaCompass } from 'react-icons/fa';
 import { HiUserGroup } from 'react-icons/hi';
 import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  recentSearchesAction,
+  performSearchAction,
+  resetSearchAction,
+} from '../redux/actions';
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const searchPerform = useSelector((state) => state.performSearch);
+
   const handleSidebar = () => {
     setShow(!show);
   };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.searchValue.value;
+    dispatch(recentSearchesAction(searchValue));
+    dispatch(performSearchAction());
+    e.target.searchValue.value = '';
+  };
+
+  console.log('search performed: ', searchPerform);
 
   return (
     <>
@@ -48,7 +69,7 @@ const MyNavbar = () => {
         <Navbar.Brand href='#home'>
           <FaLinkedin className='text-primary fs-1' />
         </Navbar.Brand>
-        <Form inline>
+        <Form inline onSubmit={handleSearch}>
           <InputGroup className='custom-input-group'>
             <InputGroup.Text className='bg-light border-0'>
               <AiOutlineSearch className='fs-2' />
@@ -57,93 +78,101 @@ const MyNavbar = () => {
               type='text'
               placeholder='Search'
               className='bg-light border-0 fs-4'
+              name='searchValue'
             />
           </InputGroup>
         </Form>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
           <Nav className='mr-auto align-items-center'>
-            <Nav.Link href='#home' className='text-center'>
+            <Link
+              to='/'
+              className='text-decoration-none text-secondary text-center p-2'
+            >
               <AiOutlineHome className='fs-2' />
-              <p className='m-0'>Home</p>
-            </Nav.Link>
-            <Nav.Link href='#network' className='text-center'>
+              <p className='m-0 p-0'>Home</p>
+            </Link>
+            <Nav.Link href='#network' className='text-center text-secondary'>
               <AiOutlineTeam className='fs-2' />
-              <p className='m-0'>My Network</p>
+              <p className='m-0 p-0'>My Network</p>
             </Nav.Link>
-            <Nav.Link href='#jobs' className='text-center'>
+            <Link
+              to='/jobs'
+              className='text-decoration-none text-secondary text-center p-2'
+              onClick={() => dispatch(resetSearchAction())}
+            >
               <BsBriefcase className='fs-2' />
-              <p className='m-0'>Jobs</p>
-            </Nav.Link>
-            <Nav.Link href='#messaging' className='text-center'>
+              <p className='m-0 p-0'>Jobs</p>
+            </Link>
+            <Nav.Link href='#messaging' className='text-center text-secondary'>
               <AiOutlineMessage className='fs-2' />
-              <p className='m-0'>Messaging</p>
+              <p className='m-0 p-0'>Messaging</p>
             </Nav.Link>
-            <Nav.Link href='#notifications' className='text-center'>
+            <Nav.Link
+              href='#notifications'
+              className='text-center text-secondary'
+            >
               <AiOutlineBell className='fs-2' />
-              <p className='m-0'>Notifications</p>
+              <p className='m-0 p-0'>Notifications</p>
             </Nav.Link>
-            <Nav.Link href='#settings' className='text-center p-0 m-0'>
+            <Nav.Link className='text-center p-0 m-0 text-secondary'>
               <IoMdPerson className='fs-2 me-3' />
               <NavDropdown
                 title='Me'
                 id='basic-nav-dropdown'
                 className='p-0 me-3 '
               >
-                <NavDropdown.Item href='#example' className='p-0 m-0'>
-                  <div>
-                    <div className='d-flex mb-3'>
-                      <img
-                        src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'
-                        height='50px'
-                        width='50px'
-                        className='rounded-circle mx-3'
-                      />
-                      <div className='me-5'>
-                        <p className='m-0 fw-bold'>Nome Cognome</p>
-                        <p className='m-0'>Developer</p>
-                      </div>
+                <div className='px-3'>
+                  <div className='d-flex mb-3'>
+                    <img
+                      src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'
+                      height='50px'
+                      width='50px'
+                      className='rounded-circle mx-3'
+                    />
+                    <div className='me-5'>
+                      <p className='m-0 fw-bold'>Nome Cognome</p>
+                      <p className='m-0'>Developer</p>
                     </div>
-                    <div className='mx-3'>
+                  </div>
+                  <div className='mx-3'>
+                    <Link to='/65ae3141600be100183a868b'>
                       <Button
                         variant='outline-primary'
                         className='rounded-5 w-100 py-0 my-0'
                       >
                         View Profile
                       </Button>
-                    </div>
-                    <hr />
-                    <div className=''>
-                      <p className='fw-bold fs-4 mx-3'>Account</p>
-                      <p className='mx-2'>
-                        <MdWorkspacePremium className='text-warning fs-4 p-0 m-0' />
-                        Try Premium for €0
-                      </p>
-                      <p className='mx-3'>Settings & Privacy</p>
-                      <p className='mx-3'>Help</p>
-                      <p className='mx-3'>Language</p>
-                    </div>
-                    <hr />
-                    <div>
-                      <p className='fw-bold fs-4 mx-3'>Manage</p>
-
-                      <p className='mx-3'>Posts & Activity</p>
-                      <p className='mx-3'>Job Posting Account</p>
-                    </div>
-                    <hr />
-                    <div className='mx-3'>
-                      <p>Sign Out</p>
-                    </div>
+                    </Link>
                   </div>
-                </NavDropdown.Item>
+                  <hr />
+                  <div className=''>
+                    <p className='fw-bold fs-4 mx-3'>Account</p>
+                    <p className='mx-2'>
+                      <MdWorkspacePremium className='text-warning fs-4 p-0 m-0' />
+                      Try Premium for €0
+                    </p>
+                    <p className='mx-3'>Settings & Privacy</p>
+                    <p className='mx-3'>Help</p>
+                    <p className='mx-3'>Language</p>
+                  </div>
+                  <hr />
+                  <div>
+                    <p className='fw-bold fs-4 mx-3'>Manage</p>
+
+                    <p className='mx-3'>Posts & Activity</p>
+                    <p className='mx-3'>Job Posting Account</p>
+                  </div>
+                  <hr />
+                  <div className='mx-3'>
+                    <p>Sign Out</p>
+                  </div>
+                </div>
+                <NavDropdown.Item className='p-0 m-0'></NavDropdown.Item>
               </NavDropdown>
             </Nav.Link>
 
-            <Nav.Link
-              href='#settings'
-              className='text-center p-0 m-0'
-              onClick={handleSidebar}
-            >
+            <Nav.Link className='text-center p-0 m-0' onClick={handleSidebar}>
               <BsFillGrid3X3GapFill className='fs-2' />
               <NavDropdown
                 title='For Business'
