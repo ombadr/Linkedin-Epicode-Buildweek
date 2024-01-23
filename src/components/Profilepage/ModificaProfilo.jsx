@@ -84,7 +84,7 @@ const ModificaProfilo = () => {
                 />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Modifica!
+                Modifica
               </Button>
             </Form>
           </Col>

@@ -79,7 +79,7 @@ const SideBar = (isMe) => {
                 <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" alt="" width={64}/>
             </div>
             <div>
-            <h4 className="m-0 ">Come fissare gli un div</h4>
+            <h4 className="m-0 ">Come centrare un div</h4>
             <p className="m-0 text-secondary">6.501 visualizzazioni</p>
             </div>
         </div>
