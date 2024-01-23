@@ -27,17 +27,17 @@ const Posts = () => {
 
         <div>
             <h1>POSTS:</h1>
-            <form>
+            <form className="d-flex align-items-center">
                 {/* Menu a tendina per la selezione della frutta */}
                 <label htmlFor="fruits">Seleziona una frutta:</label>
-                <select id="fruits" name="fruits" >
+                <select id="fruits" name="fruits" className="form-select w-auto me-2">
                     <option value="Friends">Friends</option>
                     <option value="Esplora">Esplora</option>
                     <option value="Personal">I tuoi posts</option>
                 </select>
 
                 {/* Pulsante di invio del modulo */}
-                <button type="submit">Invia</button>
+                <button type="submit" className="btn btn-primary rounded">Invia</button>
             </form>
             <PostsRandom posts={posts} />
         </div>
