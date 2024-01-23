@@ -17,6 +17,8 @@ import Formazione from "./components/Formazione";
 import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
 
+import Posts from './components/Posts';
+
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +60,8 @@ function App() {
                 <Footer />
               </Col>
             </Row>
+            <hr />
+            <Posts/>
           </Container>
         </div>
       </div>
