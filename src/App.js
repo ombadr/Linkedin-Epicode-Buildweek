@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Profile from './components/Profile';
 import Fetchprofilo from './components/Fetchprofilo';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -39,7 +38,7 @@ function App() {
               <Col md={9}>
                 <Routes>
                   <Route path="/:id" element={
-                    <Profile/>
+                    <ProfileTest />
                     
                   }>
                   </Route>
