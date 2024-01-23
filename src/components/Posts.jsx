@@ -1,47 +1,68 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts } from "../redux/actions";
-import { Modal, Button } from "react-bootstrap";
 import PostsRandom from "./PostsRandom";
+import PostsFriends from "./PostsFriends";
+import PostsPersonal from "./PostsPersonal";
+import PostsAdd from "./PostsAdd";
 
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWEzN2JkNWQxMjAwMTg5MGQ0NWMiLCJpYXQiOjE3MDYwMDcwOTUsImV4cCI6MTcwNzIxNjY5NX0.2qRmM_CYazxx8y1MJej_ce3QSwMxl5Z7A5TbBdWiY78";
 
 const Posts = () => {
-    const dispatch = useDispatch();
-    const { posts, loading, error } = useSelector((state) => state.FetchPosts);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("Friends");
+  const [esploraPosts, setEsploraPosts] = useState([]);
 
-    useEffect(() => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNDk1MTYwMGJlMTAwMTgzYTg2YTUiLCJpYXQiOjE3MDU5MjA4NDksImV4cCI6MTcwNzEzMDQ0OX0.lWpP-DosTePIjyhJO-aug1d5RJPA-hzq5ehW8RJ5Kt4";
-        dispatch(fetchPosts(token));
-    }, [dispatch]);
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/personal", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
 
-    if (loading) {
-        return <p>Loading</p>;
-    }
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
 
-    if (error) {
-        return <p>Error: {error}</p>;
-    }
+        const data = await response.json();
+        setEsploraPosts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error(`Errore nella richiesta per il post personale:`, error);
+        setError("Errore durante il recupero dei tuoi post. Si prega di riprovare più tardi.");
+        setLoading(false);
+      }
+    };
 
+    fetchPosts();
+  }, []);
 
-    return (
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
-        <div>
-            <h1>POSTS:</h1>
-            <form>
-                {/* Menu a tendina per la selezione della frutta */}
-                <label htmlFor="fruits">Seleziona una frutta:</label>
-                <select id="fruits" name="fruits" >
-                    <option value="Friends">Friends</option>
-                    <option value="Esplora">Esplora</option>
-                    <option value="Personal">I tuoi posts</option>
-                </select>
+  return (
+    <div>
+      <h1>POSTS:</h1>
+      <PostsAdd />
+      <form>
+        <label>
+          <select id="postsOption" name="postsOption" value={selectedOption} onChange={handleOptionChange}>
+            <option value="Friends">Friends</option>
+            <option value="Esplora">Esplora</option>
+            <option value="Personal">I tuoi posts</option>
+          </select>
+        </label>
+      </form>
 
-                {/* Pulsante di invio del modulo */}
-                <button type="submit">Invia</button>
-            </form>
-            <PostsRandom posts={posts} />
-        </div>
-    );
+      {selectedOption === "Friends" && <PostsFriends posts={esploraPosts}/>}
+      {selectedOption === "Esplora" && <PostsRandom posts={esploraPosts} />}
+      {selectedOption === "Personal" && <PostsPersonal posts={esploraPosts}/>}
+    </div>
+  );
 };
 
 export default Posts;

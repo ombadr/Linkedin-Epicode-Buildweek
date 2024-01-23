@@ -60,7 +60,7 @@ const ProfileRightBar = () => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-
+    
     return (
         <>
             <div className="text-center ">
