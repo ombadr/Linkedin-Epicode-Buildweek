@@ -34,6 +34,7 @@ import { FaCompass } from 'react-icons/fa';
 import { HiUserGroup } from 'react-icons/hi';
 import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
@@ -63,18 +64,24 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
           <Nav className='mr-auto align-items-center'>
-            <Nav.Link href='#home' className='text-center'>
+            <Link
+              to='/'
+              className='text-decoration-none text-secondary text-center'
+            >
               <AiOutlineHome className='fs-2' />
               <p className='m-0'>Home</p>
-            </Nav.Link>
+            </Link>
             <Nav.Link href='#network' className='text-center'>
               <AiOutlineTeam className='fs-2' />
               <p className='m-0'>My Network</p>
             </Nav.Link>
-            <Nav.Link href='#jobs' className='text-center'>
+            <Link
+              to='/jobs'
+              className='text-decoration-none text-secondary text-center'
+            >
               <BsBriefcase className='fs-2' />
               <p className='m-0'>Jobs</p>
-            </Nav.Link>
+            </Link>
             <Nav.Link href='#messaging' className='text-center'>
               <AiOutlineMessage className='fs-2' />
               <p className='m-0'>Messaging</p>
@@ -83,67 +90,64 @@ const MyNavbar = () => {
               <AiOutlineBell className='fs-2' />
               <p className='m-0'>Notifications</p>
             </Nav.Link>
-            <Nav.Link href='#settings' className='text-center p-0 m-0'>
+            <Nav.Link className='text-center p-0 m-0'>
               <IoMdPerson className='fs-2 me-3' />
               <NavDropdown
                 title='Me'
                 id='basic-nav-dropdown'
                 className='p-0 me-3 '
               >
-                <NavDropdown.Item href='#example' className='p-0 m-0'>
-                  <div>
-                    <div className='d-flex mb-3'>
-                      <img
-                        src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'
-                        height='50px'
-                        width='50px'
-                        className='rounded-circle mx-3'
-                      />
-                      <div className='me-5'>
-                        <p className='m-0 fw-bold'>Nome Cognome</p>
-                        <p className='m-0'>Developer</p>
-                      </div>
+                <div>
+                  <div className='d-flex mb-3'>
+                    <img
+                      src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'
+                      height='50px'
+                      width='50px'
+                      className='rounded-circle mx-3'
+                    />
+                    <div className='me-5'>
+                      <p className='m-0 fw-bold'>Nome Cognome</p>
+                      <p className='m-0'>Developer</p>
                     </div>
-                    <div className='mx-3'>
+                  </div>
+                  <div className='mx-3'>
+                    <Link to='/65ae3141600be100183a868b'>
                       <Button
                         variant='outline-primary'
                         className='rounded-5 w-100 py-0 my-0'
                       >
                         View Profile
                       </Button>
-                    </div>
-                    <hr />
-                    <div className=''>
-                      <p className='fw-bold fs-4 mx-3'>Account</p>
-                      <p className='mx-2'>
-                        <MdWorkspacePremium className='text-warning fs-4 p-0 m-0' />
-                        Try Premium for €0
-                      </p>
-                      <p className='mx-3'>Settings & Privacy</p>
-                      <p className='mx-3'>Help</p>
-                      <p className='mx-3'>Language</p>
-                    </div>
-                    <hr />
-                    <div>
-                      <p className='fw-bold fs-4 mx-3'>Manage</p>
-
-                      <p className='mx-3'>Posts & Activity</p>
-                      <p className='mx-3'>Job Posting Account</p>
-                    </div>
-                    <hr />
-                    <div className='mx-3'>
-                      <p>Sign Out</p>
-                    </div>
+                    </Link>
                   </div>
-                </NavDropdown.Item>
+                  <hr />
+                  <div className=''>
+                    <p className='fw-bold fs-4 mx-3'>Account</p>
+                    <p className='mx-2'>
+                      <MdWorkspacePremium className='text-warning fs-4 p-0 m-0' />
+                      Try Premium for €0
+                    </p>
+                    <p className='mx-3'>Settings & Privacy</p>
+                    <p className='mx-3'>Help</p>
+                    <p className='mx-3'>Language</p>
+                  </div>
+                  <hr />
+                  <div>
+                    <p className='fw-bold fs-4 mx-3'>Manage</p>
+
+                    <p className='mx-3'>Posts & Activity</p>
+                    <p className='mx-3'>Job Posting Account</p>
+                  </div>
+                  <hr />
+                  <div className='mx-3'>
+                    <p>Sign Out</p>
+                  </div>
+                </div>
+                <NavDropdown.Item className='p-0 m-0'></NavDropdown.Item>
               </NavDropdown>
             </Nav.Link>
 
-            <Nav.Link
-              href='#settings'
-              className='text-center p-0 m-0'
-              onClick={handleSidebar}
-            >
+            <Nav.Link className='text-center p-0 m-0' onClick={handleSidebar}>
               <BsFillGrid3X3GapFill className='fs-2' />
               <NavDropdown
                 title='For Business'
