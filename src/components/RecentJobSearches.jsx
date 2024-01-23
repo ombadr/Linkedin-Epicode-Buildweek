@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const RecentJobSearches = () => {
   const [showFullList, setShowFullList] = useState(false);
+
+  const searches = useSelector((state) => state.search);
 
   const jobSearches = [
     { title: 'node js', count: 290, location: 'Italy' },
@@ -17,6 +20,10 @@ const RecentJobSearches = () => {
     setShowFullList(!showFullList);
   };
 
+  console.log('searches', searches);
+
+  const reversedSearches = [...searches.recentSearches].reverse();
+
   return (
     <Card>
       <Card.Header className='bg-white border-0'>
@@ -26,14 +33,14 @@ const RecentJobSearches = () => {
         </div>
       </Card.Header>
       <Card.Body>
-        {jobSearches
+        {reversedSearches
           .slice(0, showFullList ? jobSearches.length : 3)
-          .map((job, index) => (
+          .map((search, index) => (
             <div key={index}>
               <p className='m-0 fw-bold text-dark'>
-                {job.title} - {job.count} new
+                {search.search} - {search.jobs} new
               </p>
-              <p className='m-0 fw-bold text-secondary '>{job.location}</p>
+              <p className='m-0 fw-bold text-secondary '>Italy</p>
               <hr />
             </div>
           ))}
