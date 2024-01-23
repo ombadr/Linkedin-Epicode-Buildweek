@@ -4,6 +4,9 @@ export const FETCH_PROFILES_REQUEST = 'FETCH_PROFILES_REQUEST';
 export const FETCH_PROFILES_SUCCESS = 'FETCH_PROFILES_SUCCESS';
 export const FETCH_PROFILES_FAILURE = 'FETCH_PROFILES_FAILURE';
 export const GET_JOBS_BY_CATEGORY = 'GET_JOBS_BY_CATEGORY';
+export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
+export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 // Corrected syntax for named export
 export const fetchProfiles = (token) => {
@@ -26,6 +29,27 @@ export const fetchProfiles = (token) => {
     }
   };
 };
+export const fetchPosts = (token) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      const data = await response.json();
+      dispatch({ type: FETCH_POSTS_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: FETCH_POSTS_FAILURE, payload: error.message });
+    }
+  };
+};
+
 
 export const getJobsByCategoryAction = (category) => {
   return async (dispatch) => {
