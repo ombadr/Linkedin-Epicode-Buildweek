@@ -18,6 +18,8 @@ import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
 import SideBar from './components/SideBar';
 import ProfiliRandom from './components/ProfiliRanom';
+import JobsPage from './components/JobsPage';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
@@ -33,29 +35,12 @@ function App() {
           </Container>
         </Container>
         <div style={{ backgroundColor: '#f4f2ee' }}>
+          <Routes>
+            <Route path="/:id" element={<ProfilePage />} />
+            <Route path="/jobs" element={<JobsPage />} />
+          </Routes>
 
           <Container >
-            <Row>
-              <Col md={9}>
-                <Routes>
-                  <Route path="/:id" element={
-                    <Profile />
-                  }>
-                  </Route>
-                </Routes>
-                <ModificaProfilo />
-                <Analisi />
-                <Risorse />
-                <Attivita />
-                <Formazione />
-                <Interessi />
-
-              </Col>
-              
-              <Col md={3}>
-              <SideBar/>
-              </Col>
-            </Row>
             <Row className='mt-5'>
               <Col col={12}>
                 <Footer />

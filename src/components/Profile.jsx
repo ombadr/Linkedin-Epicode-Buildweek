@@ -5,6 +5,13 @@ import {
   faCamera,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
+import ModificaProfilo from './ModificaProfilo';
+import Analisi from './Analisi';
+import Risorse from './Risorse';
+import Attivita from './Attivita';
+import Formazione from './Formazione';
+import Interessi from './Interessi';
+import SideBar from './SideBar';
 import Fetchprofilo from './Fetchprofilo';
 import { GoPencil } from 'react-icons/go';
 import { PiStudent } from 'react-icons/pi';
@@ -19,7 +26,7 @@ function Profile() {
   return (
     <div>
       {profilo && (
-        <Container className='immaginebg p-3 border rounded bg-white mt-5 '>
+        <Container className='immaginebg p-3 border rounded bg-white mt-2 '>
           <Row>
             <Col>
               <img
