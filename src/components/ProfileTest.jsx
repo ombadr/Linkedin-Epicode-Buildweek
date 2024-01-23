@@ -10,7 +10,7 @@ const ProfileTest = () => {
 
   return (
     <>
-      <div className="border rounded bg-white mt-3">
+      <div className="border rounded bg-white mt-3 rounded ">
         <div
           className="justify-content-start p-3 position-relative"
           style={{
