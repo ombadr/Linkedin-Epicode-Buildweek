@@ -19,6 +19,8 @@ import ModificaProfilo from "./components/ModificaProfilo";
 import SideBar from './components/SideBar';
 import ProfiliRandom from './components/ProfiliRanom';
 
+import Posts from './components/Posts';
+
 function App() {
   return (
     <BrowserRouter>
@@ -61,6 +63,8 @@ function App() {
                 <Footer />
               </Col>
             </Row>
+            <hr />
+            <Posts/>
           </Container>
         </div>
       </div>
