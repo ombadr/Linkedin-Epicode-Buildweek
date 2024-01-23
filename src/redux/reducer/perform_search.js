@@ -1,4 +1,4 @@
-import { PERFORM_SEARCH } from "../actions";
+import { PERFORM_SEARCH, RESET_SEARCH } from "../actions";
 
 const initialState = {
     searchPerformed: false
@@ -10,6 +10,11 @@ const performSearchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchPerformed: true
+            }
+        case RESET_SEARCH:
+            return {
+                ...state,
+                searchPerformed: false
             }
         default:
             return state

@@ -36,7 +36,11 @@ import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { recentSearchesAction, performSearchAction } from '../redux/actions';
+import {
+  recentSearchesAction,
+  performSearchAction,
+  resetSearchAction,
+} from '../redux/actions';
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
@@ -53,7 +57,7 @@ const MyNavbar = () => {
     e.preventDefault();
     const searchValue = e.target.searchValue.value;
     dispatch(recentSearchesAction(searchValue));
-    dispatch(performSearchAction(searchValue));
+    dispatch(performSearchAction());
     e.target.searchValue.value = '';
   };
 
@@ -83,39 +87,42 @@ const MyNavbar = () => {
           <Nav className='mr-auto align-items-center'>
             <Link
               to='/'
-              className='text-decoration-none text-secondary text-center'
+              className='text-decoration-none text-secondary text-center p-2'
             >
               <AiOutlineHome className='fs-2' />
-              <p className='m-0'>Home</p>
+              <p className='m-0 p-0'>Home</p>
             </Link>
-            <Nav.Link href='#network' className='text-center'>
+            <Nav.Link href='#network' className='text-center text-secondary'>
               <AiOutlineTeam className='fs-2' />
-              <p className='m-0'>My Network</p>
+              <p className='m-0 p-0'>My Network</p>
             </Nav.Link>
             <Link
               to='/jobs'
-              className='text-decoration-none text-secondary text-center'
-              onClick={() => dispatch(performSearchAction())}
+              className='text-decoration-none text-secondary text-center p-2'
+              onClick={() => dispatch(resetSearchAction())}
             >
               <BsBriefcase className='fs-2' />
-              <p className='m-0'>Jobs</p>
+              <p className='m-0 p-0'>Jobs</p>
             </Link>
-            <Nav.Link href='#messaging' className='text-center'>
+            <Nav.Link href='#messaging' className='text-center text-secondary'>
               <AiOutlineMessage className='fs-2' />
-              <p className='m-0'>Messaging</p>
+              <p className='m-0 p-0'>Messaging</p>
             </Nav.Link>
-            <Nav.Link href='#notifications' className='text-center'>
+            <Nav.Link
+              href='#notifications'
+              className='text-center text-secondary'
+            >
               <AiOutlineBell className='fs-2' />
-              <p className='m-0'>Notifications</p>
+              <p className='m-0 p-0'>Notifications</p>
             </Nav.Link>
-            <Nav.Link className='text-center p-0 m-0'>
+            <Nav.Link className='text-center p-0 m-0 text-secondary'>
               <IoMdPerson className='fs-2 me-3' />
               <NavDropdown
                 title='Me'
                 id='basic-nav-dropdown'
                 className='p-0 me-3 '
               >
-                <div>
+                <div className='px-3'>
                   <div className='d-flex mb-3'>
                     <img
                       src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'

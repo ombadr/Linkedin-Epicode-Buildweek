@@ -16,7 +16,9 @@ const JobsPage = () => {
     <Container>
       {isSearchPerformed ? (
         <Row>
-          <JobsSearchResult />
+          <Col md={12}>
+            <JobsSearchResult />
+          </Col>
         </Row>
       ) : (
         <Row>

@@ -6,6 +6,7 @@ export const FETCH_PROFILES_FAILURE = 'FETCH_PROFILES_FAILURE';
 export const GET_JOBS_BY_CATEGORY = 'GET_JOBS_BY_CATEGORY';
 export const RECENT_SEARCHES = 'RECENT_SEARCHES';
 export const PERFORM_SEARCH = 'PERFORM_SEARCH';
+export const RESET_SEARCH = 'RESET_SEARCH';
 
 // Corrected syntax for named export
 export const fetchProfiles = (token) => {
@@ -63,10 +64,14 @@ export const recentSearchesAction = (search) => {
   }
 }
 
-export const performSearchAction = (search) => {
+export const performSearchAction = () => {
   return {
-    type: PERFORM_SEARCH,
-    payload: search
+    type: PERFORM_SEARCH
   }
 }
 
+export const resetSearchAction = () => {
+  return {
+    type: RESET_SEARCH
+  }
+}
