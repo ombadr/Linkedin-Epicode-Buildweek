@@ -5,35 +5,25 @@ import {
   faCamera,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
-import ModificaProfilo from './ModificaProfilo';
-import Analisi from './Analisi';
-import Risorse from './Risorse';
-import Attivita from './Attivita';
-import Formazione from './Formazione';
-import Interessi from './Interessi';
-import SideBar from './SideBar';
 import Fetchprofilo from './Fetchprofilo';
+import { GoPencil } from 'react-icons/go';
 import { PiStudent } from 'react-icons/pi';
 import { FaCamera } from 'react-icons/fa';
-import './Profile.css';
 const mioid = '65ae3141600be100183a868b';
 
-function Profile() {
+function ProfileCopy() {
   const profilo = Fetchprofilo().profile;
   console.log(profilo);
 
   return (
     <div>
       {profilo && (
-
-        <Container className='immaginebg p-3 border rounded bg-white mt-5 '>
-        <Container className='immaginebg p-3 border  rounded bg-white'>
-
-
+        <Container className='immaginebg p-3 border  rounded'>
           <Row>
             <Col>
               <img
                 className=' margincustom  mb-4 rounded-circle'
+                style={{position:'absolute'}}
                 width={140}
                 src={profilo.image}
                 alt=''
@@ -88,10 +78,8 @@ function Profile() {
             </Col>
           </Row>
         </Container>
-        </Container>
       )}
     </div>
   );
 }
-
-export default Profile;
+export default ProfileCopy;
