@@ -13,11 +13,9 @@ import fetchPostsReducers from '../reducers/FetchPostsReducer';
 const rootReducer = combineReducers({
     FetchProfiles: fetchProfilesReducers,
     profilo: profiloReducer,
-
     jobs: jobsReducer,
     search: searchesReducer,
-    performSearch: performSearchReducer
-
+    performSearch: performSearchReducer,
     FetchPosts: fetchPostsReducers
 
 });
