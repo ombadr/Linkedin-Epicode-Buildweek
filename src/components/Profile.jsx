@@ -19,6 +19,7 @@ function Profile() {
   return (
     <div>
       {profilo && (
+        <Container className='immaginebg p-3 border rounded bg-white mt-5 '>
         <Container className='immaginebg p-3 border  rounded bg-white'>
           <Row>
             <Col>
