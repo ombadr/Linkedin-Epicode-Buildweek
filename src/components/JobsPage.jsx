@@ -1,13 +1,15 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import RecentJobSearches from './RecentJobSearches';
+import JobsNav from './JobsNav';
+import JobsWork from './JobsWork';
 import JobsCard from './JobsCard';
 const JobsPage = () => {
   return (
     <Container>
-      <Row c>
-        <Col md={2} className='mt-3'>
-          <h2>Hello</h2>
+      <Row>
+        <Col md={2}>
+          <JobsNav />
         </Col>
         <Col md={6} className='mt-3 mx-3'>
           <RecentJobSearches />
@@ -19,8 +21,8 @@ const JobsPage = () => {
           <JobsCard title='Hiring in your network' category='writing' />
           <JobsCard title='Recommended for you' category='product' />
         </Col>
-        <Col md={4} className='mt-3'>
-          <h2>Hello</h2>
+        <Col md={3}>
+          <JobsWork />
         </Col>
       </Row>
     </Container>
