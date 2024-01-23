@@ -1,4 +1,4 @@
-
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -20,8 +20,6 @@ import SideBar from './components/SideBar';
 import ProfiliRandom from './components/ProfiliRanom';
 import JobsPage from './components/JobsPage';
 import ProfilePage from './components/ProfilePage';
-import JobsNav from "./components/JobsNav"
-import JobsWork from "./components/JobsWork"
 
 function App() {
   return (
@@ -39,7 +37,7 @@ function App() {
         <div style={{ backgroundColor: '#f4f2ee' }}>
           <Routes>
             <Route path="/:id" element={<ProfilePage />} />
-            <Route path="/jobs" element={<JobsPage/>} />
+            <Route path="/jobs" element={<JobsPage />} />
           </Routes>
 
           <Container >
@@ -53,7 +51,6 @@ function App() {
       </div>
 
     </BrowserRouter>
-
 
 
   );
