@@ -23,6 +23,10 @@ import ProfilePage from './components/ProfilePage';
 import { useSelector } from 'react-redux';
 
 
+import Posts from './components/Posts';
+
+import Posts from './components/Posts';
+
 function App() {
 
   const isSearchPerformed = useSelector(
@@ -54,6 +58,8 @@ function App() {
                 <Footer />
               </Col>
             </Row>
+            <hr />
+            <Posts/>
           </Container>
         </div>
       </div>
