@@ -1,18 +1,21 @@
 import { FiPlus } from "react-icons/fi";
 import { LuPencil } from "react-icons/lu";
 
-import { Row } from "react-bootstrap";
+import { Row} from "react-bootstrap";
 
 import { useEffect, useState } from "react";
 
 import { Modal, Button } from "react-bootstrap";
 import ExperienceForm from "./ExperienceForm";
 import { RxCross1 } from "react-icons/rx";
+import ExperienceFormModifica from "./ExperienceFormModifica";
 
 const Experiences = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen1, setIsModalOpen1] = useState(false);
   const [data, setData] = useState([]);
   const [modify, setModify] = useState(false);
+  const [elemento, setElemento] = useState(null)
 
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -20,6 +23,14 @@ const Experiences = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleShowModal1 = () => {
+    setIsModalOpen1(true);
+  };
+
+  const handleCloseModal1 = () => {
+    setIsModalOpen1(false);
   };
 
   let id = "6574399afe031e0019ba1da9";
@@ -78,7 +89,6 @@ const Experiences = () => {
           },
         }
       );
-  
       if (response.ok) {
         console.log("Experience deleted successfully");
       } else {
@@ -145,6 +155,7 @@ const Experiences = () => {
                  <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
+                onClick={()=> (setElemento(experience), handleShowModal1())}
               >
                 <LuPencil className="text-secondary " size={24} />
                 
@@ -167,7 +178,7 @@ const Experiences = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <ExperienceForm id={id} getExperiences={getExperiences}/>
+            <ExperienceForm id={id} getExperiences={getExperiences}/>            
           </Modal.Body>
 
           <Modal.Footer>
@@ -175,6 +186,28 @@ const Experiences = () => {
               variant="secondary"
               onClick={() => {
                 handleCloseModal();
+              }}
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+
+        <Modal show={isModalOpen1} onHide={handleCloseModal1}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modifica Esperienze</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+          <ExperienceFormModifica id={id} experience={elemento} chiudi={handleCloseModal1}/>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                handleCloseModal1();
               }}
             >
               Close
