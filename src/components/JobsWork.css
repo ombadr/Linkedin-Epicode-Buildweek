@@ -1,0 +1,63 @@
+.About {
+  text-align: center;
+}
+
+.About a {
+  color: gray;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 13px;
+}
+
+.Work h6 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Work p {
+  margin: 0;
+}
+
+.Work a {
+  color: grey;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.WorkPhoto {
+  display: flex;
+  align-items: center;
+  background-color: #edf3f7;
+  padding: 5px;
+  width: 100%;
+  height: 5vw;
+}
+.WorkPhoto img {
+  width: 80px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.WorkPhoto h6 {
+  font-size: 14px;
+}
+
+#esempio {
+  border-radius: 15%;
+  margin-right: 0px;
+  margin-left: 70px;
+}
+
+.Registrato{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+
+.Registrato address{
+    font-size: 12px;
+    margin: 5px;
+    
+}
