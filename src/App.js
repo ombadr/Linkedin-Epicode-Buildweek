@@ -23,19 +23,19 @@ function App() {
           </Container>
         </Container>
         <div style={{ backgroundColor: '#f4f2ee' }}>
-
+          
           <Container >
             <Row>
-              
+
                 <Routes>
                   <Route path="/:id" element={
                       <Mainprofile/>
                   }>
                   </Route>
-                </Routes>
-                
+                </Routes>                
 
-              
+
+
             </Row>
             <Row className='mt-5'>
               <Col col={12}>
