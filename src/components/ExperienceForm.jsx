@@ -1,7 +1,7 @@
-import { Row, Col, Form, Container, Button } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const ExperienceForm = () => {
+const ExperienceForm = (props) => {
   const [experience, setExperience] = useState({
     role: "",
     company: "",
@@ -11,7 +11,6 @@ const ExperienceForm = () => {
     area: "",
   });
 
-  
 
   const handleInputChange = (proprieta, valore) => {
     setExperience({
@@ -56,6 +55,7 @@ const ExperienceForm = () => {
     }
     {console.log(experience)}
 
+    props.getExperiences()
   };
 
   

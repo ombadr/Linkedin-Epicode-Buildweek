@@ -87,6 +87,8 @@ const Experiences = () => {
     } catch (error) {
       console.error("Error in deleteExperience:", error.message);
     }
+
+    getExperiences()
   };
 
   return (
@@ -165,7 +167,7 @@ const Experiences = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <ExperienceForm id={id}/>
+            <ExperienceForm id={id} getExperiences={getExperiences}/>
           </Modal.Body>
 
           <Modal.Footer>
