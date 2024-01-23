@@ -3,7 +3,7 @@ import { LuPencil } from 'react-icons/lu';
 
 import { Row } from 'react-bootstrap';
 
-const Formazione = () => {
+const Formazione = (isMe) => {
   return (
     <>
 
@@ -13,14 +13,14 @@ const Formazione = () => {
             <h2 className="m-0">Formazione</h2>
 
 
-            <div className='d-flex'>
+            {isMe===true &&<div className='d-flex'>
               <div className='me-5 d-flex align-items-center'>
                 <FiPlus size={24} />
               </div>
               <div className='d-flex align-items-center'>
                 <LuPencil className='text-secondary ' size={24} />
               </div>
-            </div>
+            </div>}
           </div>
         </Row>
         <div className='d-flex p-3 mx-3'>

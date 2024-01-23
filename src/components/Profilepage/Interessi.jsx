@@ -5,7 +5,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { FaCheck } from 'react-icons/fa';
 
-function Interessi() {
+function Interessi(isMe) {
   return (
 
     <div className="border rounded my-2 bg-white">
@@ -14,14 +14,14 @@ function Interessi() {
           <h2 className="m-0">Interessi</h2>
 
 
-          <div className='d-flex'>
+          {isMe===true &&<div className='d-flex'>
             <div className='me-5 d-flex align-items-center'>
               <FiPlus size={24} />
             </div>
             <div className='d-flex align-items-center'>
               <LuPencil className='text-secondary ' size={24} />
             </div>
-          </div>
+          </div>}
         </div>
       </Row>
       <Tabs defaultActiveKey='profile' className='mb-3'>

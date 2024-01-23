@@ -1,27 +1,30 @@
-// actions.js
+export const MAIN_PROFILE = "MAIN_PROFILE"
 
-export const FETCH_PROFILES_REQUEST = 'FETCH_PROFILES_REQUEST';
-export const FETCH_PROFILES_SUCCESS = 'FETCH_PROFILES_SUCCESS';
-export const FETCH_PROFILES_FAILURE = 'FETCH_PROFILES_FAILURE';
 
-// Corrected syntax for named export
-export const fetchProfiles = (token) => {
-  return async (dispatch) => {
-    try {
-      const response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      const data = await response.json();
-      dispatch({ type: FETCH_PROFILES_SUCCESS, payload: data });
-    } catch (error) {
-      dispatch({ type: FETCH_PROFILES_FAILURE, payload: error.message });
+export const mainProfileAction = () => {
+    return async dispatch => {
+        fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+            method: "GET",
+            headers: { 
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE" 
+            }
+        })
+            .then(res => {
+                if (res.ok) {
+                    
+                    return res.json()
+                } else {
+                    throw new Error("Errore fetch profilo personale")
+                }
+            })
+            .then(profilo => {
+                dispatch({
+                    type: MAIN_PROFILE,
+                    payload: profilo,
+                })
+            })
+            .catch(err => {
+                console.log("Errore" + err)
+            })
     }
-  };
-};
+}

@@ -1,4 +1,4 @@
-import { MAIN_PROFILE } from "../action";
+import { MAIN_PROFILE } from "../actions";
 
 const initialState={
     profilo:[],

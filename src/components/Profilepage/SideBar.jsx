@@ -5,12 +5,12 @@ import { LuPencil } from "react-icons/lu";
 
 
 import { FaLinkedin } from "react-icons/fa";
-import ProfiliRandom from "./ProfiliRanom";
+import ProfiliRandom from "./ProfiliRandom";
 
-const SideBar = () => {
+const SideBar = (isMe) => {
   return (
     <>
-      <div className="border rounded my-2 bg-white">
+      {isMe===true && <div className="border rounded my-2 bg-white">
         <div className="border-bottom">
         <div className="justify-content-between p-3">
           <div className="d-flex justify-content-between ">
@@ -42,18 +42,12 @@ const SideBar = () => {
         <div className="d-flex mx-3">
         <p className="text-secondary">##LINK DINAMICO</p>
         </div>
-      </div>
+      </div>}
 
-
-      {/*////////////////////////////////////*/}
 
       <ProfiliRandom />
 
-
-      { /*//////////////////////////////////////*/}
-
-
-      <div className="border rounded my-2 bg-white">
+          <div className="border rounded my-2 bg-white">
         <Row className="justify-content-between p-3 ">
           <div className="d-flex justify-content-between ">
             <h2 className="m-0 text-secondary"><FaLinkedin className="text-primary" />L E A R N I N G</h2>
@@ -64,7 +58,7 @@ const SideBar = () => {
 
         <div className="d-flex p-3 mx-3 border-bottom">
             <div>
-                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" width={64}/>
+                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" alt="" width={64}/>
             </div>
             <div>
             <h4 className="m-0 ">Team build! Amici o Nemici?</h4>
@@ -73,7 +67,7 @@ const SideBar = () => {
         </div>
         <div className="d-flex p-3 mx-3 border-bottom">
             <div>
-                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" width={64}/>
+                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" alt="" width={64}/>
             </div>
             <div>
             <h4 className="m-0 ">Come scaricare il CSS ad un tuo team-Member!</h4>
@@ -82,7 +76,7 @@ const SideBar = () => {
         </div>
         <div className="d-flex p-3 mx-3">
             <div>
-                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" width={64}/>
+                <img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png" alt="" width={64}/>
             </div>
             <div>
             <h4 className="m-0 ">Come fissare gli un div</h4>

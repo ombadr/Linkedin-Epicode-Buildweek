@@ -1,33 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProfiles } from "../redux/actions";
 import { Modal, Button,Tabs, Tab, Col } from "react-bootstrap";
 import { PersonAdd } from "react-bootstrap-icons";
 import { FaArrowRight } from "react-icons/fa";
+import { FetchProfiles } from "../Fetchprofilo";
+
 
 
 const ProfiliRandom = () => {
-  const dispatch = useDispatch();
-  const { profile, loading, error } = useSelector(
-    (state) => state.FetchProfiles
-  );
+  
+  const [profile,setprofile]=useState([])
+  const [isLoading,setisLoading]=useState(true)
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNDk1MTYwMGJlMTAwMTgzYTg2YTUiLCJpYXQiOjE3MDU5MjA4NDksImV4cCI6MTcwNzEzMDQ0OX0.lWpP-DosTePIjyhJO-aug1d5RJPA-hzq5ehW8RJ5Kt4";
-    dispatch(fetchProfiles(token));
-  }, [dispatch]);
 
-  if (loading) {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const profilesData=await FetchProfiles()
+        setprofile(profilesData)
+        setisLoading(false);
+      } catch (error) {
+        console.log("Errore nella fetch: " + error);
+        setisLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (isLoading) {
     return <p>Loading</p>;
   }
 
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   const renderRandomProfiles = (profilesNumber) => {
+    
     const profiles = [];
     if (profile && profile.length >= profilesNumber) {
       const availableIndices = Array.from(
@@ -52,7 +59,7 @@ const ProfiliRandom = () => {
               <div className="d-flex mx-3 mb-3">
                 <div>
                   <img
-                    src={randomProfile.image}
+                    srcSet={randomProfile.image}
                     width={64}
                     height={64}
                     className="rounded-circle"
@@ -78,7 +85,7 @@ const ProfiliRandom = () => {
         }
       }
     }
-    return profiles;
+    return profiles
   };
 
   const handleShowModal = () => {

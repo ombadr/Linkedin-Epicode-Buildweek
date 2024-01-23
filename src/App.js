@@ -1,23 +1,13 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Profile from './components/Profile';
-import Fetchprofilo from './components/Fetchprofilo';
-
 import { Container, Row, Col } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import Footer from './components/Footer';
-import ProfileRightBar from './components/ProfileRightBar';
+import SideBar from './components/Profilepage/SideBar';
+import ProfiliRandom from './components/Profilepage/ProfiliRandom';
+import Mainprofile from './components/Profilepage/Mainprofile';
 
-import Analisi from './components/Analisi';
-import Risorse from "./components/Risorse";
-import Attivita from "./components/Attivita";
-import Formazione from "./components/Formazione";
-import Interessi from "./components/Interessi";
-import ModificaProfilo from "./components/ModificaProfilo";
-import SideBar from './components/SideBar';
-import ProfiliRandom from './components/ProfiliRanom';
 
 function App() {
   return (
@@ -36,25 +26,16 @@ function App() {
 
           <Container >
             <Row>
-              <Col md={9}>
+              
                 <Routes>
                   <Route path="/:id" element={
-                    <Profile />
+                      <Mainprofile/>
                   }>
                   </Route>
                 </Routes>
-                <ModificaProfilo />
-                <Analisi />
-                <Risorse />
-                <Attivita />
-                <Formazione />
-                <Interessi />
+                
 
-              </Col>
               
-              <Col md={3}>
-              <SideBar/>
-              </Col>
             </Row>
             <Row className='mt-5'>
               <Col col={12}>

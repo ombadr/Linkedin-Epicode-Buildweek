@@ -50,7 +50,7 @@ const Risorse = () => {
             </span>
           </Button>
         </div>
-        <div className='d-flex flex-row px-3'>
+        {/* <div className='d-flex flex-row px-3'>
           <div className='pe-2'>
             <IoMdPeople size={20} />
           </div>
@@ -58,17 +58,17 @@ const Risorse = () => {
             <h3>La mia rete</h3>
             <p>Salva e gestisci i tuoi collegamenti e interessi.</p>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <div className='text-center border-top text-secondary'>
+      {/* <div className='text-center border-top text-secondary'>
         <p>
           Mostra tutte le analisi{' '}
           <span>
             <FaArrowRight />
           </span>
         </p>
-      </div>
+      </div> */}
     </>
   );
 };
