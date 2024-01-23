@@ -17,7 +17,7 @@ import Formazione from "./components/Formazione";
 import Interessi from "./components/Interessi";
 import ModificaProfilo from "./components/ModificaProfilo";
 import SideBar from './components/SideBar';
-import ProfiliRandom from './components/ProfiliRanom';
+import ProfileTest from './components/ProfileTest';
 
 function App() {
   return (
@@ -39,10 +39,12 @@ function App() {
               <Col md={9}>
                 <Routes>
                   <Route path="/:id" element={
-                    <Profile />
+                    <Profile/>
+                    
                   }>
                   </Route>
                 </Routes>
+                <ProfileTest/>
                 <ModificaProfilo />
                 <Analisi />
                 <Risorse />
