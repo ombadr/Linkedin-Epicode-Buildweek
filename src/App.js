@@ -20,12 +20,19 @@ import SideBar from './components/SideBar';
 import ProfiliRandom from './components/ProfiliRanom';
 import JobsPage from './components/JobsPage';
 import ProfilePage from './components/ProfilePage';
+import { useSelector } from 'react-redux';
+
 
 import Posts from './components/Posts';
 
 import Posts from './components/Posts';
 
 function App() {
+
+  const isSearchPerformed = useSelector(
+    (state) => state.performSearch.searchPerformed
+  );
+
   return (
     <BrowserRouter>
       <div>
@@ -47,6 +54,7 @@ function App() {
           <Container >
             <Row className='mt-5'>
               <Col col={12}>
+
                 <Footer />
               </Col>
             </Row>
