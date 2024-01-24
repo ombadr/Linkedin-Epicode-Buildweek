@@ -15,6 +15,8 @@ export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 
 export const MAIN_PROFILE = "MAIN_PROFILE";
 
+export const GET_JOBS_FROM_SEARCH = "GET_JOBS_FROM_SEARCH";
+
 export const mainProfileAction = () => {
   return async dispatch => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
@@ -131,5 +133,26 @@ export const performSearchAction = () => {
 export const resetSearchAction = () => {
   return {
     type: RESET_SEARCH
+  }
+}
+
+
+export const getJobsFromSearchAction = (searchTerm) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchTerm}`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
+        }
+      })
+      if (!response.ok) {
+        throw new Error('Cannot get jobs from search', response.status)
+      }
+      const data = await response.json()
+      dispatch({ type: GET_JOBS_FROM_SEARCH, payload: data })
+    } catch (err) {
+      console.log('Error: ', err)
+    }
   }
 }
