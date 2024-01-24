@@ -15,7 +15,7 @@ const Posts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/personal", {
+        const response = await fetch("https://striveschool-api.herokuapp.com/api/posts", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const Posts = () => {
     setSelectedOption(event.target.value);
   };
 
-
+  
   return (
     <div>
       <h1>POSTS:</h1>
