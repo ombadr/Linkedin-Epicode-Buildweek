@@ -10,6 +10,7 @@ import SideBar from "./SideBar"
 import { Col } from "react-bootstrap"
 import { useEffect } from "react"
 import { useState } from "react"
+import Experiences from "./Experiences"
 
 
 
@@ -17,15 +18,15 @@ import { useState } from "react"
 
 function  Mainprofile(){
     const profilopersonale = Fetchprofilo()
-    
-
     const [isLoading,setisLoading]=useState(true)
     const [profilo,setprofilo]=useState(null)
     const params=useParams().id
+    const [redofetch,setredofetch]=useState(false)
   
 
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const profileData=await FetchProfiles(params)
@@ -38,7 +39,13 @@ function  Mainprofile(){
     };
 
     fetchData();
-  }, [params]);
+    setredofetch(false)
+  }, [params,redofetch]);
+
+
+  const handleRedo=()=>{
+    setredofetch(true)
+  }
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -54,10 +61,11 @@ function  Mainprofile(){
              
                  <>
                      <Col md={9}>
-                         <Profile isMe={true} profilo={profilo}/>
+                         <Profile isMe={true} profilo={profilo} handleRedo={handleRedo}/>
                          <Analisi />
                          <Risorse />
                          <Attivita isMe={true} profilo={profilo}/>
+                        <Experiences/>
                          <Formazione isMe={true}/>
                          <Interessi isMe={true} />
                      </Col>
@@ -68,8 +76,9 @@ function  Mainprofile(){
              ):(
                 <>
                 <Col md={9}>
-                <Profile isMe={false} profilo={profilo}/>
+                <Profile isMe={false} profilo={profilo} handleRedo={handleRedo}/>
                 <Attivita isMe={false} profilo={profilo}/>
+                <Experiences/>
                 <Formazione isMe={false}/>
                 <Interessi isMe={false}/>
                 </Col>
