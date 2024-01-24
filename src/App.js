@@ -10,7 +10,7 @@ import Footer from './components/Layout/Footer';
 import JobsPage from './components/Jobspage/JobsPage';
 import ProfilePage from './components/ProfilePage';
 
-import Posts from './components/Posts';
+import Posts from './components/Posts/Posts';
 
 import SideBar from './components/Profilepage/SideBar';
 import ProfiliRandom from './components/Profilepage/ProfiliRandom';
