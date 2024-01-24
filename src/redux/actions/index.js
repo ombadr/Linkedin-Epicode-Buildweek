@@ -1,6 +1,7 @@
 
 export const GET_JOBS_BY_CATEGORY = 'GET_JOBS_BY_CATEGORY';
 export const RECENT_SEARCHES = 'RECENT_SEARCHES';
+export const RESET_RECENT_SEARCHES = 'RESET_RECENT_SEARCHES';
 export const PERFORM_SEARCH = 'PERFORM_SEARCH';
 export const RESET_SEARCH = 'RESET_SEARCH';
 export const MAIN_PROFILE = "MAIN_PROFILE";
@@ -70,6 +71,12 @@ export const recentSearchesAction = (search) => {
       search: search,
       jobs: randomJobsNumber
     }
+  }
+}
+
+export const resetRecentSearchesAction = () => {
+  return {
+    type: RESET_RECENT_SEARCHES
   }
 }
 
