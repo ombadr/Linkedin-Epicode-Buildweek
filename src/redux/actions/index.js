@@ -16,6 +16,7 @@ export const mainProfileAction = () => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
       method: "GET",
       headers: {
+        "Access-Control-Allow-Origin": '*',
         Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
       }
     })
