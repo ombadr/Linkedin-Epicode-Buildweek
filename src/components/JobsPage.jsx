@@ -12,35 +12,32 @@ const JobsPage = () => {
     (state) => state.performSearch.searchPerformed
   );
 
-  console.log('hello', isSearchPerformed);
   return (
     <Container>
-      {isSearchPerformed ? (
-        <Row>
-          <Col md={12}>
+      <Row>
+        <Col md={2}>
+          <JobsNav />
+        </Col>
+        <Col md={6} className='mt-3 mx-3'>
+          {isSearchPerformed ? (
             <JobsSearchResult />
-          </Col>
-        </Row>
-      ) : (
-        <Row>
-          <Col md={2}>
-            <JobsNav />
-          </Col>
-          <Col md={6} className='mt-3 mx-3'>
-            <RecentJobSearches />
-            <JobsCard
-              title='Recommended for you'
-              category='software development'
-            />
-            <JobsCard title='Still Hiring' category='marketing' />
-            <JobsCard title='Hiring in your network' category='writing' />
-            <JobsCard title='Recommended for you' category='product' />
-          </Col>
-          <Col md={3}>
-            <JobsWork />
-          </Col>
-        </Row>
-      )}
+          ) : (
+            <>
+              <RecentJobSearches />
+              <JobsCard
+                title='Recommended for you'
+                category='software development'
+              />
+              <JobsCard title='Still Hiring' category='marketing' />
+              <JobsCard title='Hiring in your network' category='writing' />
+              <JobsCard title='Recommended for you' category='product' />
+            </>
+          )}
+        </Col>
+        <Col md={3}>
+          <JobsWork />
+        </Col>
+      </Row>
     </Container>
   );
 };
