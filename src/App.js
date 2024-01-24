@@ -8,12 +8,7 @@ import MyNavbar from './components/MyNavbar';
 import Footer from './components/Footer';
 
 import JobsPage from './components/JobsPage';
-import ProfilePage from './components/ProfilePage';
-
 import Posts from './components/Posts';
-
-import SideBar from './components/Profilepage/SideBar';
-import ProfiliRandom from './components/Profilepage/ProfiliRandom';
 import Mainprofile from './components/Profilepage/Mainprofile';
 
 function App() {
@@ -30,19 +25,15 @@ function App() {
           </Container>
         </Container>
         <div style={{ backgroundColor: '#f4f2ee' }}>
-
           <Container >
             <Row>
-              
                 <Routes>
                   <Route path="/:id" element={
                       <Mainprofile/>
                   }>
                   </Route>
+                  <Route path="/jobs" element={<JobsPage />} />
                 </Routes>
-                
-
-              
             </Row>
             <Row className='mt-5'>
               <Col col={12}>
