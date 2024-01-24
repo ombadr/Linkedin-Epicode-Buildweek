@@ -66,21 +66,6 @@ const JobsCard = ({ title, category }) => {
                 <p>{job.status}</p>
               </div>
             </div>
-            <Button
-              variant='outline-secondary'
-              className='border-0 rounded-circle d-flex justify-content-center align-items-center ms-2'
-              style={{
-                width: '50px',
-                height: '50px',
-                fontSize: '30px',
-                lineHeight: '1',
-                display: 'inline-flex',
-                justifyContent: 'center',
-                alignItems: 'start',
-              }}
-            >
-              ✕
-            </Button>
           </ListGroup.Item>
         ))}
       </>
