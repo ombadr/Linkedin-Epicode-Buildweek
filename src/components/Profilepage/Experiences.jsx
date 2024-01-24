@@ -1,17 +1,22 @@
 import { FiPlus } from "react-icons/fi";
 import { LuPencil } from "react-icons/lu";
-
 import { Row} from "react-bootstrap";
-
 import { useEffect, useState } from "react";
-
 import { Modal, Button } from "react-bootstrap";
 import ExperienceForm from "./ExperienceForm";
 import { RxCross1 } from "react-icons/rx";
 import ExperienceFormModifica from "./ExperienceFormModifica";
+import { useParams } from "react-router-dom";
+import { Fetchprofilo } from "../Fetchprofilo";
+
+
+
 
 const Experiences = () => {
+  const profilopersonale = Fetchprofilo().profile
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const params=useParams().id
+  
   const [isModalOpen1, setIsModalOpen1] = useState(false);
   const [data, setData] = useState([]);
   const [modify, setModify] = useState(false);
@@ -33,24 +38,25 @@ const Experiences = () => {
     setIsModalOpen1(false);
   };
 
-  let id = "6574399afe031e0019ba1da9";
+  
 
   const getExperiences = async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
+        `https://striveschool-api.herokuapp.com/api/profile/${params}/experiences`,
         {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0Mzk5YWZlMDMxZTAwMTliYTFkYTkiLCJpYXQiOjE3MDYwMDEyNzgsImV4cCI6MTcwNzIxMDg3OH0.YrtPpqEJRO5hxwFLZvfS8JL7SDepjzPf-LbDUAOTJok",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE",
           },
         }
       );
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data)
         setData(data);
       } else {
         throw new Error("Error nel recupero Experiences");
@@ -79,13 +85,13 @@ const Experiences = () => {
   const deleteExperience = async (idExperience) => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${idExperience}`,
+        `https://striveschool-api.herokuapp.com/api/profile/${params}/experiences/${idExperience}`,
         {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0Mzk5YWZlMDMxZTAwMTliYTFkYTkiLCJpYXQiOjE3MDYwMDEyNzgsImV4cCI6MTcwNzIxMDg3OH0.YrtPpqEJRO5hxwFLZvfS8JL7SDepjzPf-LbDUAOTJok",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE",
           },
         }
       );
@@ -108,7 +114,7 @@ const Experiences = () => {
           <div className="d-flex justify-content-between ">
             <h2 className="m-0">Esperienza</h2>
 
-            <div className="d-flex">
+            {profilopersonale._id===params && <div className="d-flex">
               <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
@@ -126,12 +132,13 @@ const Experiences = () => {
               >
                 <LuPencil className="text-secondary " size={24} />
               </Button>
-            </div>
+            </div>}
           </div>
         </Row>
 
         {data.map((experience, index) => (
-          <div key={index} className="d-flex p-3 mx-3">
+          <div key={index} className="d-flex justify-content-between  p-3 mx-3">
+            <div className="d-flex">
             <div>
               <img
                 src={
@@ -150,9 +157,12 @@ const Experiences = () => {
                 {getDate(experience.startDate)} - {getDate(experience.endDate)}
               </p>
             </div>
+            </div>
+           
+            <div className="d-flex align-items-center">
             {modify && (
                 <>
-                 <Button
+                <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
                 onClick={()=> (setElemento(experience), handleShowModal1())}
@@ -160,6 +170,7 @@ const Experiences = () => {
                 <LuPencil className="text-secondary " size={24} />
                 
               </Button>
+                
                 <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
@@ -169,6 +180,7 @@ const Experiences = () => {
               </Button>
                 </>
             )}
+            </div>
           </div>
         ))}
 
@@ -178,7 +190,7 @@ const Experiences = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <ExperienceForm id={id} getExperiences={getExperiences}/>            
+            <ExperienceForm id={params} getExperiences={getExperiences}/>            
           </Modal.Body>
 
           <Modal.Footer>
@@ -200,7 +212,7 @@ const Experiences = () => {
           </Modal.Header>
 
           <Modal.Body>
-          <ExperienceFormModifica id={id} experience={elemento} chiudi={handleCloseModal1}/>
+          <ExperienceFormModifica id={params} experience={elemento} getExperiences={getExperiences} chiudi={handleCloseModal1}/>
           </Modal.Body>
 
           <Modal.Footer>
