@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ChatDots } from "react-bootstrap-icons";
+import PostsComments from "./PostsComments"; // Assicurati di importare il componente PostsComments
 
 const PostsFriends = ({ posts }) => {
   const friendUserIds = [
@@ -10,15 +12,24 @@ const PostsFriends = ({ posts }) => {
   ];
 
   const [friendPosts, setFriendPosts] = useState([]);
+  const [selectedPostId, setSelectedPostId] = useState(null); // Nuovo stato per tracciare l'ID del post selezionato
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const filteredFriendPosts = posts.filter(post => friendUserIds.includes(post.user._id));
     setFriendPosts(filteredFriendPosts);
   }, [posts]);
 
-  console.log(friendPosts)
+  const handleChatIconClick = (postId) => {
+    setSelectedPostId(postId);
+    setShowModal(true);
+  };
 
-  return (
+  const handleClose = () => {
+    setShowModal(false);
+  };
+
+   return (
     <div>
       <h2>Posts degli Amici</h2>
       <div>
@@ -27,9 +38,21 @@ const PostsFriends = ({ posts }) => {
             <h4 className="fw-bold mb-4">{post.user.username}</h4>
             <p className="">{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+            <ChatDots
+              className="float-end"
+              width={20}
+              height={20}
+              onClick={() => handleChatIconClick(post._id)}
+              style={{ cursor: "pointer" }}
+            />
           </div>
         ))}
       </div>
+
+      {/* Visualizza PostsComments solo se un post è stato selezionato */}
+      {selectedPostId && (
+        <PostsComments postId={selectedPostId} showModal={showModal} handleClose={handleClose} />
+      )}
     </div>
   );
 };
