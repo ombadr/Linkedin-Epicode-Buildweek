@@ -3,7 +3,7 @@ import { Card, ListGroup, Button } from 'react-bootstrap';
 import { MdWork } from 'react-icons/md';
 import { TbTargetArrow } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
-import { getJobsByCategoryAction } from '../redux/actions';
+import { getJobsByCategoryAction } from '../../redux/actions';
 
 const JobsCard = ({ title, category }) => {
   const dispatch = useDispatch();

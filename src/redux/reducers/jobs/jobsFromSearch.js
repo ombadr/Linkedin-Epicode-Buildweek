@@ -1,4 +1,4 @@
-import { GET_JOBS_FROM_SEARCH } from "../actions";
+import { GET_JOBS_FROM_SEARCH } from "../../actions";
 
 const initialState = {
     results: []
