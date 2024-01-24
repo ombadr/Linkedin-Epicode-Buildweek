@@ -14,7 +14,7 @@ const ProfileRightBar = () => {
   useEffect(() => {
     const token =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlNDk1MTYwMGJlMTAwMTgzYTg2YTUiLCJpYXQiOjE3MDU5MjA4NDksImV4cCI6MTcwNzEzMDQ0OX0.lWpP-DosTePIjyhJO-aug1d5RJPA-hzq5ehW8RJ5Kt4';
-    dispatch(fetchProfiles(token));
+    dispatch(fetchProfiles());
   }, [dispatch]);
 
   if (loading) {

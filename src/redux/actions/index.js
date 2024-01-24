@@ -46,14 +46,14 @@ export const mainProfileAction = () => {
 
 
 // Corrected syntax for named export
-export const fetchProfiles = (token) => {
+export const fetchProfiles = () => {
   return async (dispatch) => {
     try {
       const response = await fetch('https://striveschool-api.herokuapp.com/api/profile/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`
         }
       });
       if (!response.ok) {
@@ -66,14 +66,14 @@ export const fetchProfiles = (token) => {
     }
   };
 };
-export const fetchPosts = (token) => {
+export const fetchPosts = () => {
   return async (dispatch) => {
     try {
       const response = await fetch('https://striveschool-api.herokuapp.com/api/posts/', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`
         }
       });
       if (!response.ok) {
