@@ -1,0 +1,40 @@
+#basic-nav-dropdown {
+  padding: 0 8px 0;
+}
+
+#basic-navbar-nav > div > a:nth-child(6) {
+  border-right: 1px solid #6c757d;
+}
+
+#try-premium {
+  color: #915907;
+  text-decoration: underline;
+}
+
+.custom-input-group:focus-within {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border: 1px solid #bababa;
+  border-radius: 10px;
+}
+.custom-input-group .form-control:focus {
+  box-shadow: none;
+}
+
+#basic-navbar-nav > div > a:nth-child(6) > div > div {
+  left: auto;
+  right: 0px;
+}
+
+#basic-navbar-nav > div > a:nth-child(7) > div > div {
+  display: none;
+}
+
+.sticky-navbar {
+  height: 70px;
+}
+
+.sticky-navbar .nav-link,
+.sticky-navbar .navbar-brand {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
