@@ -5,7 +5,7 @@ import JobsNav from './JobsNav';
 import JobsWork from './JobsWork';
 import JobsCard from './JobsCard';
 import JobsSearchResult from './JobsSearchResult';
-import MyNavbar from './MyNavbar';
+
 import { useSelector } from 'react-redux';
 const JobsPage = () => {
   const isSearchPerformed = useSelector(

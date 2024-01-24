@@ -1,6 +1,6 @@
-import { FETCH_POSTS_FAILURE } from "../actions";
-import { FETCH_POSTS_REQUEST } from "../actions";
-import { FETCH_POSTS_SUCCESS } from "../actions";
+import { FETCH_POSTS_FAILURE } from "../../actions";
+import { FETCH_POSTS_REQUEST } from "../../actions";
+import { FETCH_POSTS_SUCCESS } from "../../actions";
 
 const initialState = {
   posts: null,

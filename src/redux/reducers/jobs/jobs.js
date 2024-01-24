@@ -1,4 +1,4 @@
-import { GET_JOBS_BY_CATEGORY } from "../actions";
+import { GET_JOBS_BY_CATEGORY } from "../../actions";
 
 const initialState = {
     jobsByCategory: {}

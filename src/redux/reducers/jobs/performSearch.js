@@ -1,4 +1,4 @@
-import { PERFORM_SEARCH, RESET_SEARCH } from "../actions";
+import { PERFORM_SEARCH, RESET_SEARCH } from "../../actions";
 
 const initialState = {
     searchPerformed: false

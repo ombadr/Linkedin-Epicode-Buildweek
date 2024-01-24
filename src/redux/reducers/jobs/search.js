@@ -1,4 +1,4 @@
-import { RECENT_SEARCHES } from "../actions";
+import { RECENT_SEARCHES } from "../../actions";
 
 const initialState = {
     recentSearches: []

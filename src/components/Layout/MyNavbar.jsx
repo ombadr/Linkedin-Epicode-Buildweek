@@ -41,7 +41,7 @@ import {
   performSearchAction,
   resetSearchAction,
   getJobsFromSearchAction,
-} from '../redux/actions';
+} from '../../redux/actions';
 
 const MyNavbar = () => {
   const [show, setShow] = useState(false);
