@@ -4,6 +4,9 @@ import PostsFriends from './PostsFriends';
 import PostsPersonal from './PostsPersonal';
 import PostsAdd from './PostsAdd';
 
+const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWEzN2JkNWQxMjAwMTg5MGQ0NWMiLCJpYXQiOjE3MDYwMDcwOTUsImV4cCI6MTcwNzIxNjY5NX0.2qRmM_CYazxx8y1MJej_ce3QSwMxl5Z7A5TbBdWiY78';
+
 const Posts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,12 +17,12 @@ const Posts = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          'https://striveschool-api.herokuapp.com/api/posts/personal',
+          'https://striveschool-api.herokuapp.com/api/posts',
           {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+              Authorization: `Bearer ${token}`,
             },
           }
         );

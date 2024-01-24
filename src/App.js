@@ -31,8 +31,8 @@ function App() {
         </Container>
         <div style={{ backgroundColor: '#f4f2ee' }}>
           <Routes>
+            <Route path="/:id" element={<ProfilePage />} />
             <Route path="/jobs" element={<JobsPage />} />
-            <Route path="/:id" element={<Mainprofile />} />
           </Routes>
 
           <Container >
@@ -48,6 +48,8 @@ function App() {
       </div>
 
     </BrowserRouter>
+
+
 
 
   );
