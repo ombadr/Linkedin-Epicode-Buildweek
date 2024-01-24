@@ -13,7 +13,6 @@ const rootReducer = combineReducers({
     search: searchesReducer,
     performSearch: performSearchReducer,
     FetchPosts: fetchPostsReducers,
-
 });
 
 const store = configureStore({
