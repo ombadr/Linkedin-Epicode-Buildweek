@@ -16,7 +16,9 @@ const JobsPage = () => {
     <Container>
       <Row>
         <Col md={2}>
-          <JobsNav />
+          <div style={{ position: 'sticky', top: '90px', left: '90px' }}>
+            <JobsNav />
+          </div>
         </Col>
         <Col md={6} className='mt-3 mx-3'>
           {isSearchPerformed ? (
