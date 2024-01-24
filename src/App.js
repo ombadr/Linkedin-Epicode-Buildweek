@@ -23,7 +23,7 @@ function App() {
         <Container fluid className='bg-white sticky-navbar'>
           <Container className=" bg-white">
             <Row>
-              <Col md={12}>
+              <Col md={12} style={{ height: '50px' }}>
                 <MyNavbar />
               </Col>
             </Row>
