@@ -133,17 +133,13 @@ const JobsSearchResult = () => {
           <Modal.Title>{selectedJob?.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Render job details here */}
           <h2>Company: {selectedJob?.company_name}</h2>
           <Link to={selectedJob?.url} target='_blank' rel='noreferrer'>
             <Button variant='dark' className='my-4'>
               Visit Company Website
             </Button>
           </Link>
-
           <div dangerouslySetInnerHTML={{ __html: selectedJob?.description }} />
-
-          {/* Add more details as needed */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={closeModal}>
