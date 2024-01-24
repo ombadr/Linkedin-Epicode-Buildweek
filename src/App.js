@@ -8,9 +8,8 @@ import MyNavbar from './components/Layout/MyNavbar';
 import Footer from './components/Layout/Footer';
 
 import JobsPage from './components/Jobspage/JobsPage';
-import ProfilePage from './components/ProfilePage';
 
-import Posts from './components/Posts';
+import Posts from './components/Posts/Posts';
 import Mainprofile from './components/Profilepage/Mainprofile';
 
 function App() {
@@ -27,11 +26,6 @@ function App() {
           </Container>
         </Container>
         <div style={{ backgroundColor: '#f4f2ee' }}>
-          <Routes>
-            <Route path="/:id" element={<ProfilePage />} />
-            <Route path="/jobs" element={<JobsPage />} />
-          </Routes>
-
           <Container >
             <Row>
               <Routes>
