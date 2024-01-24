@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import { Container, Row, Col } from 'react-bootstrap';
-import MyNavbar from './components/MyNavbar';
-import Footer from './components/Footer';
+import MyNavbar from './components/Layout/MyNavbar';
+import Footer from './components/Layout/Footer';
 
-import JobsPage from './components/JobsPage';
+import JobsPage from './components/Jobspage/JobsPage';
 import ProfilePage from './components/ProfilePage';
 
 import Posts from './components/Posts';
@@ -23,7 +23,7 @@ function App() {
         <Container fluid className='bg-white sticky-navbar'>
           <Container className=" bg-white">
             <Row>
-              <Col md={12}>
+              <Col md={12} style={{ height: '50px' }}>
                 <MyNavbar />
               </Col>
             </Row>
