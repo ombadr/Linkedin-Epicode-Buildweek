@@ -54,9 +54,11 @@ const Posts = () => {
     <div>
       <h1>POSTS:</h1>
       <PostsAdd />
-      <form>
+      <form className="mt-3">
         <label>
+          <span className="">Seleziona la visualizzazione del feed: </span>
           <select
+            className="bg-transparent rounded-3"
             id='postsOption'
             name='postsOption'
             value={selectedOption}

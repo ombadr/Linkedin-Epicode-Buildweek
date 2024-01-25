@@ -1,0 +1,11 @@
+.btn-addPost:hover {
+    background-color: #d3d3d3;
+}
+
+.btn-post:hover {
+    background-color: #dddddd;
+}
+
+.btn-post {
+    color: grey;
+}
