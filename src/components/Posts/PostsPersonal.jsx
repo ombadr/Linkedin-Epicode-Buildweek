@@ -181,7 +181,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
                   </button>
                   <button className='mt-2 fs-5 btn btn-post'>
                     <RiRepeatLine size={30} className='me-2' />
-                    Diffondi il post
+                    Diffondi
                   </button>
                   <button className='mt-2 fs-5 btn btn-post'>
                     <IoIosSend size={30} className='me-2' />
