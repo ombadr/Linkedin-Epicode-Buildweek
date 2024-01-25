@@ -145,7 +145,9 @@ const PostsComments = ({ postId, handleClose }) => {
         setComments((prevComments) =>
           prevComments.map((comment) =>
             comment._id === editedComment._id ? editedComment : comment
+            
           )
+      
         );
 
         // Esci dalla modalità di modifica
@@ -204,7 +206,7 @@ const PostsComments = ({ postId, handleClose }) => {
                   </Button>
                 </div>
               ) : (
-                <p>
+                <div>
 
                   <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
 
@@ -215,23 +217,28 @@ const PostsComments = ({ postId, handleClose }) => {
                     className='rounded-circle me-3'
                   />
                   <span className='fw-bold'>{comment.author}:</span> {comment.comment}
-                  <XSquare
-                    width={20}
-                    height={20}
-                    fill='red'
-                    className='bi bi-x-square float-end'
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleDeleteComment(comment._id)}
-                  />
-                  <PencilSquare
-                    width={20}
-                    height={20}
-                    fill='black'
-                    className='bi bi-x-square float-end mx-2'
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleEditComment(comment._id)}
-                  />
-                </p>
+
+                  {comment.author === 'soupcarry22' && (
+                    <>
+                      <XSquare
+                        width={20}
+                        height={20}
+                        fill='red'
+                        className='bi bi-x-square float-end'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleDeleteComment(comment._id)}
+                      />
+                      <PencilSquare
+                        width={20}
+                        height={20}
+                        fill='black'
+                        className='bi bi-x-square float-end mx-2'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleEditComment(comment._id)}
+                      />
+                    </>
+                  )}
+                </div>
               )}
             </li>
           ))}
