@@ -84,7 +84,7 @@ const Experiences = () => {
 
   useEffect(() => {
     getExperiences();
-  }, []);
+  }, [params]);
 
   const getDate = (date) => {
     const year = new Date(date).getFullYear();

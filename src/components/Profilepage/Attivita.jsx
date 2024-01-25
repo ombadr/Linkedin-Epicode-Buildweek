@@ -8,14 +8,19 @@ import { useEffect } from 'react';
 import PostsPersonal from '../Posts/PostsPersonal';
 import PostsRandom from '../Posts/PostsRandom';
 import { Row, Col, Button } from 'react-bootstrap';
+import { Modalpost } from '../Posts/Modalpost';
 
 const Attivita = ({isMe,profilo}) => {
   
-
+  const [showpostModal, setshowpostModal] = useState(false);
   const [loading, setLoading] = useState(true);
-  
+  const [modifica, setmodifica] = useState(false);
   const [esploraPosts, setEsploraPosts] = useState([]);
 
+  function cambiamodifica(){
+    setmodifica(true)
+    
+  }
   
   useEffect(() => {
 
@@ -31,7 +36,8 @@ const Attivita = ({isMe,profilo}) => {
     };
     
     fetchData()
-  }, []);
+    setmodifica(false)
+  }, [profilo,modifica]);
 
   return (
     <>{profilo && (
@@ -46,8 +52,12 @@ const Attivita = ({isMe,profilo}) => {
 
             {isMe===true &&<div className='d-flex'>
               <div className='me-5 d-flex align-items-center'>
-                <Button variant='outline-primary'>Crea un post</Button>
+                <Button variant='outline-primary'onClick={()=>{
+                setshowpostModal(true)
+                }}>Crea un post</Button>
+
               </div>
+              <Modalpost show={showpostModal} cambiamodifica={cambiamodifica} handleClose={()=>{setshowpostModal(false)}}/>
               <div className='d-flex align-items-center'>
                 <LuPencil className='text-secondary' size={24} />
               </div>
