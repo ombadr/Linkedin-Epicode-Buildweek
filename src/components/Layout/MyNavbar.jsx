@@ -69,6 +69,7 @@ const MyNavbar = () => {
 
   return (
     <>
+    {profilopersonale && (<>
       <Navbar expand='lg' className='mb-3 sticky-navbar bg-white'>
         <Navbar.Brand href='#home'>
           <FaLinkedin className='text-primary fs-1' />
@@ -128,7 +129,7 @@ const MyNavbar = () => {
               >
                 <div className='px-3'>
                   <div className='d-flex mb-3'>
-                    {/* <img
+                    <img
                       src={profilopersonale.image}
                       height='50px'
                       width='50px'
@@ -137,7 +138,7 @@ const MyNavbar = () => {
                     <div className='me-5'>
                       <p className='m-0 fw-bold'>{profilopersonale.name}{profilopersonale.surname}</p>
                       <p className='m-0'>{profilopersonale.title}</p>
-                    </div> */}
+                    </div>
                   </div>
                   <div className='mx-3'>
                     <Link to={'/'+profilopersonale._id}>
@@ -292,6 +293,7 @@ const MyNavbar = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
+      </>)}
     </>
   );
 };
