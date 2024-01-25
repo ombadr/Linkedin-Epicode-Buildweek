@@ -29,7 +29,7 @@ p {
 }
 
 .JobsButton button {
-  background-color: transparent;
+  background-color: transparent; 
   color: #0a66c2;
   padding: 5px;
   padding-left: 35px;
@@ -46,3 +46,4 @@ p {
   position: relative;
   top: 2px;
 }
+
