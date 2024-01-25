@@ -34,6 +34,7 @@ function App() {
                 }>
                 </Route>
                 <Route path="/jobs" element={<JobsPage />} />
+                <Route path="/" element={<Posts />} />
               </Routes>
             </Row>
             <Row className='mt-5'>
@@ -41,8 +42,7 @@ function App() {
                 <Footer />
               </Col>
             </Row>
-            <hr />
-            <Posts />
+            <hr />         
           </Container>
         </div>
       </div>
