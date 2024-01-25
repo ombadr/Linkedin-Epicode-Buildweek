@@ -29,13 +29,16 @@ const PostsFriends = ({ posts }) => {
     setShowModal(false);
   };
 
-   return (
+  return (
     <div>
       <h2>Posts degli Amici</h2>
       <div>
         {friendPosts.map(post => (
           <div key={post._id} className="p-4 m-3 border-bottom border-secondary">
-            <h4 className="fw-bold mb-4">{post.user.username}</h4>
+            <h4 className="fw-bold mb-4">
+              <img src={post.user.image} alt="" style={{ width: "100px" }} className="rounded-circle me-3" />
+              {post.user.username}
+            </h4>
             <p className="">{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <ChatDots

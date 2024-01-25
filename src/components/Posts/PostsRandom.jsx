@@ -23,7 +23,13 @@ const PostsRandom = ({ posts }) => {
           newRandomPosts.push(
             <div key={i} className="Suggestedposts d-flex p-4 m-3 border-bottom border-secondary">
               <div>
-                <h4 className="fw-bold mb-4">{randomPost.user.username}</h4>
+                <h4 className="fw-bold mb-4">
+                  <img
+                    src={randomPost.user.image ? randomPost.user.image : 'https://d.newsweek.com/en/full/2270410/angry-cat-expert.png?w=1600&h=1600&q=88&f=aeb99a4ed1e4f5223fb24f0610a3493a'}
+                    alt=""
+                    style={{ width: "100px" }}
+                    className="rounded-circle me-3"
+                  />                  {randomPost.user.username}</h4>
                 <p className="">{randomPost.text}</p>
                 <p className="">{formattedDate}</p>
                 <ChatDots

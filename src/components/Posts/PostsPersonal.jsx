@@ -83,6 +83,7 @@ const PostsPersonal = ({ posts }) => {
         {personalPosts.map(post => (
           <div key={post._id} className="border-bottom p-2">
             <p className="fw-bold">
+            <img src={post.user.image} alt="" style={{width: "100px"}} className="rounded-circle me-3"/>
               <span className="fs-2">{post.user.username} -</span> {post.user.title}
 
               <XSquare
@@ -104,6 +105,7 @@ const PostsPersonal = ({ posts }) => {
               />
             </p>
 
+            
             <p>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
           </div>
