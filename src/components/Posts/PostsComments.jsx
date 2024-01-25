@@ -188,7 +188,7 @@ const PostsComments = ({ postId, handleClose }) => {
                 </div>
               ) : (
                 <div>
-                  <p>
+                  
                   <p className="text-align-right">{new Date(comment.createdAt).toLocaleDateString()}</p>
                     <img src="https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw" alt="" style={{ width: '100px' }} className='rounded-circle me-3' />
                     <span className="fw-bold">{comment.author}: </span> {comment.comment}  <br />
@@ -213,7 +213,7 @@ const PostsComments = ({ postId, handleClose }) => {
                       onClick={() => handleEditComment(comment._id)}
                     />
                    
-                  </p>
+                  
                   
                 </div>
               )}
