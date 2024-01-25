@@ -87,7 +87,7 @@ const PostsPersonal = ({ posts }) => {
       <h2>I tuoi Posts:</h2>
       <div>
         {personalPosts.map(post => (
-          <div key={post._id} className="bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4">
+          <div key={post._id} className="bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4">
             <p className="fw-bold">
             <img src={post.user.image} alt="" style={{width: "100px"}} className="rounded-circle me-3"/>
               <span className="fs-2">{post.user.username} -</span> {post.user.title}
@@ -126,7 +126,7 @@ const PostsPersonal = ({ posts }) => {
               </button>
               <button className="mt-2 fs-5 btn btn-post">
                 <RiRepeatLine size={30} className="me-2" />
-                Diffondi il post
+                Diffondi
               </button>
               <button className="mt-2 fs-5 btn btn-post">
                 <IoIosSend size={30} className="me-2" />

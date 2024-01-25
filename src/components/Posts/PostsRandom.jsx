@@ -33,7 +33,7 @@ const PostsRandom = ({ posts }) => {
           newRandomPosts.push(
             <div
               key={i}
-              className='Suggestedposts d-flex p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+              className='Suggestedposts d-flex p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
             >
               <div className='w-100'>
                 <h4 className='fw-bold mb-4'>
@@ -65,7 +65,7 @@ const PostsRandom = ({ posts }) => {
                   </button>
                   <button className='mt-2 fs-5 btn btn-post'>
                     <RiRepeatLine size={30} className='me-2' />
-                    Diffondi il post
+                    Diffondi
                   </button>
                   <button className='mt-2 fs-5 btn btn-post'>
                     <IoIosSend size={30} className='me-2' />
