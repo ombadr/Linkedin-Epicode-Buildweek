@@ -8,6 +8,8 @@ import { RxCross1 } from "react-icons/rx";
 import ExperienceFormModifica from "./ExperienceFormModifica";
 import { useParams } from "react-router-dom";
 import { Fetchprofilo } from "../Fetchprofilo";
+import Modale from "../image/Modale";
+import { CiImageOn } from "react-icons/ci";
 
 
 
@@ -18,9 +20,11 @@ const Experiences = () => {
   const params=useParams().id
   
   const [isModalOpen1, setIsModalOpen1] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [data, setData] = useState([]);
   const [modify, setModify] = useState(false);
   const [elemento, setElemento] = useState(null)
+  const [elemento1, setElemento1] = useState(null)
 
   const handleShowModal = () => {
     setIsModalOpen(true);
@@ -29,6 +33,7 @@ const Experiences = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  
 
   const handleShowModal1 = () => {
     setIsModalOpen1(true);
@@ -37,6 +42,17 @@ const Experiences = () => {
   const handleCloseModal1 = () => {
     setIsModalOpen1(false);
   };
+
+
+  const handleShowModal2 = () => {
+    setIsModalOpen2(true);
+  };
+
+  const handleCloseModal2 = () => {
+    setIsModalOpen2(false);
+  };
+
+
 
   
 
@@ -162,14 +178,17 @@ const Experiences = () => {
               </p>
             </div>
             </div>
-           
+
+            
+
+
             <div className="d-flex align-items-center">
             {modify && (
                 <>
                 <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
-                onClick={()=> (setElemento(experience), handleShowModal1())}
+                onClick={()=> (setElemento(experience), handleShowModal1(!isModalOpen1))}
               >
                 <LuPencil className="text-secondary " size={24} />
                 
@@ -181,6 +200,15 @@ const Experiences = () => {
                 onClick={() => deleteExperience(experience._id)}
               >
                 <RxCross1 className="text-danger" size={24} />
+              </Button>
+
+
+                <Button
+                variant="light"
+                className="d-flex align-items-center rounded-circle"
+                onClick={() => (setElemento1(experience._id), handleShowModal2(!isModalOpen2),console.log(isModalOpen2))}
+              >
+                <CiImageOn size= {24}/>
               </Button>
                 </>
             )}
@@ -208,6 +236,10 @@ const Experiences = () => {
             </Button>
           </Modal.Footer>
         </Modal>
+
+
+        {isModalOpen2===true ? <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> : console.log("non siamo qui")}
+        
 
 
         <Modal show={isModalOpen1} onHide={handleCloseModal1}>

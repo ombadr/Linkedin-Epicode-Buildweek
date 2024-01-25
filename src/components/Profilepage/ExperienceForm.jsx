@@ -9,6 +9,7 @@ const ExperienceForm = (props) => {
     endDate: "",
     description: "",
     area: "",
+    image: "",
   });
 
   const [disableSwitch,setDisableSwitch] = useState(false)
@@ -57,6 +58,7 @@ const ExperienceForm = (props) => {
           endDate: "",
           description: "",
           area: "",
+          image: "",
         });
       } else {
         throw new Error("Error nel salvare Experiences");
@@ -81,7 +83,6 @@ const ExperienceForm = (props) => {
             <h2>Aggiungi una esperienza</h2>
           </Col>
           <Form onSubmit={handleSubmit}>
-           
             <Form.Group className="p-2">
             <Form.Label>Nome azienda</Form.Label>
             <Form.Control
@@ -121,7 +122,6 @@ const ExperienceForm = (props) => {
           </Form.Group>
           <Form.Group className="p-2">
           <Form.Label>Data di fine</Form.Label>
-          
             <Form.Control
               type="text"
               placeholder="A: YYYY-MM-DD"
@@ -167,7 +167,6 @@ const ExperienceForm = (props) => {
               Aggiungi
             </Button>
           </div>
-            
           </Form>
         </Row>
       </div>
