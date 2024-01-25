@@ -30,7 +30,7 @@ const PostAdd = ({ }) => {
 
       const data = await response.json();
 
-      console.log("Post aggiunto con successo!");
+      /* console.log("Post aggiunto con successo!"); */
 
     } catch (error) {
       console.error(`Errore durante l'aggiunta del post: ${error.message}`);
