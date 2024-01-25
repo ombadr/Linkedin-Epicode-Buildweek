@@ -151,9 +151,14 @@ const MyNavbar = () => {
                 </Link>
 
                 <Nav.Link className='text-center p-0 m-0 text-secondary'>
-                  <IoMdPerson className='fs-2 me-3' />
+                  
                   <NavDropdown
-                    title='Me'
+                    title={
+                    <>
+                      <div><img src={profilopersonale.image} width={30} height={30} className=' rounded-circle fs-2 me-3' /></div>
+                             Me
+                    </>
+                  }
                     id='basic-nav-dropdown'
                     className='p-0 me-3 '
                   >
