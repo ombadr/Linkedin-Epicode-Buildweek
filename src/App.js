@@ -11,6 +11,7 @@ import JobsPage from './components/Jobspage/JobsPage';
 
 import Posts from './components/Posts/Posts';
 import Mainprofile from './components/Profilepage/Mainprofile';
+import MyNetworkPage from './components/MyNetworkpage/MyNetworkPage';
 
 function App() {
   return (
@@ -34,8 +35,9 @@ function App() {
                 }>
                 </Route>
                 <Route path="/jobs" element={<JobsPage />} />
-
                 <Route path="/" element={<Posts />} />
+
+                <Route path='/my-network' element={<MyNetworkPage />} />
 
               </Routes>
 
@@ -45,9 +47,6 @@ function App() {
                 <Footer />
               </Col>
             </Row>
-
-            <hr />         
-
           </Container>
         </div>
       </div>

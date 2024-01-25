@@ -2,11 +2,37 @@ import { IoMdPeople } from 'react-icons/io';
 import { FaArrowRight } from 'react-icons/fa';
 import { GiRadarDish } from 'react-icons/gi';
 import { LuPencil } from 'react-icons/lu';
-
+import { fetchPosts } from '../Fetchprofilo';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import PostsPersonal from '../Posts/PostsPersonal';
+import PostsRandom from '../Posts/PostsRandom';
 import { Row, Col, Button } from 'react-bootstrap';
 
 const Attivita = ({isMe,profilo}) => {
   console.log(profilo)
+
+  const [loading, setLoading] = useState(true);
+  
+  const [esploraPosts, setEsploraPosts] = useState([]);
+
+  
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const esplora=await fetchPosts()
+        setEsploraPosts(esplora)
+        setLoading(false);
+      } catch (error) {
+        console.log("Errore nella fetch: " + error);
+        setLoading(false);
+      }
+    };
+    
+    fetchData()
+  }, []);
+
   return (
     <>{profilo && (
 
@@ -32,11 +58,12 @@ const Attivita = ({isMe,profilo}) => {
         <div className='d-flex flex-column'>
           <div className='me-3 '>
             <div className='d-flex flex-row px-3'>
-              {isMe===true?(<div>
-                <h3>Non hai ancora pubblicato nulla!</h3>
-                <p>I post che condividi appariranno qui!</p>
-              </div>):(<div>
-                <h3>{profilo.name} non ha ancora pubblicato nulla!</h3>
+              {isMe===true?(<div>  
+                <PostsPersonal isMe={isMe} nome={profilo.name} posts={esploraPosts}/> 
+                       
+              </div>):(
+              <div>
+                <PostsPersonal isMe={isMe} nome={profilo.name} posts={esploraPosts}/> 
               </div>)}
             </div>
           </div>
