@@ -34,7 +34,7 @@ import { FaCompass } from 'react-icons/fa';
 import { HiUserGroup } from 'react-icons/hi';
 import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Fetchprofilo } from '../Fetchprofilo';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -58,6 +58,9 @@ const MyNavbar = () => {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
+  console.log('Current path: ', currentPath);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -100,40 +103,53 @@ const MyNavbar = () => {
               <Nav className='mr-auto align-items-center'>
                 <Link
                   to='/'
-                  className='text-decoration-none text-secondary text-center p-2'
+                  className={`text-decoration-none text-secondary text-center p-2 ${
+                    currentPath === '/' ? 'selected-link-class' : 'link-class'
+                  }`}
                 >
                   <AiOutlineHome className='fs-2' />
                   <p className='m-0 p-0'>Home</p>
                 </Link>
                 <Link
                   to='/my-network'
-                  className='text-decoration-none text-secondary text-center p-2'
+                  className={`text-decoration-none text-secondary text-center p-2 ${
+                    currentPath === '/my-network'
+                      ? 'selected-link-class'
+                      : 'link-class'
+                  }`}
                 >
                   <AiOutlineTeam className='fs-2' />
                   <p className='m-0 p-0'>My Network</p>
                 </Link>
                 <Link
                   to='/jobs'
-                  className='text-decoration-none text-secondary text-center p-2'
+                  className={`text-decoration-none text-secondary text-center p-2 ${
+                    currentPath === '/jobs'
+                      ? 'selected-link-class'
+                      : 'link-class'
+                  }`}
                   onClick={() => dispatch(resetSearchAction())}
                 >
                   <BsBriefcase className='fs-2' />
                   <p className='m-0 p-0'>Jobs</p>
                 </Link>
-                <Nav.Link
-                  href='#messaging'
-                  className='text-center text-secondary'
+                <Link
+                  to='/'
+                  className='text-decoration-none text-secondary text-center p-2 link-class'
+                  onClick={() => dispatch(resetSearchAction())}
                 >
                   <AiOutlineMessage className='fs-2' />
                   <p className='m-0 p-0'>Messaging</p>
-                </Nav.Link>
-                <Nav.Link
-                  href='#notifications'
-                  className='text-center text-secondary'
+                </Link>
+                <Link
+                  to='/'
+                  className='text-decoration-none text-secondary text-center p-2 link-class'
+                  onClick={() => dispatch(resetSearchAction())}
                 >
                   <AiOutlineBell className='fs-2' />
                   <p className='m-0 p-0'>Notifications</p>
-                </Nav.Link>
+                </Link>
+
                 <Nav.Link className='text-center p-0 m-0 text-secondary'>
                   <IoMdPerson className='fs-2 me-3' />
                   <NavDropdown

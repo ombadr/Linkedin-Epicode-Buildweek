@@ -38,3 +38,12 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.link-class:hover {
+  box-shadow: inset 0 -5px 0 0 #6c757d;
+}
+
+.selected-link-class {
+  font-weight: bold;
+  box-shadow: inset 0 -5px 0 0 #6c757d;
+}
