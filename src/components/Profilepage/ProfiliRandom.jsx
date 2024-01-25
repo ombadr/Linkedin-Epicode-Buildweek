@@ -53,9 +53,7 @@ const ProfiliRandom = () => {
           randomProfile.surname.trim() !== ""
         ) {
           profiles.push(
-            <div
-              key={i}
-            >
+            <div key={i}>
               <div className="d-flex mx-3 mb-3">
                 <div>
                   <img
@@ -68,9 +66,9 @@ const ProfiliRandom = () => {
                 </div>
 
                 <div className="px-2">
-                  <p className="fw-bold m-0">
+                  <a href={"/"+randomProfile._id} className="fw-bold m-0">
                     {randomProfile.name} {randomProfile.surname}
-                  </p>
+                  </a>
                   <p>{randomProfile.title}</p>
                   <Button variant="outline-secondary" className="rounded-pill">
                     <PersonAdd /> Collegati

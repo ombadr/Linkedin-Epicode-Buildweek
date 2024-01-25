@@ -32,7 +32,7 @@ const PostsFriends = ({ posts }) => {
   const handleClose = () => {
     setSelectedPostId(null);
   };
-
+  console.log(friendPosts);
   return (
     <div>
       <h2>Posts degli Amici</h2>
@@ -42,15 +42,19 @@ const PostsFriends = ({ posts }) => {
             key={post._id}
             className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           >
-            <h4 className='fw-bold mb-4'>
-              <img
-                src={post.user.image}
-                alt=''
-                style={{ width: '100px' }}
-                className='rounded-circle me-3'
-              />
-              {post.user.username}
-            </h4>
+            <a href={'/' + post.user._id}>
+              <h4 className='fw-bold mb-4'>
+                <img
+                  src={post.user.image}
+                  alt=''
+                  style={{ width: '100px', height: '100px' }}
+                  className='rounded-circle me-3'
+                />
+                {post.user.name !== ''
+                  ? post.user.name + ' ' + post.user.surname
+                  : post.user.username}
+              </h4>
+            </a>
             <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />
@@ -59,7 +63,13 @@ const PostsFriends = ({ posts }) => {
                 <GrLike size={30} className='me-2' />
                 Consiglia
               </button>
-              <button className='mt-2 fs-5 btn btn-post' onClick={() => { handleClose(); handleChatIconClick(post._id);  }}>
+              <button
+                className='mt-2 fs-5 btn btn-post'
+                onClick={() => {
+                  handleClose();
+                  handleChatIconClick(post._id);
+                }}
+              >
                 <FaRegCommentDots size={30} className='me-2' />
                 Commenta
               </button>
@@ -76,7 +86,7 @@ const PostsFriends = ({ posts }) => {
             {selectedPostId === post._id && (
               <PostsComments
                 postId={selectedPostId}
-                showModal={true}  // Mostra sempre il componente PostsComments quando selectedPostId è definito
+                showModal={true} // Mostra sempre il componente PostsComments quando selectedPostId è definito
                 handleClose={handleClose}
               />
             )}
