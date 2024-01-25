@@ -29,7 +29,9 @@ const PostsRandom = ({ posts }) => {
                     alt=""
                     style={{ width: "100px" }}
                     className="rounded-circle me-3"
-                  />                  {randomPost.user.username}</h4>
+                  />                  
+                  {randomPost.user.username}
+                  </h4>
                 <p className="">{randomPost.text}</p>
                 <p className="">{formattedDate}</p>
                 <ChatDots
