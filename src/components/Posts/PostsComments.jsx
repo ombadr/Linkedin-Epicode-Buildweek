@@ -3,16 +3,16 @@ import { Modal, Button } from "react-bootstrap";
 import { XSquare, PencilSquare } from 'react-bootstrap-icons';
 
 //GET 
-const PostsComments = ({ postId, showModal, handleClose  }) => {
+const PostsComments = ({ postId, handleClose }) => {
   const [comments, setComments] = useState([]);
-  
+
   const [newComment, setNewComment] = useState({
     comment: "",
     rate: "1",
     elementId: postId,
   });
 
-  
+
   // Definisci la funzione fetchData qui
   const fetchData = async () => {
     try {
@@ -56,7 +56,7 @@ const PostsComments = ({ postId, showModal, handleClose  }) => {
     e.preventDefault();
 
     try {
-        console.log("Dati del commento:", JSON.stringify(newComment));
+      /* console.log("Dati del commento:", JSON.stringify(newComment)); */
 
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments/",
@@ -157,16 +157,17 @@ const PostsComments = ({ postId, showModal, handleClose  }) => {
   };
 
   return (
-    <Modal show={showModal} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Comments for Post</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+    <div className="my-4" >
+      <div>
+      </div>
+      <div>
         <ul>
           {comments.map((comment) => (
             <li key={comment._id} className="border-bottom py-3">
               {editingCommentId === comment._id ? (
                 <div>
+                  <img src="https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw" alt="" style={{ width: '100px' }} className='rounded-circle me-3' />
+                  <span className="fw-bold">{comment.author}:</span>
                   <input
                     type="text"
                     name="editedComment"
@@ -186,27 +187,35 @@ const PostsComments = ({ postId, showModal, handleClose  }) => {
                   </Button>
                 </div>
               ) : (
-                <p>
-                  {comment.comment}
+                <div>
+                  
+                  <p className="text-align-right">{new Date(comment.createdAt).toLocaleDateString()}</p>
+                    <img src="https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw" alt="" style={{ width: '100px' }} className='rounded-circle me-3' />
+                    <span className="fw-bold">{comment.author}: </span> {comment.comment}  <br />
+                    
+                    
 
-                  <XSquare
-                    width={20}
-                    height={20}
-                    fill="red"
-                    className="bi bi-x-square float-end"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleDeleteComment(comment._id)}
-                  />
+                    <XSquare
+                      width={20}
+                      height={20}
+                      fill="red"
+                      className="bi bi-x-square float-end"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => handleDeleteComment(comment._id)}
+                    />
 
-                  <PencilSquare
-                    width={20}
-                    height={20}
-                    fill="black"
-                    className="bi bi-x-square float-end mx-2"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleEditComment(comment._id)}
-                  />
-                </p>
+                    <PencilSquare
+                      width={20}
+                      height={20}
+                      fill="black"
+                      className="bi bi-x-square float-end mx-2"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => handleEditComment(comment._id)}
+                    />
+                   
+                  
+                  
+                </div>
               )}
             </li>
           ))}
@@ -214,11 +223,12 @@ const PostsComments = ({ postId, showModal, handleClose  }) => {
 
         {!editingCommentId && (
           <form onSubmit={submitComment}>
-            <label>
-              Add Comment:
+            <label >
+              Aggiungi un commento:
               <input
                 type="text"
                 name="comment"
+                className="mx-2"
                 required
                 value={newComment.comment}
                 onChange={handleCommentChange}
@@ -226,18 +236,16 @@ const PostsComments = ({ postId, showModal, handleClose  }) => {
             </label>
             <br />
             <br />
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="me-3">
               Submit Comment
+            </Button>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
             </Button>
           </form>
         )}
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
+      </div>
+    </div>
   );
 };
 

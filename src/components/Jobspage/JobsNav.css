@@ -41,6 +41,10 @@ p {
   border-color: #0a66c2;
 }
 
+.JobsButton button:hover {
+  background-color: lightblue;
+}
+
 .post-react-icon {
   margin-right: 3px;
   position: relative;
