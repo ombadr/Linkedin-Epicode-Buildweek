@@ -3,6 +3,12 @@ import { XSquare, PencilSquare } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+import { GrLike } from "react-icons/gr";
+import { FaRegCommentDots } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
+import { RiRepeatLine } from "react-icons/ri";
+import "./assets/Posts.css"
+
 const PostsPersonal = ({ posts }) => {
   const [personalPosts, setPersonalPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -79,9 +85,9 @@ const PostsPersonal = ({ posts }) => {
   return (
     <div>
       <h2>I tuoi Posts:</h2>
-      <div className="">
+      <div>
         {personalPosts.map(post => (
-          <div key={post._id} className="border-bottom p-2">
+          <div key={post._id} className="bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4">
             <p className="fw-bold">
             <img src={post.user.image} alt="" style={{width: "100px"}} className="rounded-circle me-3"/>
               <span className="fs-2">{post.user.username} -</span> {post.user.title}
@@ -108,6 +114,25 @@ const PostsPersonal = ({ posts }) => {
             
             <p>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+            <hr />
+            <div className="d-flex justify-content-around align-items-center">
+              <button className="mt-2 fs-5 btn btn-post">
+                <GrLike size={30} className="me-2" />
+                Consiglia
+              </button>
+              <button className="mt-2 fs-5 btn btn-post">
+                <FaRegCommentDots size={30} className="me-2" />
+                Commenta
+              </button>
+              <button className="mt-2 fs-5 btn btn-post">
+                <RiRepeatLine size={30} className="me-2" />
+                Diffondi il post
+              </button>
+              <button className="mt-2 fs-5 btn btn-post">
+                <IoIosSend size={30} className="me-2" />
+                Invia
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -119,6 +144,7 @@ const PostsPersonal = ({ posts }) => {
         </Modal.Header>
         <Modal.Body>
           <textarea
+          className="w-100"
             value={modifiedText}
             onChange={(e) => setModifiedText(e.target.value)}
             rows={4}
