@@ -18,6 +18,7 @@ function Profile({ isMe, profilo,handleRedo }) {
               <img
                 className=' margincustom  mb-4 rounded-circle'
                 width={140}
+                height={140}
                 src={profilo.image}
                 alt=''
                 srcset=''
@@ -90,6 +91,22 @@ function Profile({ isMe, profilo,handleRedo }) {
                     <Button className=' me-2 rounded-5 fw-bold '>
                       Messaggio
                     </Button>
+                    <Button
+                      onClick={() => setShowInfoModal(true)}
+                      className='bg-white text-secondary fw-bold  rounded-5 '
+                    >
+                      Info sul profilo
+                    </Button>
+                    <Infoprofilo
+                      profilo={profilo}
+                      show={showInfoModal}
+                      handleRedo={handleRedo}
+                      modifica={modifica}
+                      handleClose={() => {
+                        setmodifica(false);
+                        setShowInfoModal(false);
+                      }}
+                    />
                   </div>
                   <div className='bgcustom2 rounded-3 '>
                     <div className=' mb-2 mt-2 d-flex align-items-center p-4'>
