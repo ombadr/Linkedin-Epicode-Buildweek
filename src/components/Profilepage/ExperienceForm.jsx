@@ -11,8 +11,15 @@ const ExperienceForm = (props) => {
     area: "",
   });
 
+  const [disableSwitch,setDisableSwitch] = useState(false)
+
 
   const handleInputChange = (proprieta, valore) => {
+    if(proprieta.endDate === ""){
+      valore = "1970 01 01"
+    }
+
+
     setExperience({
       ...experience,
       [proprieta]: valore,
@@ -20,6 +27,11 @@ const ExperienceForm = (props) => {
 
     {console.log(experience)}
   };
+
+
+  const disableEndDate = () => (
+    setDisableSwitch(!disableSwitch)
+  )
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +76,6 @@ const ExperienceForm = (props) => {
     return (
         
       <div>
-        
         <Row>
           <Col>
             <h2>Aggiungi una esperienza</h2>
@@ -72,10 +83,10 @@ const ExperienceForm = (props) => {
           <Form onSubmit={handleSubmit}>
            
             <Form.Group className="p-2">
-            <Form.Label>Company Name</Form.Label>
+            <Form.Label>Nome azienda</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Company"
+              placeholder="Esempio: Microsoft"
               required
               value={experience.company}
               onChange={(e) => {
@@ -100,7 +111,7 @@ const ExperienceForm = (props) => {
           <Form.Label>Data di inizio</Form.Label>
             <Form.Control
               type="text"
-              placeholder="From: YYYY-MM-DD"
+              placeholder="Da: YYYY-MM-DD"
               required
               value={experience.startDate.substring(0, 10)}
               onChange={(e) => {
@@ -110,21 +121,29 @@ const ExperienceForm = (props) => {
           </Form.Group>
           <Form.Group className="p-2">
           <Form.Label>Data di fine</Form.Label>
+          
             <Form.Control
               type="text"
-              placeholder="to: YYYY-MM-DD"
-              required
+              placeholder="A: YYYY-MM-DD"
               value={experience.endDate.substring(0, 10)}
+              disabled={disableSwitch}
               onChange={(e) => {
-                handleInputChange("startDate", e.target.value);
+                handleInputChange("endDate", e.target.value);
               }}
             ></Form.Control>
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="Attualmente ricopro questo ruolo"
+              onChange={disableEndDate}
+            />
           </Form.Group>
           <Form.Group className="p-2">
           <Form.Label>Descrizione</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Description"
+              placeholder="Descrizione"
+              required
               value={experience.description}
               onChange={(e) => {
                 handleInputChange("description", e.target.value);
@@ -132,11 +151,12 @@ const ExperienceForm = (props) => {
             ></Form.Control>
           </Form.Group>
           <Form.Group className="p-2">
-          <Form.Label>Luogo</Form.Label>
+          <Form.Label>Località</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Area"
+              placeholder="Esempio: Milano, Italia"
               value={experience.area}
+              required
               onChange={(e) => {
                 handleInputChange("area", e.target.value);
               }}

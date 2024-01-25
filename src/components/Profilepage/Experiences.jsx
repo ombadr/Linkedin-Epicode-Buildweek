@@ -75,9 +75,13 @@ const Experiences = () => {
     const month = new Date(date).getMonth() + 1;
     const day = new Date(date).getDate();
 
-    return `${year}-${month < 10 ? "0" + month : month}-${
+    let dataCompleta = `${year}-${month < 10 ? "0" + month : month}-${
       day < 10 ? "0" + day : day
-    }`;
+    }`
+
+    console.log(dataCompleta)
+
+    return  dataCompleta; 
   };
 
 
@@ -154,7 +158,7 @@ const Experiences = () => {
               <h4 className="m-0">{experience.company}</h4>
               <p className="m-0 text-secondary">{experience.role}</p>
               <p className="m-0 text-secondary">
-                {getDate(experience.startDate)} - {getDate(experience.endDate)}
+                {getDate(experience.startDate)} - {getDate(experience.endDate) === "1970-01-01" ? ("Ad oggi") : (getDate(experience.endDate)) }
               </p>
             </div>
             </div>
@@ -190,7 +194,7 @@ const Experiences = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <ExperienceForm id={params} getExperiences={getExperiences}/>            
+            <ExperienceForm id={params} getExperiences={getExperiences} getDate={getDate}/>            
           </Modal.Body>
 
           <Modal.Footer>
