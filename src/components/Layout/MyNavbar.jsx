@@ -35,6 +35,7 @@ import { HiUserGroup } from 'react-icons/hi';
 import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Fetchprofilo } from '../Fetchprofilo';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   recentSearchesAction,
@@ -44,6 +45,7 @@ import {
 } from '../../redux/actions';
 
 const MyNavbar = () => {
+  const profilopersonale = Fetchprofilo().profile
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
@@ -67,6 +69,7 @@ const MyNavbar = () => {
 
   return (
     <>
+    {profilopersonale && (<>
       <Navbar expand='lg' className='mb-3 sticky-navbar bg-white'>
         <Navbar.Brand href='#home'>
           <FaLinkedin className='text-primary fs-1' />
@@ -127,18 +130,18 @@ const MyNavbar = () => {
                 <div className='px-3'>
                   <div className='d-flex mb-3'>
                     <img
-                      src='https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg'
+                      src={profilopersonale.image}
                       height='50px'
                       width='50px'
                       className='rounded-circle mx-3'
                     />
                     <div className='me-5'>
-                      <p className='m-0 fw-bold'>Nome Cognome</p>
-                      <p className='m-0'>Developer</p>
+                      <p className='m-0 fw-bold'>{profilopersonale.name}{profilopersonale.surname}</p>
+                      <p className='m-0'>{profilopersonale.title}</p>
                     </div>
                   </div>
                   <div className='mx-3'>
-                    <Link to='/65ae3141600be100183a868b'>
+                    <Link to={'/'+profilopersonale._id}>
                       <Button
                         variant='outline-primary'
                         className='rounded-5 w-100 py-0 my-0'
@@ -290,6 +293,7 @@ const MyNavbar = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
+      </>)}
     </>
   );
 };

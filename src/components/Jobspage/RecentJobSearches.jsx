@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  resetRecentSearchesAction,
+  getJobsFromSearchAction,
+  performSearchAction,
+} from '../../redux/actions';
 
 const RecentJobSearches = () => {
   const [showFullList, setShowFullList] = useState(false);
+
+  const dispatch = useDispatch();
 
   const searches = useSelector((state) => state.search);
 
@@ -24,36 +31,67 @@ const RecentJobSearches = () => {
 
   const reversedSearches = [...searches.recentSearches].reverse();
 
+  const clearRecentSearches = () => {
+    dispatch(resetRecentSearchesAction());
+  };
+
+  const recentSearchesOverflow = searches.recentSearches.length > 3;
+
+  console.log('recentSearchesOverflow', recentSearchesOverflow);
+
+  const handleClick = (searchValue) => {
+    dispatch(performSearchAction());
+    dispatch(getJobsFromSearchAction(searchValue));
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Card>
       <Card.Header className='bg-white border-0'>
         <div className='d-flex justify-content-between align-items-center mt-3'>
           <h2 className='fs-4'>Recent Job Searches</h2>
-          <p className='m-0 fw-bold text-secondary'>Clear</p>
+          <Button
+            variant='outline-secondary'
+            className='m-0 fw-bold border-0'
+            onClick={() => clearRecentSearches()}
+          >
+            Clear
+          </Button>
         </div>
       </Card.Header>
       <Card.Body>
-        {reversedSearches
-          .slice(0, showFullList ? jobSearches.length : 3)
-          .map((search, index) => (
-            <div key={index}>
-              <p className='m-0 fw-bold text-dark'>
-                {search.search} - {search.jobs} new
-              </p>
-              <p className='m-0 fw-bold text-secondary '>Italy</p>
-              <hr />
-            </div>
-          ))}
+        {reversedSearches && reversedSearches.length > 0 ? (
+          reversedSearches
+            .slice(0, showFullList ? jobSearches.length : 3)
+            .map((search, index) => (
+              <div
+                key={index}
+                onClick={() => handleClick(search.search)}
+                style={{ cursor: 'pointer' }}
+              >
+                <p className='m-0 fw-bold text-dark'>
+                  {search.search} - {search.jobs} new
+                </p>
+                <p className='m-0 fw-bold text-secondary '>Italy</p>
+                <hr />
+              </div>
+            ))
+        ) : (
+          <p>No searches saved</p>
+        )}
       </Card.Body>
-      <Card.Footer className='text-center'>
-        <Button
-          variant='link'
-          onClick={toggleShowFullList}
-          className='fw-bold text-decoration-none fs-5'
-        >
-          {showFullList ? 'Show less' : 'Show more'}
-        </Button>
-      </Card.Footer>
+
+      {recentSearchesOverflow && (
+        <Card.Footer className='text-center'>
+          <Button
+            variant='link'
+            onClick={toggleShowFullList}
+            className='fw-bold text-decoration-none fs-5'
+          >
+            {showFullList ? 'Show less' : 'Show more'}
+          </Button>
+        </Card.Footer>
+      )}
     </Card>
   );
 };

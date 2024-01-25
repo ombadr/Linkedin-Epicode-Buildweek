@@ -34,15 +34,20 @@ function App() {
                 }>
                 </Route>
                 <Route path="/jobs" element={<JobsPage />} />
+
                 <Route path="/" element={<Posts />} />
+
               </Routes>
+
             </Row>
             <Row className='mt-5'>
               <Col col={12}>
                 <Footer />
               </Col>
             </Row>
+
             <hr />         
+
           </Container>
         </div>
       </div>

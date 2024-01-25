@@ -1,15 +1,12 @@
 import { Col, Container, Row, Button } from 'react-bootstrap';
-import { Fetchprofilo, FetchProfiles } from '../Fetchprofilo';
 import { PiStudent } from 'react-icons/pi';
 import { FaCamera } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Infoprofilo } from './Infoprofilo';
-
 import './assets/Profile.css';
-const mioid = '65ae3141600be100183a868b';
 
-function Profile({ isMe, profilo }) {
+
+function Profile({ isMe, profilo,handleRedo }) {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [modifica, setmodifica] = useState(false);
   return (
@@ -71,6 +68,7 @@ function Profile({ isMe, profilo }) {
                     <Infoprofilo
                       profilo={profilo}
                       show={showInfoModal}
+                      handleRedo={handleRedo}
                       modifica={modifica}
                       handleClose={() => {
                         setmodifica(false);
