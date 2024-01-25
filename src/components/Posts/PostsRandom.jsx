@@ -33,7 +33,7 @@ const PostsRandom = ({ posts }) => {
           newRandomPosts.push(
             <div
               key={i}
-              className='Suggestedposts d-flex p-4 m-3 border-bottom border-secondary'
+              className='Suggestedposts d-flex p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
             >
               <div>
                 <h4 className='fw-bold mb-4'>
@@ -44,7 +44,7 @@ const PostsRandom = ({ posts }) => {
                         : 'https://d.newsweek.com/en/full/2270410/angry-cat-expert.png?w=1600&h=1600&q=88&f=aeb99a4ed1e4f5223fb24f0610a3493a'
                     }
                     alt=''
-                    style={{ width: '100px' }}
+                    style={{ width: '100px', height: 'auto' }}
                     className='rounded-circle me-3'
                   />
                   {randomPost.user.username}

@@ -44,7 +44,7 @@ const PostsFriends = ({ posts }) => {
         {friendPosts.map((post) => (
           <div
             key={post._id}
-            className='p-4 m-3 border-bottom border-secondary'
+            className='p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
           >
             <h4 className='fw-bold mb-4'>
               <img
