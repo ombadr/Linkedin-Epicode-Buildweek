@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
 import { GrLike } from 'react-icons/gr';
 import { FaRegCommentDots } from 'react-icons/fa';
 import { IoIosSend } from 'react-icons/io';
 import { RiRepeatLine } from 'react-icons/ri';
 import './assets/Posts.css';
-import { ChatDots } from 'react-bootstrap-icons';
-import PostsComments from './PostsComments'; //
+import PostsComments from './PostsComments';
 
 const PostsFriends = ({ posts }) => {
   const friendUserIds = [
@@ -18,8 +16,7 @@ const PostsFriends = ({ posts }) => {
   ];
 
   const [friendPosts, setFriendPosts] = useState([]);
-  const [selectedPostId, setSelectedPostId] = useState(null); // Nuovo stato per tracciare l'ID del post selezionato
-  const [showModal, setShowModal] = useState(false);
+  const [selectedPostId, setSelectedPostId] = useState(null);
 
   useEffect(() => {
     const filteredFriendPosts = posts.filter((post) =>
@@ -30,13 +27,12 @@ const PostsFriends = ({ posts }) => {
 
   const handleChatIconClick = (postId) => {
     setSelectedPostId(postId);
-    setShowModal(true);
   };
 
   const handleClose = () => {
-    setShowModal(false);
+    setSelectedPostId(null);
   };
-
+  console.log(friendPosts)
   return (
     <div>
       <h2>Posts degli Amici</h2>
@@ -44,17 +40,19 @@ const PostsFriends = ({ posts }) => {
         {friendPosts.map((post) => (
           <div
             key={post._id}
-            className='p-4 m-3 border-bottom border-secondary'
+            className='p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
           >
-            <h4 className='fw-bold mb-4'>
-              <img
-                src={post.user.image}
-                alt=''
-                style={{ width: '100px' }}
-                className='rounded-circle me-3'
-              />
-              {post.user.username}
-            </h4>
+            <a href={"/"+post.user._id}>
+              <h4 className='fw-bold mb-4'>
+                <img
+                  src={post.user.image}
+                  alt=''
+                  style={{ width: '100px', height:"100px" }}
+                  className='rounded-circle me-3'
+                />
+                {post.user.name !== "" ? (post.user.name + " " + post.user.surname) : (post.user.username)}
+              </h4>
+            </a>
             <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />
@@ -63,7 +61,7 @@ const PostsFriends = ({ posts }) => {
                 <GrLike size={30} className='me-2' />
                 Consiglia
               </button>
-              <button className='mt-2 fs-5 btn btn-post'>
+              <button className='mt-2 fs-5 btn btn-post' onClick={() => { handleClose(); handleChatIconClick(post._id);  }}>
                 <FaRegCommentDots size={30} className='me-2' />
                 Commenta
               </button>
@@ -76,25 +74,17 @@ const PostsFriends = ({ posts }) => {
                 Invia
               </button>
             </div>
-            <ChatDots
-              className='float-end'
-              width={20}
-              height={20}
-              onClick={() => handleChatIconClick(post._id)}
-              style={{ cursor: 'pointer' }}
-            />
+
+            {selectedPostId === post._id && (
+              <PostsComments
+                postId={selectedPostId}
+                showModal={true}  // Mostra sempre il componente PostsComments quando selectedPostId è definito
+                handleClose={handleClose}
+              />
+            )}
           </div>
         ))}
       </div>
-
-      {/* Visualizza PostsComments solo se un post è stato selezionato */}
-      {selectedPostId && (
-        <PostsComments
-          postId={selectedPostId}
-          showModal={showModal}
-          handleClose={handleClose}
-        />
-      )}
     </div>
   );
 };

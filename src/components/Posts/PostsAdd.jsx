@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-
 import "./assets/Posts.css"
 import { GrGallery } from "react-icons/gr";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegNewspaper } from "react-icons/fa6";
-
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFmOWEzN2JkNWQxMjAwMTg5MGQ0NWMiLCJpYXQiOjE3MDYwMDcwOTUsImV4cCI6MTcwNzIxNjY5NX0.2qRmM_CYazxx8y1MJej_ce3QSwMxl5Z7A5TbBdWiY78";
 
 const PostAdd = ({ }) => {
   const [text, setText] = useState("");
@@ -19,7 +16,7 @@ const PostAdd = ({ }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
         },
         body: JSON.stringify({ text }),
       });

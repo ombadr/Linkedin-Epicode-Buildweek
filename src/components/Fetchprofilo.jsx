@@ -9,7 +9,7 @@ export function Fetchprofilo() {
   useEffect(() => {
     dispatch(mainProfileAction());
   }, []);
-  console.log(profilo);
+  
 
   return profilo;
 }
@@ -69,3 +69,29 @@ export async function fetchputProfilo(profilo) {
     console.log('Errore nella fetch:' + error);
   }
 }
+
+
+export async function fetchPosts(){
+  try {
+    const response = await fetch(
+      'https://striveschool-api.herokuapp.com/api/posts',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+
+    const data = await response.json();
+    return data
+    
+  } catch (error) {
+    console.error(`Errore nella richiesta per il post personale:`, error);    
+  }
+};

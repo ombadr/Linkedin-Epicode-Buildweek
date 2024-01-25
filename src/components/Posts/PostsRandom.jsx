@@ -12,8 +12,17 @@ const PostsRandom = ({ posts }) => {
   const [showModal, setShowModal] = useState(false);
   const [randomPosts, setRandomPosts] = useState([]);
 
+  const handleChatIconClick = (postId) => {
+    setSelectedPostId(postId);
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setSelectedPostId(null);
+  };
+
   useEffect(() => {
-    // Aggiorna la lista dei post random solo al montaggio del componente
     if (posts && posts.length >= 10) {
       const availableIndices = Array.from(
         { length: posts.length },
@@ -30,37 +39,61 @@ const PostsRandom = ({ posts }) => {
           const formattedDate = new Date(
             randomPost.updatedAt
           ).toLocaleDateString();
-          newRandomPosts.push(
-            <div
-              key={i}
-              className='Suggestedposts d-flex p-4 m-3 border-bottom border-secondary'
-            >
-              <div>
-                <h4 className='fw-bold mb-4'>
-                  <img
-                    src={
-                      randomPost.user.image
-                        ? randomPost.user.image
-                        : 'https://d.newsweek.com/en/full/2270410/angry-cat-expert.png?w=1600&h=1600&q=88&f=aeb99a4ed1e4f5223fb24f0610a3493a'
-                    }
-                    alt=''
-                    style={{ width: '100px' }}
-                    className='rounded-circle me-3'
-                  />
-                  {randomPost.user.username}
-                </h4>
-                <p className=''>{randomPost.text}</p>
-                <p className=''>{formattedDate}</p>
-                <ChatDots
-                  className=''
-                  width={20}
-                  height={20}
-                  onClick={() => handleChatIconClick(randomPost._id)}
-                  style={{ cursor: 'pointer' }}
-                />
+          newRandomPosts.push({
+            id: randomPost._id,
+            jsx: (
+              <div
+                key={i}
+                className='d-flex p-4 m- w-100 mt-4 mb-4'
+              >
+                <div className='w-100'>
+                  <a href={"/"+randomPost.user._id}>
+                    <h4 className='fw-bold mb-4'>
+                      <img
+                        src={
+                          randomPost.user.image
+                            ? randomPost.user.image
+                            : 'https://d.newsweek.com/en/full/2270410/angry-cat-expert.png?w=1600&h=1600&q=88&f=aeb99a4ed1e4f5223fb24f0610a3493a'
+                        }
+                        alt=''
+                        style={{ width: '100px', height:"100px" }}
+                        className='rounded-circle me-3'
+                      />
+                      {randomPost.user.name !== "" ? (randomPost.user.name + " " + randomPost.user.surname) : (randomPost.user.username)}
+                      
+                    </h4>
+                  </a>
+                  <p className=''>{randomPost.text}</p>
+                  <p className=''>{formattedDate}</p>
+
+                  <hr />
+
+                  <div className='d-flex justify-content-around align-items-center'>
+                    <button className='mt-2 fs-5 btn btn-post'>
+                      <GrLike size={30} className='me-2' />
+                      Consiglia
+                    </button>
+                    <button
+                      className='mt-2 fs-5 btn btn-post'
+                      onClick={() => handleChatIconClick(randomPost._id)}
+                    >
+                      <FaRegCommentDots size={30} className='me-2' />
+                      Commenta
+                    </button>
+                    <button className='mt-2 fs-5 btn btn-post'>
+                      <RiRepeatLine size={30} className='me-2' />
+                      Diffondi il post
+                    </button>
+                    <button className='mt-2 fs-5 btn btn-post'>
+                      <IoIosSend size={30} className='me-2' />
+                      Invia
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          );
+            ),
+          });
+
           availableIndices.splice(randomIndex, 1);
         } else {
           i--;
@@ -71,27 +104,21 @@ const PostsRandom = ({ posts }) => {
     }
   }, [posts]);
 
-  const handleChatIconClick = (postId) => {
-    setSelectedPostId(postId);
-    setShowModal(true);
-  };
-
-  const handleClose = () => {
-    setShowModal(false);
-  };
-
   return (
     <div>
-      {randomPosts}
-      {selectedPostId && (
-        <PostsComments
-          postId={selectedPostId}
-          showModal={showModal}
-          handleClose={handleClose}
-        />
-      )}
+      {randomPosts.map(({ id, jsx }) => (
+        <div className='Suggestedposts p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4' key={id}>
+          <React.Fragment>
+            {jsx}
+            {selectedPostId === id && showModal && (
+              <PostsComments postId={selectedPostId} showModal={showModal} handleClose={handleClose} />
+            )}
+          </React.Fragment>
+        </div>
+      ))}
     </div>
   );
+  
 };
 
 export default PostsRandom;
