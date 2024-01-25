@@ -34,9 +34,10 @@ import { FaCompass } from 'react-icons/fa';
 import { HiUserGroup } from 'react-icons/hi';
 import { MdHomeRepairService } from 'react-icons/md';
 import { FaPlus } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Fetchprofilo } from '../Fetchprofilo';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   recentSearchesAction,
   performSearchAction,
@@ -56,12 +57,15 @@ const MyNavbar = () => {
     setShow(!show);
   };
 
+  const navigate = useNavigate();
+
   const handleSearch = (e) => {
     e.preventDefault();
     const searchValue = e.target.searchValue.value;
     dispatch(recentSearchesAction(searchValue));
     dispatch(performSearchAction());
     dispatch(getJobsFromSearchAction(searchValue));
+    navigate('/jobs');
     e.target.searchValue.value = '';
   };
 
@@ -72,9 +76,9 @@ const MyNavbar = () => {
       {profilopersonale && (
         <>
           <Navbar expand='lg' className='mb-3 sticky-navbar bg-white'>
-            <Navbar.Brand href='#home'>
+            <Link to='/' className='p-2 navbar-brand'>
               <FaLinkedin className='text-primary fs-1' />
-            </Navbar.Brand>
+            </Link>
             <Form inline onSubmit={handleSearch}>
               <InputGroup className='custom-input-group'>
                 <InputGroup.Text className='bg-light border-0'>
