@@ -35,7 +35,7 @@ const PostsRandom = ({ posts }) => {
               key={i}
               className='Suggestedposts d-flex p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
             >
-              <div>
+              <div className='w-100'>
                 <h4 className='fw-bold mb-4'>
                   <img
                     src={
@@ -51,7 +51,9 @@ const PostsRandom = ({ posts }) => {
                 </h4>
                 <p className=''>{randomPost.text}</p>
                 <p className=''>{formattedDate}</p>
+
                 <hr />
+
                 <div className='d-flex justify-content-around align-items-center'>
                   <button className='mt-2 fs-5 btn btn-post'>
                     <GrLike size={30} className='me-2' />
