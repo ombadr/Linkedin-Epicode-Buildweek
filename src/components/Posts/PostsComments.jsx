@@ -56,7 +56,7 @@ const PostsComments = ({ postId, handleClose }) => {
     e.preventDefault();
 
     try {
-      console.log("Dati del commento:", JSON.stringify(newComment));
+      /* console.log("Dati del commento:", JSON.stringify(newComment)); */
 
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments/",
