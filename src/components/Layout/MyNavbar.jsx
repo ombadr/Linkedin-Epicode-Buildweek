@@ -46,7 +46,6 @@ import {
 
 const MyNavbar = () => {
   const profilopersonale = Fetchprofilo().profile
-  console.log(profilopersonale)
   const [show, setShow] = useState(false);
 
   const dispatch = useDispatch();
@@ -70,8 +69,8 @@ const MyNavbar = () => {
 
   return (
     <>
-      {profilopersonale && (
-      <><Navbar expand='lg' className='mb-3 sticky-navbar bg-white'>
+    {profilopersonale && (<>
+      <Navbar expand='lg' className='mb-3 sticky-navbar bg-white'>
         <Navbar.Brand href='#home'>
           <FaLinkedin className='text-primary fs-1' />
         </Navbar.Brand>
@@ -293,7 +292,8 @@ const MyNavbar = () => {
             </div>
           </div>
         </Offcanvas.Body>
-      </Offcanvas></>)}
+      </Offcanvas>
+      </>)}
     </>
   );
 };

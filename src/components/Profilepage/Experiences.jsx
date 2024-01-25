@@ -91,7 +91,7 @@ const Experiences = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0Mzk5YWZlMDMxZTAwMTliYTFkYTkiLCJpYXQiOjE3MDYwMDEyNzgsImV4cCI6MTcwNzIxMDg3OH0.YrtPpqEJRO5hxwFLZvfS8JL7SDepjzPf-LbDUAOTJok",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE",
           },
         }
       );
@@ -137,7 +137,8 @@ const Experiences = () => {
         </Row>
 
         {data.map((experience, index) => (
-          <div key={index} className="d-flex p-3 mx-3">
+          <div key={index} className="d-flex justify-content-between  p-3 mx-3">
+            <div className="d-flex">
             <div>
               <img
                 src={
@@ -156,9 +157,12 @@ const Experiences = () => {
                 {getDate(experience.startDate)} - {getDate(experience.endDate)}
               </p>
             </div>
+            </div>
+           
+            <div className="d-flex align-items-center">
             {modify && (
                 <>
-                 <Button
+                <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
                 onClick={()=> (setElemento(experience), handleShowModal1())}
@@ -166,6 +170,7 @@ const Experiences = () => {
                 <LuPencil className="text-secondary " size={24} />
                 
               </Button>
+                
                 <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
@@ -175,6 +180,7 @@ const Experiences = () => {
               </Button>
                 </>
             )}
+            </div>
           </div>
         ))}
 

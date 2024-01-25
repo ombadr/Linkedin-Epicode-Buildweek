@@ -70,74 +70,84 @@ const ExperienceForm = (props) => {
             <h2>Aggiungi una esperienza</h2>
           </Col>
           <Form onSubmit={handleSubmit}>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Role"
-                required
-                value={experience.role}
-                onChange={(e) => {
-                  handleInputChange("role", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Company"
-                required
-                value={experience.company}
-                onChange={(e) => {
-                  handleInputChange("company", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Start Date"
-                required
-                value={experience.startDate}
-                onChange={(e) => {
-                  handleInputChange("startDate", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="End Date"
-                required
-                value={experience.endDate}
-                onChange={(e) => {
-                  handleInputChange("endDate", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Description"
-                value={experience.description}
-                onChange={(e) => {
-                  handleInputChange("description", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Control
-                type="text"
-                placeholder="Area"
-                required
-                value={experience.area}
-                onChange={(e) => {
-                  handleInputChange("area", e.target.value);
-                }}
-              ></Form.Control>
-            </Form.Group>
-            <Button variant="primary" type="submit">
+           
+            <Form.Group className="p-2">
+            <Form.Label>Company Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Company"
+              required
+              value={experience.company}
+              onChange={(e) => {
+                handleInputChange("company", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="p-2">
+            <Form.Label>Qualifica</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Esempio: Retail Sales Manager"
+              required
+              value={experience.role}
+              onChange={(e) => {
+                handleInputChange("role", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group>
+            
+          <Form.Group className="p-2">
+          <Form.Label>Data di inizio</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="From: YYYY-MM-DD"
+              required
+              value={experience.startDate.substring(0, 10)}
+              onChange={(e) => {
+                handleInputChange("startDate", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="p-2">
+          <Form.Label>Data di fine</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="to: YYYY-MM-DD"
+              required
+              value={experience.endDate.substring(0, 10)}
+              onChange={(e) => {
+                handleInputChange("startDate", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="p-2">
+          <Form.Label>Descrizione</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Description"
+              value={experience.description}
+              onChange={(e) => {
+                handleInputChange("description", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="p-2">
+          <Form.Label>Luogo</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Area"
+              value={experience.area}
+              onChange={(e) => {
+                handleInputChange("area", e.target.value);
+              }}
+            ></Form.Control>
+          </Form.Group >
+          <div className="text-center">
+          <Button variant="primary" type="submit" >
               Aggiungi
             </Button>
+          </div>
+            
           </Form>
         </Row>
       </div>
