@@ -51,13 +51,25 @@ const PostsRandom = ({ posts }) => {
                 </h4>
                 <p className=''>{randomPost.text}</p>
                 <p className=''>{formattedDate}</p>
-                <ChatDots
-                  className=''
-                  width={20}
-                  height={20}
-                  onClick={() => handleChatIconClick(randomPost._id)}
-                  style={{ cursor: 'pointer' }}
-                />
+                <hr />
+                <div className='d-flex justify-content-around align-items-center'>
+                  <button className='mt-2 fs-5 btn btn-post'>
+                    <GrLike size={30} className='me-2' />
+                    Consiglia
+                  </button>
+                  <button className='mt-2 fs-5 btn btn-post' onClick={() => handleChatIconClick(randomPost._id)}>
+                    <FaRegCommentDots size={30} className='me-2' />
+                    Commenta
+                  </button>
+                  <button className='mt-2 fs-5 btn btn-post'>
+                    <RiRepeatLine size={30} className='me-2' />
+                    Diffondi il post
+                  </button>
+                  <button className='mt-2 fs-5 btn btn-post'>
+                    <IoIosSend size={30} className='me-2' />
+                    Invia
+                  </button>
+                </div>
               </div>
             </div>
           );

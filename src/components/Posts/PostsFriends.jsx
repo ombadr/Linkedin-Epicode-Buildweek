@@ -63,7 +63,7 @@ const PostsFriends = ({ posts }) => {
                 <GrLike size={30} className='me-2' />
                 Consiglia
               </button>
-              <button className='mt-2 fs-5 btn btn-post'>
+              <button className='mt-2 fs-5 btn btn-post' onClick={() => handleChatIconClick(post._id)}>
                 <FaRegCommentDots size={30} className='me-2' />
                 Commenta
               </button>
@@ -76,13 +76,6 @@ const PostsFriends = ({ posts }) => {
                 Invia
               </button>
             </div>
-            <ChatDots
-              className='float-end'
-              width={20}
-              height={20}
-              onClick={() => handleChatIconClick(post._id)}
-              style={{ cursor: 'pointer' }}
-            />
           </div>
         ))}
       </div>
