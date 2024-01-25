@@ -83,3 +83,13 @@ p {
 .MyNetworkButton button:hover {
   background-color: lightblue;
 }
+
+.Immagini{
+  display: flex;
+  justify-content: center;
+}
+.Immagini img{
+  border-radius: 50%;
+  width: 70px;
+  height: 60px;
+}

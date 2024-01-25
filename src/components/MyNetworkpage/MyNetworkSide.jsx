@@ -73,7 +73,7 @@ const MyNetworkSide = () => {
         <p>
           Rimani al corrente sulle utlime notizie e aggiornamento del settore
         </p>
-        <div>
+        <div className='Immagini'>
           <img src={User} alt='User' />
           <img src={EpicodeLogo} alt='EpicodeLogo' />
         </div>
