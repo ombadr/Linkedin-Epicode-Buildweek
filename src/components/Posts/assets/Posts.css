@@ -9,3 +9,35 @@
 .btn-post {
     color: grey;
 }
+
+.ulNews {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 2em;
+    cursor: pointer;
+}
+
+.ulNews > li:hover {
+    text-decoration: underline;
+}
+
+.btnNews,
+.btnProfilePostsBar {
+    border: none;
+    color: grey;
+}
+
+.ulProfilePostsBar {
+    line-height: 2em;
+}
+
+.ulProfilePostsBar > li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.profileBar:hover {
+    cursor: pointer;
+    background-color: #d3d3d3;
+}

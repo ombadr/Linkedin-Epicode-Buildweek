@@ -39,12 +39,13 @@ const PostsRandom = ({ posts }) => {
           const formattedDate = new Date(
             randomPost.updatedAt
           ).toLocaleDateString();
+
           newRandomPosts.push({
             id: randomPost._id,
             jsx: (
               <div
                 key={i}
-                className='d-flex p-4 m- w-100 mt-4 mb-4'
+              className='Suggestedposts d-flex p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
               >
                 <div className='w-100'>
                   <h4 className='fw-bold mb-4'>
@@ -62,8 +63,8 @@ const PostsRandom = ({ posts }) => {
                   </h4>
                   <p className=''>{randomPost.text}</p>
                   <p className=''>{formattedDate}</p>
-
                   <hr />
+
 
                   <div className='d-flex justify-content-around align-items-center'>
                     <button className='mt-2 fs-5 btn btn-post'>

@@ -40,7 +40,7 @@ const PostsFriends = ({ posts }) => {
         {friendPosts.map((post) => (
           <div
             key={post._id}
-            className='p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+            className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           >
             <h4 className='fw-bold mb-4'>
               <img
@@ -65,7 +65,7 @@ const PostsFriends = ({ posts }) => {
               </button>
               <button className='mt-2 fs-5 btn btn-post'>
                 <RiRepeatLine size={30} className='me-2' />
-                Diffondi il post
+                Diffondi
               </button>
               <button className='mt-2 fs-5 btn btn-post'>
                 <IoIosSend size={30} className='me-2' />
