@@ -1,4 +1,3 @@
-
 export const GET_JOBS_BY_CATEGORY = 'GET_JOBS_BY_CATEGORY';
 export const RECENT_SEARCHES = 'RECENT_SEARCHES';
 export const RESET_RECENT_SEARCHES = 'RESET_RECENT_SEARCHES';
@@ -6,6 +5,7 @@ export const PERFORM_SEARCH = 'PERFORM_SEARCH';
 export const RESET_SEARCH = 'RESET_SEARCH';
 export const MAIN_PROFILE = "MAIN_PROFILE";
 export const GET_JOBS_FROM_SEARCH = "GET_JOBS_FROM_SEARCH";
+
 
 export const mainProfileAction = () => {
   return async dispatch => {
@@ -35,10 +35,6 @@ export const mainProfileAction = () => {
       })
   }
 }
-
-
-
-
 
 export const getJobsByCategoryAction = (category) => {
   return async (dispatch) => {
@@ -92,7 +88,6 @@ export const resetSearchAction = () => {
   }
 }
 
-
 export const getJobsFromSearchAction = (searchTerm) => {
   return async (dispatch) => {
     try {
@@ -112,3 +107,4 @@ export const getJobsFromSearchAction = (searchTerm) => {
     }
   }
 }
+
