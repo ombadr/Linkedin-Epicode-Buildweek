@@ -35,37 +35,51 @@ const Posts = () => {
   };
 
   return (
-    <div>
-      {loading != true && (
-        <>
-          <h1>POSTS:</h1>
-          <PostsAdd />
-          <form className='mt-3'>
-            <label>
-              <span className=''>Seleziona la visualizzazione del feed: </span>
-              <select
-                className='bg-transparent rounded-3'
-                id='postsOption'
-                name='postsOption'
-                value={selectedOption}
-                onChange={handleOptionChange}
-              >
-                <option value='Friends'>Friends</option>
-                <option value='Esplora'>Esplora</option>
-                <option value='Personal'>I tuoi posts</option>
-              </select>
-            </label>
-          </form>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-md-3'>
+          <ProfilePostsBar />
+        </div>
+        <div className='col-md-6 mt-4'>
+          {loading != true && (
+            <>
+              <PostsAdd />
+              <form className='mt-3'>
+                <label>
+                  <span className=''>
+                    Seleziona la visualizzazione del feed:{' '}
+                  </span>
+                  <select
+                    className='bg-transparent rounded-3'
+                    id='postsOption'
+                    name='postsOption'
+                    value={selectedOption}
+                    onChange={handleOptionChange}
+                  >
+                    <option value='Friends'>Friends</option>
+                    <option value='Esplora'>Esplora</option>
+                    <option value='Personal'>I tuoi posts</option>
+                  </select>
+                </label>
+              </form>
 
-          {selectedOption === 'Friends' && (
-            <PostsFriends posts={esploraPosts} />
+              {selectedOption === 'Friends' && (
+                <PostsFriends posts={esploraPosts} />
+              )}
+              {selectedOption === 'Esplora' && (
+                <PostsRandom posts={esploraPosts} />
+              )}
+              {selectedOption === 'Personal' && (
+                <PostsPersonal isMe={true} posts={esploraPosts} />
+              )}
+            </>
           )}
-          {selectedOption === 'Esplora' && <PostsRandom posts={esploraPosts} />}
-          {selectedOption === 'Personal' && (
-            <PostsPersonal isMe={true} posts={esploraPosts} />
-          )}
-        </>
-      )}
+        </div>
+
+        <div className='col-md-3'>
+          <NewsBar />
+        </div>
+      </div>
     </div>
   );
 };
