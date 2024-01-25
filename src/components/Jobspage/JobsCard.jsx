@@ -49,21 +49,21 @@ const JobsCard = ({ title, category }) => {
             onClick={() => handleClick(job)}
             style={{ cursor: 'pointer' }}
           >
-            <MdWork size={48} className='me-3 align-self-center' />
+            <MdWork size={48} className='me-4 align-self-center' />
             <div className='flex-grow-1'>
               <div className='fw-bold text-primary fs-5'>{job.title}</div>
-              <p className='m-0'>{job.company_name}</p>
-              <p className='text-secondary m-0'>
+              <p className='m-0 p-0'>{job.company_name}</p>
+              <p className='text-secondary m-0 p-0'>
                 {job.candidate_required_location} ({job.job_type})
               </p>
               <div>
-                <p className='m-0'>
+                <p className='m-0 p-0'>
                   <TbTargetArrow size={20} />
                   {job.match}
                 </p>
               </div>
               <div>
-                <p>{job.status}</p>
+                <p className='p-0'>{job.status}</p>
               </div>
             </div>
           </ListGroup.Item>
