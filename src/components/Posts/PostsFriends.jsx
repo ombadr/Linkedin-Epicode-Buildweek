@@ -32,7 +32,7 @@ const PostsFriends = ({ posts }) => {
   const handleClose = () => {
     setSelectedPostId(null);
   };
-  console.log(friendPosts)
+  console.log(friendPosts);
   return (
     <div>
       <h2>Posts degli Amici</h2>
@@ -40,17 +40,19 @@ const PostsFriends = ({ posts }) => {
         {friendPosts.map((post) => (
           <div
             key={post._id}
-            className='p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+            className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           >
-            <a href={"/"+post.user._id}>
+            <a href={'/' + post.user._id}>
               <h4 className='fw-bold mb-4'>
                 <img
                   src={post.user.image}
                   alt=''
-                  style={{ width: '100px', height:"100px" }}
+                  style={{ width: '100px', height: '100px' }}
                   className='rounded-circle me-3'
                 />
-                {post.user.name !== "" ? (post.user.name + " " + post.user.surname) : (post.user.username)}
+                {post.user.name !== ''
+                  ? post.user.name + ' ' + post.user.surname
+                  : post.user.username}
               </h4>
             </a>
             <p className=''>{post.text}</p>
@@ -61,13 +63,19 @@ const PostsFriends = ({ posts }) => {
                 <GrLike size={30} className='me-2' />
                 Consiglia
               </button>
-              <button className='mt-2 fs-5 btn btn-post' onClick={() => { handleClose(); handleChatIconClick(post._id);  }}>
+              <button
+                className='mt-2 fs-5 btn btn-post'
+                onClick={() => {
+                  handleClose();
+                  handleChatIconClick(post._id);
+                }}
+              >
                 <FaRegCommentDots size={30} className='me-2' />
                 Commenta
               </button>
               <button className='mt-2 fs-5 btn btn-post'>
                 <RiRepeatLine size={30} className='me-2' />
-                Diffondi il post
+                Diffondi
               </button>
               <button className='mt-2 fs-5 btn btn-post'>
                 <IoIosSend size={30} className='me-2' />
@@ -78,7 +86,7 @@ const PostsFriends = ({ posts }) => {
             {selectedPostId === post._id && (
               <PostsComments
                 postId={selectedPostId}
-                showModal={true}  // Mostra sempre il componente PostsComments quando selectedPostId è definito
+                showModal={true} // Mostra sempre il componente PostsComments quando selectedPostId è definito
                 handleClose={handleClose}
               />
             )}

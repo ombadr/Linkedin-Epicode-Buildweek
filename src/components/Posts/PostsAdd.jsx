@@ -27,7 +27,7 @@ const PostAdd = ({ }) => {
 
       const data = await response.json();
 
-      console.log("Post aggiunto con successo!");
+      /* console.log("Post aggiunto con successo!"); */
 
     } catch (error) {
       console.error(`Errore durante l'aggiunta del post: ${error.message}`);
@@ -36,7 +36,7 @@ const PostAdd = ({ }) => {
   };
 
   return (
-    <div className="bg-light rounded-4 border border-secondary p-3">
+    <div className="bg-light rounded-3 border border-secondary p-3">
       <div className="d-flex justify-content-center">
         {error && <p style={{ color: "red" }}>{error}</p>}
         <form onSubmit={handleSubmit} className="d-flex w-100">

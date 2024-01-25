@@ -42,12 +42,9 @@ const PostsRandom = ({ posts }) => {
           newRandomPosts.push({
             id: randomPost._id,
             jsx: (
-              <div
-                key={i}
-                className='d-flex p-4 m- w-100 mt-4 mb-4'
-              >
+              <div key={i} className='d-flex p-4 m- w-100 mt-4 mb-4'>
                 <div className='w-100'>
-                  <a href={"/"+randomPost.user._id}>
+                  <a href={'/' + randomPost.user._id}>
                     <h4 className='fw-bold mb-4'>
                       <img
                         src={
@@ -56,11 +53,12 @@ const PostsRandom = ({ posts }) => {
                             : 'https://d.newsweek.com/en/full/2270410/angry-cat-expert.png?w=1600&h=1600&q=88&f=aeb99a4ed1e4f5223fb24f0610a3493a'
                         }
                         alt=''
-                        style={{ width: '100px', height:"100px" }}
+                        style={{ width: '100px', height: '100px' }}
                         className='rounded-circle me-3'
                       />
-                      {randomPost.user.name !== "" ? (randomPost.user.name + " " + randomPost.user.surname) : (randomPost.user.username)}
-                      
+                      {randomPost.user.name !== ''
+                        ? randomPost.user.name + ' ' + randomPost.user.surname
+                        : randomPost.user.username}
                     </h4>
                   </a>
                   <p className=''>{randomPost.text}</p>
@@ -107,18 +105,24 @@ const PostsRandom = ({ posts }) => {
   return (
     <div>
       {randomPosts.map(({ id, jsx }) => (
-        <div className='Suggestedposts p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4' key={id}>
+        <div
+          className='Suggestedposts p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+          key={id}
+        >
           <React.Fragment>
             {jsx}
             {selectedPostId === id && showModal && (
-              <PostsComments postId={selectedPostId} showModal={showModal} handleClose={handleClose} />
+              <PostsComments
+                postId={selectedPostId}
+                showModal={showModal}
+                handleClose={handleClose}
+              />
             )}
           </React.Fragment>
         </div>
       ))}
     </div>
   );
-  
 };
 
 export default PostsRandom;
