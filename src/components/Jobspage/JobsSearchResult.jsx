@@ -114,15 +114,13 @@ const JobsSearchResult = () => {
   return (
     <>
       <Card className='mb-4'>
-        <Card.Header className='bg-white border-0'>
-          <h2 className='fs-4 mt-3'>Search results</h2>
+        <Card.Header className='bg-white border-0 d-flex justify-content-between align-items-center'>
+          <h2 className='fs-4'>Search results</h2>
+          <p className='fw-bold fs-5 mt-3 text-primary'>
+            {data.length} total results
+          </p>
         </Card.Header>
         <ListGroup variant='flush'>{jobItems}</ListGroup>
-        <Card.Footer className='text-center'>
-          <Button variant='link' className='fw-bold text-decoration-none fs-5'>
-            {data.length} total results
-          </Button>
-        </Card.Footer>
       </Card>
       <div>
         <div>{renderPaginationControls()}</div>

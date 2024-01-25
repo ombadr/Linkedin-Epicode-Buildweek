@@ -36,7 +36,7 @@ function App() {
                 <Route path="/jobs" element={<JobsPage />} />
                 <Route path="/" element={<Posts />}></Route>
               </Routes>
-              
+
             </Row>
             <Row className='mt-5'>
               <Col col={12}>
@@ -44,7 +44,7 @@ function App() {
               </Col>
             </Row>
             <hr />
-            
+
           </Container>
         </div>
       </div>

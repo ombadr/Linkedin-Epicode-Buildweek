@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { mainProfileAction } from '../redux/actions';
-
 
 //funzione che salva nel redux il proprio profilo per poi utilizzarlo per vari checks
 export function Fetchprofilo() {
@@ -22,10 +21,9 @@ export async function FetchProfiles(id = '') {
     const response = await fetch(
       'https://striveschool-api.herokuapp.com/api/profile/' + id,
       {
-        mode:'cors',
+        mode: 'cors',
         method: 'GET',
         headers: {
-          
           'Content-Type': 'application/json',
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
         },
@@ -46,30 +44,27 @@ export async function fetchputProfilo(profilo) {
     const response = await fetch(
       'https://striveschool-api.herokuapp.com/api/profile/',
       {
-        mode:'cors',
+        mode: 'cors',
         method: 'PUT',
-        body:JSON.stringify({
-          "name":profilo.name,
-          "surname":profilo.surname,
-          "email":profilo.email,
-          "username":profilo.username,
-          "bio":profilo.bio,
-          "title":profilo.title,
-          "area":profilo.area,
-          "image":profilo.image,
+        body: JSON.stringify({
+          name: profilo.name,
+          surname: profilo.surname,
+          email: profilo.email,
+          username: profilo.username,
+          bio: profilo.bio,
+          title: profilo.title,
+          area: profilo.area,
+          image: profilo.image,
         }),
         headers: {
-          
           'Content-Type': 'application/json',
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
         },
-      },
-      
+      }
     );
     if (!response.ok) {
       throw new Error(response.status);
     }
-    
   } catch (error) {
     console.log('Errore nella fetch:' + error);
   }
