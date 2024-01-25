@@ -170,13 +170,16 @@ const PostsComments = ({ postId, handleClose }) => {
             <li key={comment._id} className='border-bottom py-3'>
               {editingCommentId === comment._id ? (
                 <div>
+
+                  <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
+
                   <img
                     src='https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw'
                     alt=''
                     style={{ width: '100px', height: '100px' }}
                     className='rounded-circle me-3'
                   />
-                  <span className='fw-bold'>User:</span>
+                  <span className='fw-bold'>{comment.author}:</span>
                   <input
                     type='text'
                     name='editedComment'
@@ -202,13 +205,16 @@ const PostsComments = ({ postId, handleClose }) => {
                 </div>
               ) : (
                 <p>
+
+                  <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
+
                   <img
                     src='https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw'
                     alt=''
                     style={{ width: '100px', height: '100px' }}
                     className='rounded-circle me-3'
                   />
-                  <span className='fw-bold'>User:</span> {comment.comment}
+                  <span className='fw-bold'>{comment.author}:</span> {comment.comment}
                   <XSquare
                     width={20}
                     height={20}
