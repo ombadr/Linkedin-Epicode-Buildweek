@@ -1,60 +1,100 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { GrLike } from "react-icons/gr";
-import { FaRegCommentDots } from "react-icons/fa";
-import { IoIosSend } from "react-icons/io";
-import { RiRepeatLine } from "react-icons/ri";
-import "./assets/Posts.css"
+import { GrLike } from 'react-icons/gr';
+import { FaRegCommentDots } from 'react-icons/fa';
+import { IoIosSend } from 'react-icons/io';
+import { RiRepeatLine } from 'react-icons/ri';
+import './assets/Posts.css';
+import { ChatDots } from 'react-bootstrap-icons';
+import PostsComments from './PostsComments'; //
 
 const PostsFriends = ({ posts }) => {
   const friendUserIds = [
-    "65ae3141600be100183a868b", // Mattia
-    "65ae7790600be100183a86c8", // Vincenzo
-    "65af9a37bd5d12001890d45c", // Giuseppe
-    "65ae3259600be100183a868c", // Omar
-    "65af8844bd5d12001890d420", // Salvatore
+    '65ae3141600be100183a868b', // Mattia
+    '65ae7790600be100183a86c8', // Vincenzo
+    '65af9a37bd5d12001890d45c', // Giuseppe
+    '65ae3259600be100183a868c', // Omar
+    '65af8844bd5d12001890d420', // Salvatore
   ];
 
   const [friendPosts, setFriendPosts] = useState([]);
+  const [selectedPostId, setSelectedPostId] = useState(null); // Nuovo stato per tracciare l'ID del post selezionato
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const filteredFriendPosts = posts.filter(post => friendUserIds.includes(post.user._id));
+    const filteredFriendPosts = posts.filter((post) =>
+      friendUserIds.includes(post.user._id)
+    );
     setFriendPosts(filteredFriendPosts);
   }, [posts]);
 
-  console.log(friendPosts)
+  const handleChatIconClick = (postId) => {
+    setSelectedPostId(postId);
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
 
   return (
     <div>
       <h2>Posts degli Amici</h2>
       <div>
-        {friendPosts.map(post => (
-          <div key={post._id} className="bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4">
-            <h4 className="fw-bold mb-4">{post.user.username}</h4>
-            <p>{post.text}</p>
+        {friendPosts.map((post) => (
+          <div
+            key={post._id}
+            className='p-4 m-3 border-bottom border-secondary'
+          >
+            <h4 className='fw-bold mb-4'>
+              <img
+                src={post.user.image}
+                alt=''
+                style={{ width: '100px' }}
+                className='rounded-circle me-3'
+              />
+              {post.user.username}
+            </h4>
+            <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />
-            <div className="d-flex justify-content-around align-items-center">
-              <button className="mt-2 fs-5 btn btn-post">
-                <GrLike size={30} className="me-2" />
+            <div className='d-flex justify-content-around align-items-center'>
+              <button className='mt-2 fs-5 btn btn-post'>
+                <GrLike size={30} className='me-2' />
                 Consiglia
               </button>
-              <button className="mt-2 fs-5 btn btn-post">
-                <FaRegCommentDots size={30} className="me-2" />
+              <button className='mt-2 fs-5 btn btn-post'>
+                <FaRegCommentDots size={30} className='me-2' />
                 Commenta
               </button>
-              <button className="mt-2 fs-5 btn btn-post">
-                <RiRepeatLine size={30} className="me-2" />
+              <button className='mt-2 fs-5 btn btn-post'>
+                <RiRepeatLine size={30} className='me-2' />
                 Diffondi il post
               </button>
-              <button className="mt-2 fs-5 btn btn-post">
-                <IoIosSend size={30} className="me-2" />
+              <button className='mt-2 fs-5 btn btn-post'>
+                <IoIosSend size={30} className='me-2' />
                 Invia
               </button>
             </div>
+            <ChatDots
+              className='float-end'
+              width={20}
+              height={20}
+              onClick={() => handleChatIconClick(post._id)}
+              style={{ cursor: 'pointer' }}
+            />
           </div>
         ))}
       </div>
+
+      {/* Visualizza PostsComments solo se un post è stato selezionato */}
+      {selectedPostId && (
+        <PostsComments
+          postId={selectedPostId}
+          showModal={showModal}
+          handleClose={handleClose}
+        />
+      )}
     </div>
   );
 };

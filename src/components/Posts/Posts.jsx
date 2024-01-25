@@ -13,6 +13,7 @@ const Posts = () => {
   const [selectedOption, setSelectedOption] = useState('Friends');
   const [esploraPosts, setEsploraPosts] = useState([]);
 
+  
   useEffect(() => {
     const fetchPosts = async () => {
       try {
