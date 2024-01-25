@@ -3,6 +3,7 @@ import { Modal, Button,Tabs, Tab, Col } from "react-bootstrap";
 import { PersonAdd } from "react-bootstrap-icons";
 import { FaArrowRight } from "react-icons/fa";
 import { FetchProfiles } from "../Fetchprofilo";
+import { Link } from "react-router-dom";
 
 
 
@@ -66,9 +67,9 @@ const ProfiliRandom = () => {
                 </div>
 
                 <div className="px-2">
-                  <a href={"/"+randomProfile._id} className="fw-bold m-0">
+                  <Link to={"/"+randomProfile._id} className="fw-bold m-0">
                     {randomProfile.name} {randomProfile.surname}
-                  </a>
+                  </Link>
                   <p>{randomProfile.title}</p>
                   <Button variant="outline-secondary" className="rounded-pill">
                     <PersonAdd /> Collegati

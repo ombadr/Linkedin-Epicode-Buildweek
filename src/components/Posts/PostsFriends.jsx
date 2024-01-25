@@ -50,7 +50,7 @@ const PostsFriends = ({ posts }) => {
                   style={{ width: '100px', height: '100px' }}
                   className='rounded-circle me-3'
                 />
-                {post.user.name !== ''
+                {post.user.name !== undefined
                   ? post.user.name + ' ' + post.user.surname
                   : post.user.username}
               </h4>

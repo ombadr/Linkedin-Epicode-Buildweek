@@ -10,7 +10,7 @@ import PostsRandom from '../Posts/PostsRandom';
 import { Row, Col, Button } from 'react-bootstrap';
 
 const Attivita = ({isMe,profilo}) => {
-  console.log(profilo)
+  
 
   const [loading, setLoading] = useState(true);
   

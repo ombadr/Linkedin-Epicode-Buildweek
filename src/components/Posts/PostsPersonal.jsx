@@ -112,7 +112,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
       console.error('Errore durante la modifica del post:', error);
     }
   };
-  console.log(personalPosts);
+  
   return (
     <div>
       {personalPosts[0] ? (
