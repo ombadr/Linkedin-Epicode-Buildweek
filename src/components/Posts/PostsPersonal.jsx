@@ -10,7 +10,7 @@ import { IoIosSend } from 'react-icons/io';
 import { RiRepeatLine } from 'react-icons/ri';
 import './assets/Posts.css';
 import PostsComments from './PostsComments';
-import { Fetchprofilo, fetchputProfilo } from '../Fetchprofilo';
+import { Fetchprofilo } from '../Fetchprofilo';
 
 const PostsPersonal = ({ posts, isMe, nome }) => {
   const [personalPosts, setPersonalPosts] = useState([]);
@@ -22,7 +22,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
   const params = useParams().id;
   let personalId;
 
-  if (params != undefined) {
+  if (params !== undefined) {
     personalId = params;
   } else {
     personalId = Fetchprofilo().profile._id;
@@ -106,13 +106,12 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
         )
       );
 
-      console.log('Modifica del post con ID:', selectedPostId);
       handleCloseModal();
     } catch (error) {
       console.error('Errore durante la modifica del post:', error);
     }
   };
-  
+
   return (
     <div>
       {personalPosts[0] ? (

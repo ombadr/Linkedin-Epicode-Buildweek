@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaUserPlus } from 'react-icons/fa';
 import { FetchProfiles } from '../Fetchprofilo';
 const MyNetworkBelow = () => {
@@ -19,12 +19,6 @@ const MyNetworkBelow = () => {
   useEffect(() => {
     profileData();
   }, []);
-
-  useEffect(() => {
-    if (profiles.length > 0) {
-      console.log(profiles);
-    }
-  }, [profiles]);
 
   return (
     <Card className='mt-3'>

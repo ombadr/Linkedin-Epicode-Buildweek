@@ -8,7 +8,7 @@ const MyNetworkPage = () => {
   return (
     <Container>
       <Row>
-        <Col md={3} className='mt-3'>
+        <Col md={3}>
           <MyNetworkSide />
         </Col>
         <Col md={9} className='mt-3 px-3'>

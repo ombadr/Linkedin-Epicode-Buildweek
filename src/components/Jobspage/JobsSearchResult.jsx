@@ -13,8 +13,6 @@ const JobsSearchResult = () => {
   const [showModal, setShowModal] = useState(false);
   const data = useSelector((state) => state.results.results[0]?.data);
 
-  console.log('JobsSearchResult: ', data);
-
   const pageCount = data ? Math.ceil(data.length / itemsPerPage) : 0;
 
   const getCurrentPageData = () => {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
-import { MdWork } from 'react-icons/md';
+import { ListGroup } from 'react-bootstrap';
 import { FetchProfiles } from '../Fetchprofilo';
 
 const MyNetworkTopCard = () => {
@@ -22,7 +21,6 @@ const MyNetworkTopCard = () => {
         allProfiles.push(profile);
       }
       setProfiles(allProfiles);
-      console.log(profiles);
     } catch (err) {
       console.log(err);
     }
@@ -44,6 +42,7 @@ const MyNetworkTopCard = () => {
           height='70px'
           width='70px'
           className='rounded-circle me-3'
+          alt='Profile'
         />
 
         <div className='flex-grow-1'>

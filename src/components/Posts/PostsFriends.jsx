@@ -32,7 +32,7 @@ const PostsFriends = ({ posts }) => {
   const handleClose = () => {
     setSelectedPostId(null);
   };
-  console.log(friendPosts);
+
   return (
     <div>
       <h2>Posts degli Amici</h2>

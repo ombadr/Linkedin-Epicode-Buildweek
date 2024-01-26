@@ -32,7 +32,6 @@ const PostsComments = ({ postId, handleClose }) => {
           (comment) => comment.elementId === postId
         );
         setComments(postComments);
-        console.log(postComments);
       } else {
         console.error('Errore nella richiesta:', response.status);
       }
@@ -57,8 +56,6 @@ const PostsComments = ({ postId, handleClose }) => {
     e.preventDefault();
 
     try {
-      console.log('Dati del commento:', JSON.stringify(newComment));
-
       const response = await fetch(
         'https://striveschool-api.herokuapp.com/api/comments/',
         {
@@ -145,9 +142,7 @@ const PostsComments = ({ postId, handleClose }) => {
         setComments((prevComments) =>
           prevComments.map((comment) =>
             comment._id === editedComment._id ? editedComment : comment
-            
           )
-      
         );
 
         // Esci dalla modalità di modifica
@@ -172,7 +167,6 @@ const PostsComments = ({ postId, handleClose }) => {
             <li key={comment._id} className='border-bottom py-3'>
               {editingCommentId === comment._id ? (
                 <div>
-
                   <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
 
                   <img
@@ -207,17 +201,15 @@ const PostsComments = ({ postId, handleClose }) => {
                 </div>
               ) : (
                 <div>
-
                   <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
-
                   <img
                     src='https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw'
                     alt=''
                     style={{ width: '100px', height: '100px' }}
                     className='rounded-circle me-3'
                   />
-                  <span className='fw-bold'>{comment.author}:</span> {comment.comment}
-
+                  <span className='fw-bold'>{comment.author}:</span>{' '}
+                  {comment.comment}
                   {comment.author === 'soupcarry22' && (
                     <>
                       <XSquare
