@@ -64,7 +64,9 @@ const PostsRandom = ({ posts }) => {
                     </h4>
                   </a>
                   <div>
-                    <img src={randomPost.image} alt="" srcset="" />
+                    <img src={randomPost.image} alt="" srcset=""
+                      style={{ width: '400px' }}
+                    />
                   </div>
                   <p className=''>{randomPost.text}</p>
                   <p className=''>{formattedDate}</p>

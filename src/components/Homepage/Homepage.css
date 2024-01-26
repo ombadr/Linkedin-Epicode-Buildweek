@@ -21,29 +21,92 @@
     top: 160px;
     right: 814px;
   }
+  .overlaymattia{
+    position: absolute;
+    top: 160px;
+    right: 884px;
+    display: none;
+  }
+  .mattia:hover ~ .overlaymattia {
+    display: block;
+  }
  
+
   .giuseppe{
     position: absolute;
     top: 160px;
     right: 1139px;
   }
+  .overlaygiuseppe{
+    position: absolute;
+    top: 160px;
+    right: 1199px;
+    display: none
+  }
+  .giuseppe:hover ~ .overlaygiuseppe {
+    display: block;
+  }
+
+
   .davide{
     position: absolute;
     top: 160px;
     right: 494px;
   }
+  .overlaydavide{
+    position: absolute;
+    top: 160px;
+    right: 569px;
+    display: none;
+  }
+  .davide:hover ~ .overlaydavide {
+    display: block;
+  }
+
   .salvatore{
     position: absolute;
     top: 554px;
     right: 494px;
   }
+  .overlaysalvatore{
+    position: absolute;
+    top: 554px;
+    right: 539px;
+    display: none;
+  }
+  .salvatore:hover ~ .overlaysalvatore {
+    display: block;
+  }
+
+
   .omar{
     position: absolute;
     top: 554px;
     right: 1139px;
   }
-  .vincenzo{
+  .overlayomar{
+    position: absolute;
+    top: 554px;
+    right: 1230px;
+    display: none;
+  }
+  .omar:hover ~ .overlayomar {
+    display: block;
+  }
+
+
+  .vincenzo {
     position: absolute;
     top: 554px;
     right: 814px;
   }
+  .overlayvincenzo {
+    position: absolute;
+    top: 554px;
+    right: 860px;
+    display: none;
+  }
+  .vincenzo:hover ~ .overlayvincenzo {
+    display: block;
+  }
+  

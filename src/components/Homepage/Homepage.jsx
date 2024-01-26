@@ -43,6 +43,10 @@ const Homepage = () => {
             handleclick(Giuseppe);
           }}
         />
+
+        <div className='overlaygiuseppe text-danger overlay'>
+          <h1>GIUSEPPE</h1>
+        </div>
       </div>
       <div className='img-container'>
         <img
@@ -53,6 +57,9 @@ const Homepage = () => {
             handleclick(Mattia);
           }}
         />
+        <div className='overlaymattia text-danger overlay'>
+          <h1>MATTIA</h1>
+        </div>
       </div>
       <div className='img-container'>
         <img
@@ -63,16 +70,22 @@ const Homepage = () => {
             handleclick(Davide);
           }}
         />
+        <div className='overlaydavide text-danger overlay'>
+          <h1>DAVIDE</h1>
+        </div>
       </div>
       <div className='img-container'>
         <img
           src={salvatore}
-          className='imgprofilo salvatore'
+          className='imgprofilo salvatore '
           alt=''
           onClick={() => {
             handleclick(Salvatore);
           }}
         />
+        <div className='overlaysalvatore text-danger overlay'>
+          <h1>SALVATORE</h1>
+        </div>
       </div>
       <div className='img-container'>
         <img
@@ -83,6 +96,9 @@ const Homepage = () => {
             handleclick(Omar);
           }}
         />
+        <div className='overlayomar text-danger overlay'>
+          <h1>OMAR</h1>
+        </div>
       </div>
       <div className='img-container'>
         <img
@@ -93,8 +109,12 @@ const Homepage = () => {
             handleclick(Vincenzo);
           }}
         />
+        <div className='overlayvincenzo text-danger overlay'>
+          <h1>VINCENZO</h1>
+        </div>
       </div>
     </div>
   );
 };
+
 export default Homepage;
