@@ -63,6 +63,9 @@ const PostsRandom = ({ posts }) => {
                         : randomPost.user.username}
                     </h4>
                   </a>
+                  <div>
+                    <img src={randomPost.image} alt="" srcset="" />
+                  </div>
                   <p className=''>{randomPost.text}</p>
                   <p className=''>{formattedDate}</p>
 

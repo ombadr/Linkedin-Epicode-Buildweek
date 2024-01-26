@@ -30,7 +30,7 @@ const Posts = () => {
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
-
+  
   return (
     <div className='container'>
       <div className='row'>

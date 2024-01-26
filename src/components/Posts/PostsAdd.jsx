@@ -3,7 +3,8 @@ import './assets/Posts.css';
 import { GrGallery } from 'react-icons/gr';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { FaRegNewspaper } from 'react-icons/fa6';
-
+import { idhomepage } from '../Homepage/Homepage';
+import { Button } from 'react-bootstrap';
 const PostAdd = ({}) => {
   const [text, setText] = useState('');
   const [error, setError] = useState(null);
@@ -18,7 +19,7 @@ const PostAdd = ({}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+            Authorization: `Bearer ${idhomepage}`,
           },
           body: JSON.stringify({ text }),
         }
@@ -40,7 +41,10 @@ const PostAdd = ({}) => {
     <div className='bg-light rounded-3 border border-secondary p-3'>
       <div className='d-flex justify-content-center'>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <form onSubmit={handleSubmit} className='d-flex w-100'>
+        <form
+          onSubmit={handleSubmit}
+          className='d-flex w-100 align-items-center'
+        >
           <input
             className='rounded-5 p-3 w-100'
             placeholder='Avvia un post'
@@ -49,7 +53,7 @@ const PostAdd = ({}) => {
             onChange={(e) => setText(e.target.value)}
           />
           <br />
-          <button type='submit' className='btn btn-primary'>
+          <button className='mt-2 fs-5 btn btn-post border border-1 ms-2'>
             Aggiungi Post
           </button>
         </form>
