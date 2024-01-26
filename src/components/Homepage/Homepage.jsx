@@ -32,6 +32,8 @@ const Homepage = () => {
     console.log(idhomepage);
     navigate('/home');
   }
+
+
   return (
     <div className='homepage'>
       <div className='img-container'>
