@@ -42,10 +42,10 @@ const PostsRandom = ({ posts }) => {
           newRandomPosts.push({
             id: randomPost._id,
             jsx: (
-              <div key={i} className='d-flex p-4 m- w-100 mt-4 mb-4'>
+              <div key={i} className='d-flex w-100'>
                 <div className='w-100'>
-                  <a href={'/' + randomPost.user._id}>
-                    <h4 className='fw-bold mb-4'>
+                  <a href={'/' + randomPost.user._id} className="text-decoration-none">
+                    <h4 className='fw-bold mb-4 text-dark'>
                       <img
                         src={
                           randomPost.user.image
@@ -56,7 +56,7 @@ const PostsRandom = ({ posts }) => {
                         style={{ width: '100px', height: '100px' }}
                         className='rounded-circle me-3'
                       />
-                      {randomPost.user.name !== ''
+                      {randomPost.user.name !== undefined
                         ? randomPost.user.name + ' ' + randomPost.user.surname
                         : randomPost.user.username}
                     </h4>
@@ -80,7 +80,7 @@ const PostsRandom = ({ posts }) => {
                     </button>
                     <button className='mt-2 fs-5 btn btn-post'>
                       <RiRepeatLine size={30} className='me-2' />
-                      Diffondi il post
+                      Diffondi
                     </button>
                     <button className='mt-2 fs-5 btn btn-post'>
                       <IoIosSend size={30} className='me-2' />
@@ -106,7 +106,7 @@ const PostsRandom = ({ posts }) => {
     <div>
       {randomPosts.map(({ id, jsx }) => (
         <div
-          className='Suggestedposts p-4 m-3 border-bottom border-secondary bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+        className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           key={id}
         >
           <React.Fragment>

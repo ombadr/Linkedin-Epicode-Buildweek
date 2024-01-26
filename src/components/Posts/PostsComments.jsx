@@ -145,7 +145,9 @@ const PostsComments = ({ postId, handleClose }) => {
         setComments((prevComments) =>
           prevComments.map((comment) =>
             comment._id === editedComment._id ? editedComment : comment
+            
           )
+      
         );
 
         // Esci dalla modalità di modifica
@@ -170,13 +172,16 @@ const PostsComments = ({ postId, handleClose }) => {
             <li key={comment._id} className='border-bottom py-3'>
               {editingCommentId === comment._id ? (
                 <div>
+
+                  <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
+
                   <img
                     src='https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw'
                     alt=''
                     style={{ width: '100px', height: '100px' }}
                     className='rounded-circle me-3'
                   />
-                  <span className='fw-bold'>User:</span>
+                  <span className='fw-bold'>{comment.author}:</span>
                   <input
                     type='text'
                     name='editedComment'
@@ -201,31 +206,39 @@ const PostsComments = ({ postId, handleClose }) => {
                   </Button>
                 </div>
               ) : (
-                <p>
+                <div>
+
+                  <p>{new Date(comment.createdAt).toLocaleDateString()}</p>
+
                   <img
                     src='https://play-lh.googleusercontent.com/O8mvDQlw4AwmGfUrh4lviZD_PwwhRHz2etA25F77SbXrm3qEHOt2826aNkKar4D0yw'
                     alt=''
                     style={{ width: '100px', height: '100px' }}
                     className='rounded-circle me-3'
                   />
-                  <span className='fw-bold'>User:</span> {comment.comment}
-                  <XSquare
-                    width={20}
-                    height={20}
-                    fill='red'
-                    className='bi bi-x-square float-end'
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleDeleteComment(comment._id)}
-                  />
-                  <PencilSquare
-                    width={20}
-                    height={20}
-                    fill='black'
-                    className='bi bi-x-square float-end mx-2'
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => handleEditComment(comment._id)}
-                  />
-                </p>
+                  <span className='fw-bold'>{comment.author}:</span> {comment.comment}
+
+                  {comment.author === 'soupcarry22' && (
+                    <>
+                      <XSquare
+                        width={20}
+                        height={20}
+                        fill='red'
+                        className='bi bi-x-square float-end'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleDeleteComment(comment._id)}
+                      />
+                      <PencilSquare
+                        width={20}
+                        height={20}
+                        fill='black'
+                        className='bi bi-x-square float-end mx-2'
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleEditComment(comment._id)}
+                      />
+                    </>
+                  )}
+                </div>
               )}
             </li>
           ))}

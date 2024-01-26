@@ -20,7 +20,6 @@ const Modale = (props) => {
     formData.append("experience", selectedImage )
     console.log(selectedImage)
     await fetchImg(PostImgExp, formData);
-    props.refresh();
   };
 
   return (

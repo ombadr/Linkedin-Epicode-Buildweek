@@ -42,15 +42,15 @@ const PostsFriends = ({ posts }) => {
             key={post._id}
             className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           >
-            <a href={'/' + post.user._id}>
-              <h4 className='fw-bold mb-4'>
+            <a href={'/' + post.user._id} className="text-decoration-none">
+              <h4 className='fw-bold mb-4 text-dark'>
                 <img
                   src={post.user.image}
                   alt=''
                   style={{ width: '100px', height: '100px' }}
                   className='rounded-circle me-3'
                 />
-                {post.user.name !== ''
+                {post.user.name !== undefined
                   ? post.user.name + ' ' + post.user.surname
                   : post.user.username}
               </h4>

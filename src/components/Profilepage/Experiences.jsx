@@ -72,7 +72,7 @@ const Experiences = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
+       
         setData(data);
       } else {
         throw new Error("Error nel recupero Experiences");
@@ -84,7 +84,7 @@ const Experiences = () => {
 
   useEffect(() => {
     getExperiences();
-  }, []);
+  }, [params]);
 
   const getDate = (date) => {
     const year = new Date(date).getFullYear();
@@ -95,7 +95,7 @@ const Experiences = () => {
       day < 10 ? "0" + day : day
     }`
 
-    console.log(dataCompleta)
+    
 
     return  dataCompleta; 
   };
@@ -157,9 +157,9 @@ const Experiences = () => {
         </Row>
 
         {data.map((experience, index) => (
-          <div key={index} className="d-flex justify-content-between border-bottom  p-3">
+          <div key={index} className="d-flex justify-content-between  p-3 mx-3">
             <div className="d-flex">
-            <div className="px-3 d-flex align-items-center">
+            <div>
               <img
                 src={
                   experience.image
@@ -206,7 +206,7 @@ const Experiences = () => {
                 <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
-                onClick={() => (setElemento1(experience._id), handleShowModal2(!isModalOpen2),console.log(isModalOpen2))}
+                onClick={() => (setElemento1(experience._id), handleShowModal2(!isModalOpen2))}
               >
                 <CiImageOn size= {24}/>
               </Button>
@@ -238,7 +238,7 @@ const Experiences = () => {
         </Modal>
 
 
-        {isModalOpen2===true ? <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} refresh={getExperiences}/> : console.log("non siamo qui")}
+        {isModalOpen2===true && <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> }
         
 
 
