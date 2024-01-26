@@ -5,15 +5,41 @@ import { IoIosSend } from 'react-icons/io';
 import { RiRepeatLine } from 'react-icons/ri';
 import './assets/Posts.css';
 import PostsComments from './PostsComments';
+import { Fetchprofilo } from '../Fetchprofilo';
+
+
+
+
+
+
+
+
+
+
+
+
 
 const PostsFriends = ({ posts }) => {
+
+  const idpersonale=Fetchprofilo().profile
   const friendUserIds = [
     '65ae3141600be100183a868b', // Mattia
     '65ae7790600be100183a86c8', // Vincenzo
     '65af9a37bd5d12001890d45c', // Giuseppe
     '65ae3259600be100183a868c', // Omar
     '65af8844bd5d12001890d420', // Salvatore
+    "6574399afe031e0019ba1da9"
   ];
+
+  for(let i=0;i<friendUserIds.length;i++)
+  {
+    if(friendUserIds[i]==idpersonale._id)
+    {
+      friendUserIds.splice(i,1)
+      break
+    }
+  }
+
 
   const [friendPosts, setFriendPosts] = useState([]);
   const [selectedPostId, setSelectedPostId] = useState(null);
@@ -55,6 +81,9 @@ const PostsFriends = ({ posts }) => {
                   : post.user.username}
               </h4>
             </a>
+            <div>
+                    <img src={post.image} alt="" srcset="" />
+                  </div>
             <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />

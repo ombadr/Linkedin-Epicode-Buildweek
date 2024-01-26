@@ -1,3 +1,6 @@
+
+
+import { idhomepage } from "../../components/Homepage/Homepage";
 export const GET_JOBS_BY_CATEGORY = 'GET_JOBS_BY_CATEGORY';
 export const RECENT_SEARCHES = 'RECENT_SEARCHES';
 export const RESET_RECENT_SEARCHES = 'RESET_RECENT_SEARCHES';
@@ -7,13 +10,14 @@ export const MAIN_PROFILE = "MAIN_PROFILE";
 export const GET_JOBS_FROM_SEARCH = "GET_JOBS_FROM_SEARCH";
 
 
+
 export const mainProfileAction = () => {
   return async dispatch => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
       method: "GET",
       headers: {
         "Access-Control-Allow-Origin": '*',
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
+        Authorization: `Bearer ${idhomepage}`
       }
     })
       .then(res => {
@@ -42,7 +46,7 @@ export const getJobsByCategoryAction = (category) => {
       const response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?category=${category}&limit=3`, {
         method: "GET",
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
+          Authorization: `Bearer ${idhomepage}`
         }
       })
       if (!response.ok) {
@@ -94,7 +98,7 @@ export const getJobsFromSearchAction = (searchTerm) => {
       const response = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchTerm}`, {
         method: "GET",
         headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE"
+          Authorization: `Bearer ${idhomepage}`
         }
       })
       if (!response.ok) {

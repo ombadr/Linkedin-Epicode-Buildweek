@@ -3,7 +3,22 @@ import { fetchImg } from './fetchImg';
 import { Form, Modal, Button } from 'react-bootstrap';
 
 const Modale = (props) => {
-  const PostImgExp = `profile/65ae3141600be100183a868b/experiences/${props.expid}/picture`;
+  let PostImgExp;
+
+  switch (props.formdata) {
+    case 'experience':
+      PostImgExp = `profile/65ae3141600be100183a868b/experiences/${props.expid}/picture`;
+      break;
+    case 'profile':
+      PostImgExp = `profile/${props.expid}/picture`;
+      break;
+    case 'post':
+      PostImgExp = `posts/${props.expid}`;
+      break;
+    default:
+      // Handle default case if necessary
+      break;
+  }
 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -15,7 +30,8 @@ const Modale = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('experience', selectedImage);
+    formData.append(props.formdata, selectedImage);
+    console.log(selectedImage);
     await fetchImg(PostImgExp, formData);
   };
 

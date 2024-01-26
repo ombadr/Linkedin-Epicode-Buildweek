@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { idhomepage } from '../Homepage/Homepage';
 
 export const Modalpost = (props) => {
   const [postnuovo, setpostnuovo] = useState(null);
 
   async function handleSubmit() {
+    console.log(postnuovo);
     try {
       const response = await fetch(
         'https://striveschool-api.herokuapp.com/api/posts/',
@@ -12,7 +14,7 @@ export const Modalpost = (props) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+            Authorization: `Bearer ${idhomepage}`,
           },
           body: JSON.stringify({ text: postnuovo }),
         }
@@ -57,3 +59,5 @@ export const Modalpost = (props) => {
     </Modal>
   );
 };
+
+export default Modalpost;
