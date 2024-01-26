@@ -23,7 +23,7 @@ export function Infoprofilo(props) {
       [name]: value,
     }));
   };
-  const handleSaveChanges = () => {
+  const handleSaveChanges = async  () => {
     
     console.log('Valori modificati:', modifiedValues);
     props.handleClose();
@@ -79,14 +79,14 @@ export function Infoprofilo(props) {
             </>):
             (
             <>
-                <p>Nome:{modifiedValues.name}</p>
-                <p>Cognome:{modifiedValues.surname}</p>
-                <p>Email:{modifiedValues.email}</p>
-                <p>Username:{modifiedValues.username}</p>
-                <p>Bio:{modifiedValues.bio}</p>
-                <p>Title:{modifiedValues.title}</p>
-                <p>Area:{modifiedValues.area}</p>
-                <p>Image:{modifiedValues.image}</p>
+                <p>Nome:{props.profilo.name}</p>
+                <p>Cognome:{props.profilo.surname}</p>
+                <p>Email:{props.profilo.email}</p>
+                <p>Username:{props.profilo.username}</p>
+                <p>Bio:{props.profilo.bio}</p>
+                <p>Title:{props.profilo.title}</p>
+                <p>Area:{props.profilo.area}</p>
+                <p>Image:{props.profilo.image}</p>
             </>
             )}
         </Modal.Body>

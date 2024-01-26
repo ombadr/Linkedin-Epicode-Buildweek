@@ -17,14 +17,15 @@ import Experiences from "./Experiences"
 
 
 function  Mainprofile(){
-    const profilopersonale = Fetchprofilo()
+    const profilopersonale = Fetchprofilo().profile
     const [isLoading,setisLoading]=useState(true)
     const [profilo,setprofilo]=useState(null)
     const params=useParams().id
     const [redofetch,setredofetch]=useState(false)
+    console.log(useParams())
   
 
-
+  console.log(params)
   useEffect(() => {
 
     const fetchData = async () => {
@@ -51,13 +52,12 @@ function  Mainprofile(){
         return <p>Loading...</p>;
       }
 
-    if(profilopersonale && profilopersonale.profile && profilo)
+    if(profilopersonale && profilo)
     {
-        const idpersonale=profilopersonale.profile._id
 
         return(
             <>
-             {params===idpersonale? (
+             {params===profilopersonale._id? (
              
                  <>
                      <Col md={9}>

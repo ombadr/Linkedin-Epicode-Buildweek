@@ -60,7 +60,7 @@ const MyNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
-  console.log('Current path: ', currentPath);
+ 
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -72,7 +72,7 @@ const MyNavbar = () => {
     e.target.searchValue.value = '';
   };
 
-  console.log('search performed: ', searchPerform);
+  
 
   return (
     <>
