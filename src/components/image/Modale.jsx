@@ -1,24 +1,21 @@
-import { useState } from "react";
-import { fetchImg } from "./fetchImg";
-import {Form , Modal, Button} from "react-bootstrap";
+import { useState } from 'react';
+import { fetchImg } from './fetchImg';
+import { Form, Modal, Button } from 'react-bootstrap';
 
 const Modale = (props) => {
   const PostImgExp = `profile/65ae3141600be100183a868b/experiences/${props.expid}/picture`;
- 
-  
-    const [selectedImage, setSelectedImage]= useState(null)
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData()
-    formData.append("experience", selectedImage )
-    console.log(selectedImage)
+    const formData = new FormData();
+    formData.append('experience', selectedImage);
     await fetchImg(PostImgExp, formData);
   };
 
@@ -30,12 +27,12 @@ const Modale = (props) => {
         </Modal.Header>
 
         <Modal.Body>
-          <Form >
+          <Form>
             <Form.Label>Scegli una immagine:</Form.Label>
             <input
-              type="file"
-              id="image"
-              accept="image/*"
+              type='file'
+              id='image'
+              accept='image/*'
               onChange={handleImageChange}
             />
             <button onClick={handleSubmit}>Upload</button>
@@ -43,10 +40,7 @@ const Modale = (props) => {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={props.onHide}
-          >
+          <Button variant='secondary' onClick={props.onHide}>
             Close
           </Button>
         </Modal.Footer>

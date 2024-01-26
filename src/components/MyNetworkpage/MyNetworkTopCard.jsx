@@ -22,7 +22,6 @@ const MyNetworkTopCard = () => {
         allProfiles.push(profile);
       }
       setProfiles(allProfiles);
-      console.log(profiles);
     } catch (err) {
       console.log(err);
     }

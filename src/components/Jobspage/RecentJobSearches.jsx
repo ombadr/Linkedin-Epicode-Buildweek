@@ -27,8 +27,6 @@ const RecentJobSearches = () => {
     setShowFullList(!showFullList);
   };
 
-  console.log('searches', searches);
-
   const reversedSearches = [...searches.recentSearches].reverse();
 
   const clearRecentSearches = () => {
@@ -36,8 +34,6 @@ const RecentJobSearches = () => {
   };
 
   const recentSearchesOverflow = searches.recentSearches.length > 3;
-
-  console.log('recentSearchesOverflow', recentSearchesOverflow);
 
   const handleClick = (searchValue) => {
     dispatch(performSearchAction());

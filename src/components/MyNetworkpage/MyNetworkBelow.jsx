@@ -20,12 +20,6 @@ const MyNetworkBelow = () => {
     profileData();
   }, []);
 
-  useEffect(() => {
-    if (profiles.length > 0) {
-      console.log(profiles);
-    }
-  }, [profiles]);
-
   return (
     <Card className='mt-3'>
       <Card.Header className='bg-white'>
