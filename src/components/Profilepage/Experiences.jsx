@@ -11,7 +11,7 @@ import { Fetchprofilo } from "../Fetchprofilo";
 import Modale from "../image/Modale";
 import { CiImageOn } from "react-icons/ci";
 
-
+import { idhomepage } from '../Homepage/Homepage';
 
 
 const Experiences = () => {
@@ -65,7 +65,7 @@ const Experiences = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE",
+              `Bearer ${idhomepage}`,
           },
         }
       );
@@ -111,7 +111,7 @@ const Experiences = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE",
+              `Bearer ${idhomepage}`,
           },
         }
       );
@@ -238,7 +238,7 @@ const Experiences = () => {
         </Modal>
 
 
-        {isModalOpen2===true && <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> }
+        {isModalOpen2===true && <Modale show={isModalOpen2} formdata={"experience"}onHide={handleCloseModal2}  expid={elemento1} /> }
         
 
 

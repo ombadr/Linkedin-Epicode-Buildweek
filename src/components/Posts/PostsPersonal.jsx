@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { XSquare, PencilSquare } from 'react-bootstrap-icons';
+import { Image } from 'react-bootstrap-icons';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useParams } from 'react-router-dom';
+import Modale from '../image/Modale';
 
 import { GrLike } from 'react-icons/gr';
 import { FaRegCommentDots } from 'react-icons/fa';
@@ -10,8 +12,10 @@ import { IoIosSend } from 'react-icons/io';
 import { RiRepeatLine } from 'react-icons/ri';
 import './assets/Posts.css';
 import PostsComments from './PostsComments';
-import { Fetchprofilo } from '../Fetchprofilo';
-
+import { Fetchprofilo, fetchputProfilo } from '../Fetchprofilo';
+import { CiImageOn } from 'react-icons/ci';
+import { PiSoccerBall } from 'react-icons/pi';
+import { idhomepage } from '../Homepage/Homepage';
 const PostsPersonal = ({ posts, isMe, nome }) => {
   const [personalPosts, setPersonalPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +23,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
   const [selectedPostId, setSelectedPostId] = useState(null);
   const [postCommentsVisibility, setPostCommentsVisibility] = useState({}); // Object to store comments visibility
   const [showCommentModal, setShowCommentModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const params = useParams().id;
   let personalId;
 
@@ -30,6 +35,15 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
 
   const handleClose = () => {
     setSelectedPostId(null);
+  };
+
+  const handleCloseModal2 = () => {
+    setIsModalOpen(false);
+  };
+  const handleShowModal2 = (postId) => {
+    setIsModalOpen(true);
+    const post = personalPosts.find((post) => post._id === postId);
+    setSelectedPostId(postId);
   };
 
   useEffect(() => {
@@ -44,7 +58,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+            Authorization: `Bearer ${idhomepage}`,
           },
         }
       );
@@ -70,7 +84,6 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
     const post = personalPosts.find((post) => post._id === postId);
     setSelectedPostId(postId);
     setModifiedText(post.text);
-
     setShowModal(true);
   };
 
@@ -90,7 +103,7 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+            Authorization: `Bearer ${idhomepage}`,
           },
           body: JSON.stringify({ text: modifiedText }),
         }
@@ -156,12 +169,31 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
                         style={{ cursor: 'pointer' }}
                         onClick={() => handleOpenModal(post._id)}
                       />
+
+                      <Image
+                        width={20}
+                        height={20}
+                        fill='currentColor'
+                        className=' bi bi-pencil-square float-end '
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => handleShowModal2(post._id)}
+                      />
+                      <Modale
+                        show={isModalOpen}
+                        formdata={'post'}
+                        onHide={handleCloseModal2}
+                        expid={selectedPostId}
+                      />
                     </>
                   )}
                 </p>
-
-                <p>{post.text}</p>
-                <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+                <div>
+                  <img src={post.image} alt='' srcset='' />
+                </div>
+                <div>
+                  <p>{post.text}</p>
+                  <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+                </div>
                 <hr />
                 <div className='d-flex justify-content-around align-items-center'>
                   <button className='mt-2 fs-5 btn btn-post'>

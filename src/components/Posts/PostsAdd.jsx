@@ -3,7 +3,7 @@ import './assets/Posts.css';
 import { GrGallery } from 'react-icons/gr';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { FaRegNewspaper } from 'react-icons/fa6';
-
+import { idhomepage } from '../Homepage/Homepage';
 const PostAdd = ({}) => {
   const [text, setText] = useState('');
   const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ const PostAdd = ({}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+            Authorization: `Bearer ${idhomepage}`,
           },
           body: JSON.stringify({ text }),
         }

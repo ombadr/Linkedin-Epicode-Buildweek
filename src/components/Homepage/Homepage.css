@@ -1,0 +1,49 @@
+
+.homepage {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-image: url("./assets/sfondo.jpg"); /* Imposta l'immagine di sfondo */
+    background-size: cover; /* Copre l'intero contenitore con l'immagine */
+    background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
+    background-position-y:20%;
+  }
+  
+  .imgprofilo {
+    width: 300px;
+    height: 363px;
+    
+  }
+  .mattia{
+    position: absolute;
+    top: 160px;
+    right: 814px;
+  }
+ 
+  .giuseppe{
+    position: absolute;
+    top: 160px;
+    right: 1139px;
+  }
+  .davide{
+    position: absolute;
+    top: 160px;
+    right: 494px;
+  }
+  .salvatore{
+    position: absolute;
+    top: 554px;
+    right: 494px;
+  }
+  .omar{
+    position: absolute;
+    top: 554px;
+    right: 1139px;
+  }
+  .vincenzo{
+    position: absolute;
+    top: 554px;
+    right: 814px;
+  }

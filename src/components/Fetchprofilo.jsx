@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { mainProfileAction } from '../redux/actions';
-
+import { idhomepage } from './Homepage/Homepage';
 //funzione che salva nel redux il proprio profilo per poi utilizzarlo per vari checks
 export function Fetchprofilo() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export async function FetchProfiles(id = '') {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+          Authorization: `Bearer ${idhomepage}`,
         },
       }
     );
@@ -58,7 +58,7 @@ export async function fetchputProfilo(profilo) {
         }),
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+          Authorization: `Bearer ${idhomepage}`,
         },
       }
     );
@@ -79,7 +79,7 @@ export async function fetchPosts(){
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFlMzE0MTYwMGJlMTAwMTgzYTg2OGIiLCJpYXQiOjE3MDU5MTQ2ODksImV4cCI6MTcwNzEyNDI4OX0.4wuc8BPQtnbrrjR2fr4os_GS-UinPRJDLkLLihyMLtE`,
+          Authorization: `Bearer ${idhomepage}`,
         },
       }
     );
