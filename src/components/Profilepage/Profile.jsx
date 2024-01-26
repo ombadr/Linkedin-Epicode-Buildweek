@@ -4,17 +4,29 @@ import { FaCamera } from 'react-icons/fa';
 import { useState } from 'react';
 import { Infoprofilo } from './Infoprofilo';
 import './assets/Profile.css';
+import Modale from '../image/Modale';
 
 
 function Profile({ isMe, profilo,handleRedo }) {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [modifica, setmodifica] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+  const handleShowModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div>
       {profilo && (
         <Container className='immaginebg p-3 border rounded bg-white mt-2 '>
           <Row>
             <Col>
+            
               <img
                 className=' margincustom  mb-4 rounded-circle'
                 width={140}
@@ -22,16 +34,19 @@ function Profile({ isMe, profilo,handleRedo }) {
                 src={profilo.image}
                 alt=''
                 srcset=''
+                
               />
             </Col>
             {isMe === true && (
               <Col className='m-3 d-flex  justify-content-end  '>
-                <div
-                  className='bg-white p-2 rounded-circle  '
+                <Button
+                  className='bg-white p-2 rounded-circle border-0 '
                   style={{ height: ' 60px' }}
+                  onClick={() => (handleShowModal(!isModalOpen))}
                 >
-                  <FaCamera className='' size={40} />
-                </div>
+                  <FaCamera  className='text-black' size={40} />
+                </Button>
+                <Modale show={isModalOpen} formdata={"profile"} onHide={handleCloseModal}  expid={profilo._id} />
               </Col>
             )}
           </Row>
@@ -40,7 +55,7 @@ function Profile({ isMe, profilo,handleRedo }) {
               <h3 className='m-0'>
                 {profilo.name} {profilo.surname}
               </h3>
-              <h4 className='mb-3'>{profilo.title} presso Epicode</h4>
+              <h4 className='mb-3'>{profilo.title}</h4>
               <div className='d-flex'>
                 <p className='m-0 text-secondary '>{profilo.area} </p>
                 <p className='  ms-4 m-0 text-primary'>
