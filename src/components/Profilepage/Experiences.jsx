@@ -72,7 +72,7 @@ const Experiences = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
+       
         setData(data);
       } else {
         throw new Error("Error nel recupero Experiences");
@@ -84,7 +84,7 @@ const Experiences = () => {
 
   useEffect(() => {
     getExperiences();
-  }, []);
+  }, [params]);
 
   const getDate = (date) => {
     const year = new Date(date).getFullYear();
@@ -95,7 +95,7 @@ const Experiences = () => {
       day < 10 ? "0" + day : day
     }`
 
-    console.log(dataCompleta)
+    
 
     return  dataCompleta; 
   };
@@ -206,7 +206,7 @@ const Experiences = () => {
                 <Button
                 variant="light"
                 className="d-flex align-items-center rounded-circle"
-                onClick={() => (setElemento1(experience._id), handleShowModal2(!isModalOpen2),console.log(isModalOpen2))}
+                onClick={() => (setElemento1(experience._id), handleShowModal2(!isModalOpen2))}
               >
                 <CiImageOn size= {24}/>
               </Button>
@@ -238,7 +238,7 @@ const Experiences = () => {
         </Modal>
 
 
-        {isModalOpen2===true ? <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> : console.log("non siamo qui")}
+        {isModalOpen2===true && <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> }
         
 
 

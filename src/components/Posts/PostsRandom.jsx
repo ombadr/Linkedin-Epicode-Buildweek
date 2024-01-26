@@ -56,7 +56,7 @@ const PostsRandom = ({ posts }) => {
                         style={{ width: '100px', height: '100px' }}
                         className='rounded-circle me-3'
                       />
-                      {randomPost.user.name !== ''
+                      {randomPost.user.name !== undefined
                         ? randomPost.user.name + ' ' + randomPost.user.surname
                         : randomPost.user.username}
                     </h4>
