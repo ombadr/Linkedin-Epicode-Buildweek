@@ -4,7 +4,6 @@ import { IoIosSend } from 'react-icons/io';
 import { RiRepeatLine } from 'react-icons/ri';
 import './assets/Posts.css';
 import React, { useState, useEffect } from 'react';
-import { ChatDots } from 'react-bootstrap-icons';
 import PostsComments from './PostsComments';
 
 const PostsRandom = ({ posts }) => {
@@ -44,7 +43,10 @@ const PostsRandom = ({ posts }) => {
             jsx: (
               <div key={i} className='d-flex w-100'>
                 <div className='w-100'>
-                  <a href={'/' + randomPost.user._id} className="text-decoration-none">
+                  <a
+                    href={'/' + randomPost.user._id}
+                    className='text-decoration-none'
+                  >
                     <h4 className='fw-bold mb-4 text-dark'>
                       <img
                         src={
@@ -106,7 +108,7 @@ const PostsRandom = ({ posts }) => {
     <div>
       {randomPosts.map(({ id, jsx }) => (
         <div
-        className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
+          className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           key={id}
         >
           <React.Fragment>
