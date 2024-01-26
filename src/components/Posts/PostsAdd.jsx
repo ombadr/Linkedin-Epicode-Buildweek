@@ -4,8 +4,8 @@ import { GrGallery } from 'react-icons/gr';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { FaRegNewspaper } from 'react-icons/fa6';
 import { idhomepage } from '../Homepage/Homepage';
-import { Button } from 'react-bootstrap';
-const PostAdd = ({}) => {
+
+const PostAdd = () => {
   const [text, setText] = useState('');
   const [error, setError] = useState(null);
 
@@ -28,7 +28,6 @@ const PostAdd = ({}) => {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      const data = await response.json();
     } catch (error) {
       console.error(`Errore durante l'aggiunta del post: ${error.message}`);
       setError(
