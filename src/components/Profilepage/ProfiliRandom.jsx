@@ -1,15 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Button,Tabs, Tab, Col } from "react-bootstrap";
+import { Modal, Button, Tabs, Tab, Col } from "react-bootstrap";
 import { PersonAdd } from "react-bootstrap-icons";
 import { FaArrowRight } from "react-icons/fa";
 import { FetchProfiles } from "../Fetchprofilo";
-
-
+import { FetchJsonServerPost } from "../FetchJsonServer";
 
 const ProfiliRandom = () => {
+  const currentUser = {
+    id: '', // Sostituisci con l'effettivo ID dell'utente corrente
+    // Altri campi utente, se necessario
+  };
+
   
-  const [profile,setprofile]=useState([])
-  const [isLoading,setisLoading]=useState(true)
+  useEffect(() => {
+    const FetchJsonServerPost = async (id) => {
+      try {
+        // Chiamare la funzione FetchJsonServerPost con i parametri desiderati
+        const postData = await FetchJsonServerPost(id, currentUser);
+        console.log('Post data:', postData);
+      } catch (error) {
+        console.error('Error posting data:', error);
+      }
+    };
+
+    FetchJsonServerPost();
+  }, []);
+  
+
+  const [profile, setprofile] = useState([])
+  const [isLoading, setisLoading] = useState(true)
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,7 +36,7 @@ const ProfiliRandom = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const profilesData=await FetchProfiles()
+        const profilesData = await FetchProfiles()
         setprofile(profilesData)
         setisLoading(false);
       } catch (error) {
@@ -34,7 +53,7 @@ const ProfiliRandom = () => {
   }
 
   const renderRandomProfiles = (profilesNumber) => {
-    
+
     const profiles = [];
     if (profile && profile.length >= profilesNumber) {
       const availableIndices = Array.from(
@@ -66,13 +85,18 @@ const ProfiliRandom = () => {
                 </div>
 
                 <div className="px-2">
-                  <a href={"/"+randomProfile._id} className="fw-bold m-0">
+                  <a href={"/" + randomProfile._id} className="fw-bold m-0">
                     {randomProfile.name} {randomProfile.surname}
                   </a>
                   <p>{randomProfile.title}</p>
-                  <Button variant="outline-secondary" className="rounded-pill">
+                  <Button
+                    variant="outline-secondary"
+                    className="rounded-pill"
+                    onClick={() => FetchJsonServerPost(randomProfile._id)}
+                  >
                     <PersonAdd /> Collegati
                   </Button>
+
                 </div>
               </div>
             </div>
@@ -114,7 +138,7 @@ const ProfiliRandom = () => {
                     handleShowModal();
                   }}
                 >
-                  Mostra tutte le analisi <span><FaArrowRight/></span>
+                  Mostra tutte le analisi <span><FaArrowRight /></span>
                 </Button>
               </div>
             </div>

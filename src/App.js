@@ -13,6 +13,7 @@ import Posts from './components/Posts/Posts';
 import Mainprofile from './components/Profilepage/Mainprofile';
 import MyNetworkPage from './components/MyNetworkpage/MyNetworkPage';
 
+
 function App() {
   return (
     <BrowserRouter>

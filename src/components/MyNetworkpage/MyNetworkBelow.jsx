@@ -2,7 +2,29 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { FaUserPlus } from 'react-icons/fa';
 import { FetchProfiles } from '../Fetchprofilo';
+import { FetchJsonServerPost } from '../FetchJsonServer';
 const MyNetworkBelow = () => {
+
+  const currentUser = {
+    id: '', // Sostituisci con l'effettivo ID dell'utente corrente
+    // Altri campi utente, se necessario
+  };
+
+  
+  useEffect(() => {
+    const FetchJsonServerPost = async (id) => {
+      try {
+        // Chiamare la funzione FetchJsonServerPost con i parametri desiderati
+        const postData = await FetchJsonServerPost(id, currentUser);
+      } catch (error) {
+        console.error('Error posting data:', error);
+      }
+    };
+
+    FetchJsonServerPost();
+  }, []);
+    
+  
   const [profiles, setProfiles] = useState([]);
 
   const profileData = async () => {
@@ -73,6 +95,8 @@ const MyNetworkBelow = () => {
                       <Button
                         variant='primary'
                         className='d-flex align-items-center justify-content-center mt-auto mb-3 mx-3'
+                        onClick={() => FetchJsonServerPost(profile._id)}
+
                       >
                         <FaUserPlus className='me-2' /> Connect
                       </Button>

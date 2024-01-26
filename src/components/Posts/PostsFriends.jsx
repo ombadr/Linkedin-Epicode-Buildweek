@@ -19,10 +19,30 @@ const PostsFriends = ({ posts }) => {
   const [selectedPostId, setSelectedPostId] = useState(null);
 
   useEffect(() => {
-    const filteredFriendPosts = posts.filter((post) =>
-      friendUserIds.includes(post.user._id)
-    );
-    setFriendPosts(filteredFriendPosts);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/posts');
+        const data = await response.json();
+
+        // Extract user IDs from the fetched data
+        const fetchedUserIds = data.map(post => post.username[0]?.id);
+
+        // Combine the friendUserIds with the fetchedUserIds
+        const updatedFriendUserIds = friendUserIds.concat(fetchedUserIds);
+
+        // Filter friend posts based on the updated user IDs
+        const filteredFriendPosts = posts.filter(post =>
+          updatedFriendUserIds.includes(post.user._id)
+        );
+
+        // Set the updated friend posts
+        setFriendPosts(filteredFriendPosts);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, [posts]);
 
   const handleChatIconClick = (postId) => {
@@ -32,7 +52,7 @@ const PostsFriends = ({ posts }) => {
   const handleClose = () => {
     setSelectedPostId(null);
   };
-  console.log(friendPosts);
+
   return (
     <div>
       <h2>Posts degli Amici</h2>
@@ -86,7 +106,7 @@ const PostsFriends = ({ posts }) => {
             {selectedPostId === post._id && (
               <PostsComments
                 postId={selectedPostId}
-                showModal={true} // Mostra sempre il componente PostsComments quando selectedPostId è definito
+                showModal={true}
                 handleClose={handleClose}
               />
             )}

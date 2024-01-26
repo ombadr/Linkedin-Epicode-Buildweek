@@ -1,14 +1,36 @@
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import { PiStudent } from 'react-icons/pi';
 import { FaCamera } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Infoprofilo } from './Infoprofilo';
 import './assets/Profile.css';
+import { FetchJsonServerPost } from '../FetchJsonServer';
 
 
-function Profile({ isMe, profilo,handleRedo }) {
+function Profile({ isMe, profilo, handleRedo }) {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [modifica, setmodifica] = useState(false);
+
+
+  const currentUser = {
+    id: '', // Sostituisci con l'effettivo ID dell'utente corrente
+    // Altri campi utente, se necessario
+  };
+
+
+  useEffect(() => {
+    const FetchJsonServerPost = async (id) => {
+      try {
+        // Chiamare la funzione FetchJsonServerPost con i parametri desiderati
+        const postData = await FetchJsonServerPost(id, currentUser);
+      } catch (error) {
+        console.error('Error posting data:', error);
+      }
+    };
+
+    FetchJsonServerPost();
+  }, []);
+
   return (
     <div>
       {profilo && (
@@ -113,7 +135,9 @@ function Profile({ isMe, profilo,handleRedo }) {
                       <p className='m-0 fw-bold pe-2'>
                         Collegati se vi conoscete
                       </p>
-                      <Button className='bg-white text-secondary fw-bold  rounded-5 '>
+                      <Button className='bg-white text-secondary fw-bold  rounded-5 '
+                        onClick={() => FetchJsonServerPost(Profile._id)}
+                      >
                         Collegati
                       </Button>
                     </div>
