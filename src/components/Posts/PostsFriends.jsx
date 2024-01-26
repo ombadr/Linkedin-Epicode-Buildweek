@@ -21,7 +21,7 @@ import { Fetchprofilo } from '../Fetchprofilo';
 
 const PostsFriends = ({ posts }) => {
 
-  const idpersonale=Fetchprofilo().profile
+  const idpersonale = Fetchprofilo().profile
   const friendUserIds = [
     '65ae3141600be100183a868b', // Mattia
     '65ae7790600be100183a86c8', // Vincenzo
@@ -31,11 +31,9 @@ const PostsFriends = ({ posts }) => {
     "6574399afe031e0019ba1da9"
   ];
 
-  for(let i=0;i<friendUserIds.length;i++)
-  {
-    if(friendUserIds[i]==idpersonale._id)
-    {
-      friendUserIds.splice(i,1)
+  for (let i = 0; i < friendUserIds.length; i++) {
+    if (friendUserIds[i] == idpersonale._id) {
+      friendUserIds.splice(i, 1)
       break
     }
   }
@@ -82,8 +80,10 @@ const PostsFriends = ({ posts }) => {
               </h4>
             </a>
             <div>
-                    <img src={post.image} alt="" srcset="" />
-                  </div>
+              <img src={post.image} alt="" srcset=""
+                style={{ width: '400px' }}
+              />
+            </div>
             <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />

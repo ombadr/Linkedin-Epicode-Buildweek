@@ -62,7 +62,9 @@ const PostsRandom = ({ posts }) => {
                     </h4>
                   </a>
                   <div>
-                    <img src={randomPost.image} alt="" srcset="" />
+                    <img src={randomPost.image} alt="" srcset=""
+                      style={{ width: '400px' }}
+                    />
                   </div>
                   <p className=''>{randomPost.text}</p>
                   <p className=''>{formattedDate}</p>
@@ -109,7 +111,7 @@ const PostsRandom = ({ posts }) => {
     <div>
       {randomPosts.map(({ id, jsx }) => (
         <div
-        className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
+          className='p-4 border-bottom border-secondary bg-light w-100 rounded-3 p-3 border border-secondary mt-4 mb-4'
           key={id}
         >
           <React.Fragment>

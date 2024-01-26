@@ -26,11 +26,60 @@ const Salvatore =
 export let idhomepage;
 
 const Homepage = () => {
-  const navigate = useNavigate();
-  function handleclick(id) {
-    idhomepage = id;
-    console.log(idhomepage);
-    navigate('/home');
+
+    const navigate = useNavigate();
+    function handleclick(id){
+        idhomepage=id
+        console.log(idhomepage)
+        navigate("/home");
+        
+        
+
+    }
+    return (
+      <div className="homepage">
+        <div className="img-container">
+          
+              <img src={giuseppe} className="imgprofilo giuseppe" alt=""  onClick={()=>{
+                handleclick(Giuseppe)
+              }} />
+          
+          <div className="overlaygiuseppe text-danger overlay"><h1>GIUSEPPE</h1></div>
+        </div>
+        <div className="img-container">
+          <img src={mattia} className="imgprofilo mattia" alt="" onClick={()=>{
+            handleclick(Mattia)
+          }}/>
+          <div className="overlaymattia text-danger overlay"><h1>MATTIA</h1></div>
+        </div>
+        <div className="img-container">
+          <img src={davide} className="imgprofilo davide" alt="" onClick={()=>{
+            handleclick(Davide)
+          }}/>
+          <div className="overlaydavide text-danger overlay"><h1>DAVIDE</h1></div>
+        </div>
+        <div className="img-container">
+          <img src={salvatore} className="imgprofilo salvatore " alt="" onClick={()=>{
+            handleclick(Salvatore)
+          }}/>
+          <div className="overlaysalvatore text-danger overlay"><h1>SALVATORE</h1></div>
+        </div>
+        <div className="img-container">
+          <img src={omar} className="imgprofilo omar" alt="" onClick={()=>{
+            handleclick(Omar)
+          }}/>
+          <div className="overlayomar text-danger overlay"><h1>OMAR</h1></div>
+        </div>
+        <div className="img-container">
+          <img src={vincenzo} className="imgprofilo vincenzo" alt=""
+          onClick={()=>{
+            handleclick(Vincenzo)
+          }} />
+          <div className="overlayvincenzo text-danger overlay"><h1>VINCENZO</h1></div>
+        </div>
+      </div>
+    );
+
   }
   return (
     <div className='homepage'>

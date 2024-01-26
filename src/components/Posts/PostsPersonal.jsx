@@ -188,7 +188,9 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
                   )}
                 </p>
                 <div>
-                  <img src={post.image} alt='' srcset='' />
+                  <img src={post.image} alt='' srcset=''
+                    style={{ width: '400px' }}
+                  />
                 </div>
                 <div>
                   <p>{post.text}</p>
