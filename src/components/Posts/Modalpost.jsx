@@ -53,4 +53,5 @@ export const Modalpost = (props) => {
                 </Button>
 
             </Modal.Footer>
-        </Modal>
+        </Modal>)
+}
