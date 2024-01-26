@@ -117,12 +117,12 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
     <div>
       {personalPosts[0] ? (
         <>
-          <h2>I tuoi Posts:</h2>
+          <h2 className='px-3'>I tuoi Posts:</h2>
           <div>
             {personalPosts.map((post) => (
               <div
                 key={post._id}
-                className='bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+                className='bg-white w-100 p-3  border-top border-bottom mt-4 mb-4'
               >
                 <p className='fw-bold'>
                   <img
@@ -207,15 +207,15 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
           </div>
         </>
       ) : isMe === true ? (
-        <>
+        <div className='px-3'>
           <h3>Non hai ancora pubblicato nulla!</h3>
           <p>I post che condividi appariranno qui!</p>
-        </>
+        </div>
       ) : (
-        <>
+        <div className='px-3'>
           <h3>{nome} non ha ancora pubblicato nulla!</h3>
           <p>I post che condividerà {nome} appariranno qui!</p>
-        </>
+        </div>
       )}
 
       {/* Modale per la modifica del testo del post */}

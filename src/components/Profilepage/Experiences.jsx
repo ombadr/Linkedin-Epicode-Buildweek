@@ -157,9 +157,9 @@ const Experiences = () => {
         </Row>
 
         {data.map((experience, index) => (
-          <div key={index} className="d-flex justify-content-between  p-3 mx-3">
+          <div key={index} className="d-flex justify-content-between border-bottom  p-3">
             <div className="d-flex">
-            <div>
+            <div className="px-3 d-flex align-items-center">
               <img
                 src={
                   experience.image
@@ -238,7 +238,7 @@ const Experiences = () => {
         </Modal>
 
 
-        {isModalOpen2===true ? <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> : console.log("non siamo qui")}
+        {isModalOpen2===true ? <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} refresh={getExperiences}/> : console.log("non siamo qui")}
         
 
 
