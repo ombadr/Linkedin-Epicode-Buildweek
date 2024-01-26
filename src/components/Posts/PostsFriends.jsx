@@ -28,7 +28,7 @@ const PostsFriends = ({ posts }) => {
     '65af9a37bd5d12001890d45c', // Giuseppe
     '65ae3259600be100183a868c', // Omar
     '65af8844bd5d12001890d420', // Salvatore
-    "6574399afe031e0019ba1da9"
+    "6574399afe031e0019ba1da9" //Davide
   ];
 
   for (let i = 0; i < friendUserIds.length; i++) {
