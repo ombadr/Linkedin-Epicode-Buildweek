@@ -4,11 +4,12 @@ import { FetchProfiles } from '../Fetchprofilo';
 
 const MyNetworkTopCard = () => {
   const profilesId = [
-    '653f5b02b397340014d5e7fa',
-    '6551cb68c55e7e0018f83bd2',
-    '6551db85c55e7e0018f83bec',
-    '6551dca0c55e7e0018f83bed',
-    '6551e7bbc55e7e0018f83bfb',
+    '65ae3141600be100183a868b', // Mattia
+    '65ae7790600be100183a86c8', // Vincenzo
+    '65af9a37bd5d12001890d45c', // Giuseppe
+    '65ae3259600be100183a868c', // Omar
+    '65af8844bd5d12001890d420', // Salvatore
+    "6574399afe031e0019ba1da9" //Davide
   ];
 
   const [profiles, setProfiles] = useState([]);
