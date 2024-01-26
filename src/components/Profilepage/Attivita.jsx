@@ -66,8 +66,8 @@ const Attivita = ({isMe,profilo}) => {
         </Row>
 
         <div className='d-flex flex-column'>
-          <div className='me-3 '>
-            <div className='d-flex flex-row px-3'>
+          <div >
+            <div >
               {isMe===true?(<div>  
                 <PostsPersonal isMe={isMe} nome={profilo.name} posts={esploraPosts}/> 
                        

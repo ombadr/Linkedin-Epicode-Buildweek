@@ -117,12 +117,12 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
     <div>
       {personalPosts[0] ? (
         <>
-          <h2>I tuoi Posts:</h2>
+          <h2 className='px-3'>I tuoi Posts:</h2>
           <div>
             {personalPosts.map((post) => (
               <div
                 key={post._id}
-                className='bg-light w-100 rounded-4 p-3 border border-secondary mt-4 mb-4'
+                className='bg-light mx-3 rounded border-top border mt-4 mb-4'
               >
                 <p className='fw-bold'>
                   <img
@@ -138,6 +138,8 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
                     -
                   </span>{' '}
                   {post.user.title}
+                  <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+
                   {isMe === true && (
                     <>
                       <XSquare
@@ -160,9 +162,10 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
                     </>
                   )}
                 </p>
-
-                <p>{post.text}</p>
-                <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+                <div>
+                <p className='mx-3'>{post.text}</p>
+                </div>
+                
                 <hr />
                 <div className='d-flex justify-content-around align-items-center'>
                   <button className='mt-2 fs-5 btn btn-post'>
@@ -207,15 +210,15 @@ const PostsPersonal = ({ posts, isMe, nome }) => {
           </div>
         </>
       ) : isMe === true ? (
-        <>
+        <div className='px-3'>
           <h3>Non hai ancora pubblicato nulla!</h3>
           <p>I post che condividi appariranno qui!</p>
-        </>
+          </div>
       ) : (
-        <>
+        <div className='px-3'>
           <h3>{nome} non ha ancora pubblicato nulla!</h3>
           <p>I post che condividerà {nome} appariranno qui!</p>
-        </>
+        </div>
       )}
 
       {/* Modale per la modifica del testo del post */}

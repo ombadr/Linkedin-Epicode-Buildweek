@@ -100,8 +100,6 @@ const Experiences = () => {
     return  dataCompleta; 
   };
 
-
-
   const deleteExperience = async (idExperience) => {
     try {
       const response = await fetch(
@@ -157,16 +155,16 @@ const Experiences = () => {
         </Row>
 
         {data.map((experience, index) => (
-          <div key={index} className="d-flex justify-content-between  p-3 mx-3">
-            <div className="d-flex">
-            <div>
+          <div key={index} className="d-flex justify-content-between border-bottom  p-3">
+            <div className="d-flex ">
+            <div className="d-flex align-items-center">
               <img
                 src={
                   experience.image
                     ? experience.image
                     : "https://s3-eu-west-1.amazonaws.com/tpd/logos/62a6277627ee655c1226b624/0x0.png"
                 }
-                width={48}
+                width={88}
                 alt="Alt Text"
               />
             </div>
@@ -238,7 +236,7 @@ const Experiences = () => {
         </Modal>
 
 
-        {isModalOpen2===true && <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} /> }
+        {isModalOpen2===true && <Modale show={isModalOpen2} onHide={handleCloseModal2}  expid={elemento1} refresh={getExperiences}/>}
         
 
 
