@@ -55,6 +55,9 @@ const PostsFriends = ({ posts }) => {
                   : post.user.username}
               </h4>
             </a>
+            <div>
+                    <img src={post.image} alt="" srcset="" />
+                  </div>
             <p className=''>{post.text}</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
             <hr />

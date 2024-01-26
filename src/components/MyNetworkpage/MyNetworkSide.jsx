@@ -11,10 +11,11 @@ import { FaHashtag } from 'react-icons/fa';
 import { BsThreeDots } from 'react-icons/bs';
 import User from './Assets/User.jpg';
 import EpicodeLogo from './Assets/EpicodeLogo.png';
-
+import { Fetchprofilo } from '../Fetchprofilo';
 import './MyNetworkSide.css';
 
 const MyNetworkSide = () => {
+  const profilopersonale = Fetchprofilo().profile;
   return (
     <>
       <div className='MyNetwork'>
@@ -74,11 +75,11 @@ const MyNetworkSide = () => {
           Rimani al corrente sulle utlime notizie e aggiornamento del settore
         </p>
         <div className='Immagini'>
-          <img src={User} alt='User' />
+          <img src={profilopersonale.image} alt='User' />
           <img src={EpicodeLogo} alt='EpicodeLogo' />
         </div>
         <p id='Newsletter'>
-          Salvatore, rimani al corrente sulle utlime <br /> notizie da{' '}
+          {profilopersonale.name}, rimani al corrente sulle utlime <br /> notizie da{' '}
           <strong>Epicode</strong>
         </p>
         <div className='MyNetworkButton'>

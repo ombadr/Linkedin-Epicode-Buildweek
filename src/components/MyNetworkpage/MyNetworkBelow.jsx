@@ -45,38 +45,41 @@ const MyNetworkBelow = () => {
               profiles.map((profile, index) => {
                 return (
                   <Col md={3} className='m-2' key={index}>
-                    <Card
-                      style={{ width: '15rem', height: '22rem' }}
-                      className='d-flex flex-column'
-                    >
-                      <Card.Body className='flex-grow-1 text-center'>
-                        <Card.Img
-                          variant='top'
-                          src={profile.image}
-                          style={{
-                            width: '120px',
-                            height: '120px',
-                            borderRadius: '50%',
-                            margin: '10px auto',
-                          }}
-                        />
-                        <Card.Title className='text-center mt-2'>
-                          {profile.name || 'Undefined'}
-                        </Card.Title>
-                        <Card.Subtitle className='mb-2 text-muted text-center'>
-                          {profile.title || 'Undefined'}
-                        </Card.Subtitle>
-                        <Card.Text className='text-center mt-auto'>
-                          3 mutual connections
-                        </Card.Text>
-                      </Card.Body>
-                      <Button
-                        variant='primary'
-                        className='d-flex align-items-center justify-content-center mt-auto mb-3 mx-3'
+                    <a href={'/'+profile._id}>
+                      <Card
+                        style={{ width: '15rem', height: '22rem' }}
+                        className='d-flex flex-column'
+                        
                       >
-                        <FaUserPlus className='me-2' /> Connect
-                      </Button>
-                    </Card>
+                        <Card.Body className='flex-grow-1 text-center'>
+                          <Card.Img
+                            variant='top'
+                            src={profile.image}
+                            style={{
+                              width: '120px',
+                              height: '120px',
+                              borderRadius: '50%',
+                              margin: '10px auto',
+                            }}
+                          />
+                          <Card.Title className='text-center mt-2'>
+                            {profile.name || 'Undefined'}
+                          </Card.Title>
+                          <Card.Subtitle className='mb-2 text-muted text-center'>
+                            {profile.title || 'Undefined'}
+                          </Card.Subtitle>
+                          <Card.Text className='text-center mt-auto'>
+                            3 mutual connections
+                          </Card.Text>
+                        </Card.Body>
+                        <Button
+                          variant='primary'
+                          className='d-flex align-items-center justify-content-center mt-auto mb-3 mx-3'
+                        >
+                          <FaUserPlus className='me-2' /> Connect
+                        </Button>
+                      </Card>
+                    </a>
                   </Col>
                 );
               })}
