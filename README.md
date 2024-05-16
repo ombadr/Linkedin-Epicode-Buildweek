@@ -1,13 +1,6 @@
 # Linkedin con React e Redux
 
 Questo progetto è un clone di Linkedin sviluppato con React. Si tratta di una web app che emula le principali funzionalità di Linkedin. Lo stato dell'applicazione viene gestito tramite Redux.
-
-## Demo
-
-Per vedere l'applicazione in azione, visita il seguente link:
-
-[Demo App](https://linkedin-react-redux-2259f.web.app)
-
   
 ## Funzionalità
 
